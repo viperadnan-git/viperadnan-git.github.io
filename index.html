@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="header" class="section">
-            <img alt="" class="img-circle" src="profile.png"> 
+            <img alt="logo" class="img-circle" src="profile.png"> 
             <p>Adnan Ahmad</p>
         </div>
         <div class="section">
@@ -92,34 +92,14 @@
         </div>
         <div class="section">
             <h1><span>Must Watch</span></h1>
-            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="900" height="450" type="text/html" src="https://www.youtube.com/embed/lgm3puP3tMA?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"></iframe> 
+            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="900px" height="450px" type="text/html" src="https://www.youtube.com/embed/lgm3puP3tMA?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"></iframe> 
         </div>
-        <div class="section" id="links">
-            <h1><span>Find me on</span></h1>
-            <p>
-                On <strong>Instagram</strong> as 
-                <bold><a href="https://instagram.com/viperadnan">@viperadnan</a></bold>
-            </p>
-            <p>
-                On <strong>Facebook</strong> as 
-                <bold><a href="https://facebook.com/viperadnan">@viperadnan</a></bold>
-            </p>
-            <p>
-                On <strong>Telegram</strong> as 
-                <bold><a href="https://t.me/viperadnan">@viperadnan</a></bold>
-            </p>
-            <p>
-                On <strong>Twitter </strong> as 
-                <bold><a href="https://twitter.com/viperadn ">@viperadn </a></bold>
-            </p>
-            <p>
-                On <strong>YouTube</strong> as 
-                <bold><a href="https://youtube.com/channel/UCmTFhPnwrYTxa3pI5ldZqdA">Viper Adnan</a></bold>
-            </p>
-            <p>
-                On <strong>GitHub</strong> as 
-                <bold><a href="https://github.com/viperadnan-git">@viperadnan-git</a></bold>
-            </p>
+        <div class="section" style="background-image:linear-gradient(to bottom left, #833AB4, #F77737);">
+            <form class="section" onsubmit="search();">
+                <img id="insta-image" src="profile.png">
+                <br><label for="question"><b>Ask me anything !</b></label>
+                <br><input type="search" id="question" placeholder="Type something...">
+            </form>
         </div>
         <div class="section" id="contacts">
             <h1><span>Follow Me</span></h1>
@@ -148,5 +128,10 @@
             </div>
         </div>
         <div class="copyright"> &copy; 2020 Adnan Ahmad's Bio. All rights reserved. </div>
+        <script type="text/javascript">
+            function search() {
+                window.open('https://www.google.com/search?output=search&q=' + document.getElementById("question").value)
+            }
+        </script>
     </body>
 </html>
