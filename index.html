@@ -1,102 +1,413 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adnan Ahmad</title>
-    <meta name="title" content="Adnan Ahmad">
-    <meta name="description" content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games.">
+<html class="has-navbar-fixed-top">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Adnan Ahmad</title>
+        <meta name="title" content="Adnan Ahmad" />
+        <meta
+            name="description"
+            content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games."
+        />
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://viperadnan.ga/">
-    <meta property="og:title" content="Adnan Ahmad">
-    <meta property="og:description" content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games.">
-    <meta property="og:image" content="images/profile-banner.jpg">
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://viperadnan-git.github.io/" />
+        <meta property="og:title" content="Adnan Ahmad" />
+        <meta
+            property="og:description"
+            content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games."
+        />
+        <meta property="og:image" content="images/profile-banner.jpg" />
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://viperadnan.ga/">
-    <meta property="twitter:title" content="Adnan Ahmad">
-    <meta property="twitter:description" content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games.">
-    <meta property="twitter:image" content="images/profile-banner.jpg">
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://viperadnan-git.github.io/" />
+        <meta property="twitter:title" content="Adnan Ahmad" />
+        <meta
+            property="twitter:description"
+            content="Hey, I'm Adnan from New Delhi, India. I am 19 year old. Currently studying Electrical Engineering from G. B. Pant Institute of Technology. I would like to play virtual games rather than outdoor games."
+        />
+        <meta property="twitter:image" content="images/profile-banner.jpg" />
 
-    <link rel="icon" href="https://img.icons8.com/cotton/150/000000/administrator-male.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-        body {
-            font-family: 'Josefin Sans', sans-serif;
-        }
-        .icons a {
-            display: inline-block;
-            text-decoration: none;
-            vertical-align: top;
-            margin: 4px;
-        }
-        .large-icons a {
-            width: 66px
-        }
-        .small-icons a {
-            width: 54px;
-        }
-        .caption {
-            text-align: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            word-wrap: break-word;
-        }
-    </style>
-</head>
-<body>
-    <section class="hero theme-color is-fullheight">
-        <div class="hero-head">
-            <nav class="navbar theme-color">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item is-size-4 has-text-weight-bold" onclick="$('#home-tab').click()">
-                            viperadnan
-                        </a>
-                        <span class="navbar-burger" data-target="navbarMenuHero">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
+        <link rel="icon" href="https://img.icons8.com/cotton/150/000000/administrator-male.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+            body {
+                font-family: "Josefin Sans", sans-serif;
+            }
+            .tags a {
+                color: white;
+                text-decoration: none;
+            }
+            #scroll-up {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 99;
+                color: #2c2f33;
+                cursor: pointer;
+                text-align: center;
+            }
+            .splide__slide .card,
+            .splide__slide .box {
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar is-light is-fixed-top">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item is-size-4 has-text-weight-bold animate__animated animate__tada animate__delay-2s">viperadnan</a>
+                    <span class="navbar-burger" data-target="navbarMenuHero">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHero" class="navbar-menu">
+                    <div id="tab-menu" class="navbar-end">
+                        <a href="#works-section" class="navbar-item has-text-weight-bold">Works</a>
+                        <a href="#open-source-section" class="navbar-item has-text-weight-bold">Open Source</a>
+                        <a href="#contact-section" class="navbar-item has-text-weight-bold">Contact</a>
                     </div>
-                    <div id="navbarMenuHero" class="navbar-menu">
-                        <div id="tab-menu" class="navbar-end">
-                            <a id="home-tab" class="navbar-item has-text-weight-bold">Home</a>
-                            <a id="works-tab" class="navbar-item has-text-weight-bold">Works</a>
-                            <a id="resources-tab" class="navbar-item has-text-weight-bold">Resources</a>
-                            <a id="contact-tab" class="navbar-item has-text-weight-bold">Contact</a>
-                        </div>
-                        <div class="navbar-item">
-                            <div class="select is-small is-rounded theme-color">
-                                <select id="theme-menu">
-                                </select>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-fullheight">
+            <div class="hero-body" data-aos="zoom-in-down" data-aos-duration="1500">
+                <div id="display" class="container">
+                    <p class="title is-1">Adnan Ahmad</p>
+                    <p class="subtitle is-6">🧠 Installing AI in my brain...</p>
+                    <p class="subtitle">
+                        Hey, I'm <strong>Adnan</strong> from <strong>New Delhi, India</strong>. I am <strong>18</strong> year old. Currently studying
+                        <strong>Electrical Engineering</strong> from G. B. Pant Institute of Technology. I would like to play <strong>virtual games</strong> rather than outdoor
+                        games.
+                    </p>
+                    <div class="tags">
+                        <span class="tag animate__animated animate__jello animate__delay-3s" style="background-color: #7289da; color: white"
+                            ><i class="fas fa-bolt"></i>&nbsp;Electrical Engineer</span
+                        >
+                        <span class="tag animate__animated animate__jello animate__delay-4s" style="background-color: #2c2f33; color: white"
+                            ><i class="fas fa-code"></i>&nbsp;Programmer</span
+                        >
+                        <span class="tag animate__animated animate__jello animate__delay-5s" style="background-color: #dc143c; color: white"
+                            ><i class="fas fa-gamepad"></i>&nbsp;Gamer</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hero" id="works-section">
+            <div class="hero-body">
+                <p class="title">Works</p>
+                <p class="subtitle is-6" data-aos="fade-right">Apps, softwares and websites made by me.</p>
+
+                <div id="image-slider" class="splide">
+                    <div class="splide__track">
+                        <div class="splide__list">
+                            <div class="m-3 splide__slide" data-aos="flip-up">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/color/144/000000/movies-folder.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Storage</p>
+                                                <p class="subtitle is-6"><a href="https://storage.viperadnan.ga">storage.viperadnan.ga</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">Indexing Google Drive files by combining the power of Google Drive and Cloudflare Workers</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-right">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/color/148/000000/cloud-storage.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">ViperCloud</p>
+                                                <p class="subtitle is-6"><a href="#">not available</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">A public cloud which uses Google Drive as storage. Anyone can upload files here and access it anytime</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-down">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/cotton/128/000000/add-to-loud.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">ViperInstance</p>
+                                                <p class="subtitle is-6"><a href="#">not available</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">A self hosted AriaNG server which is used to upload files to ViperCloud</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-left">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/fluency/48/000000/smart-home-connection.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">SwitchBot</p>
+                                                <p class="subtitle is-6"><a href="https://github.com/viperadnan-git/SwitchBot">viperadnan.ga/switchbot</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            IoT-based applet to control electrical switches through API. Can be integrated with cross-platform applications for automation.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-left">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/fluent/148/000000/cloud-firewall.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Website Unblocker</p>
+                                                <p class="subtitle is-6"><a href="https://arnid.ga">arnid.ga</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">A website unblocker hosted on Cloudflare Workers which makes it lightening fast.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-up">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/color/144/000000/musical--v1.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Musically</p>
+                                                <p class="subtitle is-6"><a href="https://musically.netlify.app">musically.netlify.app</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">A song streaming service which uses JoiSaavn for fetching latest songs and aimed to provide clean UX</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-right">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/stickers/150/000000/wallpaper.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Wallpaper API</p>
+                                                <p class="subtitle is-6"><a href="https://wlpr34.herokuapp.com">wlpr34.herokuapp.com</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">An app which can use different wallpapers sites to scrape images and serve them through API</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-down">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/color/148/000000/shorten-urls.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">TIINY</p>
+                                                <p class="subtitle is-6"><a href="https://tiiny.tk">tiiiny.tk</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">Tiiny is an URL shortener service made using NodeJS and ❤. Absolutely free forever with custom URL support.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-left">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/color/148/000000/paste.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Pasting</p>
+                                                <p class="subtitle is-6"><a href="https://pasting.ga">pasting.ga</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">Pasting is free and open-source pastebin service in which you can make richly formatted posts too.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-up">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://img.icons8.com/fluent/148/000000/sent.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Telegram Indexer</p>
+                                                <p class="subtitle is-6"><a href="https://pasting.ga">pasting.ga</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            A publically acessible (no login required) web interface for Telegram. Mainly used for generating direct download links for Telegram
+                                            Files.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-3 splide__slide" data-aos="flip-right">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="https://heroku.viperadnan.gq/static/images/awake/awake-logo-510x530.png" alt="image" />
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4">Heroku Duo</p>
+                                                <p class="subtitle is-6"><a href="https://heroku.viperadnan.ga">heroku.viperadnan.ga</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="content">An app which can ping your Heroku app at every 30 minutes so it never goes to sleep.</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <div class="hero-body">
-            <div id="display" class="container"></div>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p class="is-size-7">
-                Copyright &copy; 2021 &mdash; All rights reserved
-                <br>
-                <a href="https://viperadnan-git.github.io/pages/privacy-policy">Privacy</a>
-                &#x2022; <a href="https://viperadnan-git.github.io/pages/privacy-policy">Terms & Conditions</a>
-                &#x2022; <a href="https://viperadnan-git.github.io/pages/privacy-policy">Cookies</a>
-                <br>
-                <b>Adnan Ahmad</b>
-            </p>
-        </div>
-    </footer>
-    <script src="js/index.js"></script>
-</body>
+            </div>
+        </section>
+        <section class="hero" id="open-source-section">
+            <div class="hero-body" data-aos="fade-right">
+                <p class="title">Open Source Projects</p>
+                <p class="subtitle is-6">On Github and other contributions towards open-source community.</p>
+
+                <div id="github-info">
+                    <button class="button is-fullwidth is-loading">Loading...</button>
+                </div>
+
+                <div id="repo-slider" class="splide">
+                    <div class="splide__track">
+                        <div id="repo_list" class="splide__list">
+                            <!-- <div class="column is-3" data-aos="zoom-in">
+                            <div class="box">
+                                <div class="content">
+                                    <p>
+                                        <i class="fas fa-book"></i> <a href="http://#"><strong>viperadnan-git.github.io</strong></a>
+                                        <br />
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <span class="level-item" aria-label="reply"> <i class="fas fa-code" style="color: #1877f2"></i>&nbsp;Reply </span>
+                                        <span class="level-item" aria-label="reply"> <i class="fas fa-star" style="color: #ff7300"></i>&nbsp;254 </span>
+                                        <span class="level-item" aria-label="reply"> <i class="fas fa-code-branch" style="color: #6000df"></i>&nbsp;15 </span>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hero" id="contact-section">
+            <div class="hero-body" data-aos="fade-up">
+                <p class="title">Contact</p>
+                <p class="subtitle is-6">Feel free to get in touch, I am always open for discussing new projects, work on creative ideas and grabbing opportunities.</p>
+                <div class="tags">
+                    <a href="https://www.google.com/search?q=viperadnan" class="tag is-medium" style="color: black"
+                        ><i class="fab fa-google" style="color: #4285f4"></i>&nbsp;Google</a
+                    >
+                    <a href="mailto:viperadnan@gmail.com?cc=viperadnan@pm.me&subject=From%20Portfolio%3A" class="tag is-medium" style="background-color: #ea4335"
+                        ><i class="fas fa-envelope"></i>&nbsp;Email</a
+                    >
+                    <a href="https://facebook.com/viperadnan" class="tag is-medium" style="background-color: #1877f2"><i class="fab fa-facebook"></i>&nbsp;Facebook</a>
+                    <a href="https://instagram.com/viperadnan" class="tag is-medium" style="background-color: #e4405f"><i class="fab fa-instagram"></i>&nbsp;Instagram</a>
+                    <a href="https://twitter.com/viperadn" class="tag is-medium" style="background-color: #1da1f2"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+                    <a href="https://github.com/viperadnan-git" class="tag is-medium" style="background-color: #181717"><i class="fab fa-github"></i>&nbsp;Github</a>
+                    <a href="https://t.me/viperadnan" class="tag is-medium" style="background-color: #26a5e4"><i class="fab fa-telegram"></i>&nbsp;Telegram</a>
+                    <a href="https://www.linkedin.com/in/adnan-ahmad-9463b7220/" class="tag is-medium" style="background-color: #0a66c2"
+                        ><i class="fab fa-linkedin"></i>&nbsp;Linkedin</a
+                    >
+                    <a href="https://youtube.com/viperadnan" class="tag is-medium" style="background-color: #ff0000"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
+                    <a class="tag is-medium" style="background-color: #25d366"><i class="fab fa-whatsapp"></i>&nbsp;WhatsApp</a>
+                    <a href="https://www.codechef.com/users/viperadnan" class="tag is-medium" style="background-color: #5b4638"><i class="fas fa-hat-chef"></i>&nbsp;CodeChef</a>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p class="is-size-7">
+                    Copyright &copy; 2022 &mdash; All rights reserved
+                    <br />
+                    <a href="https://viperadnan-git.github.io/pages/privacy-policy">Privacy</a>
+                    &#x2022; <a href="https://viperadnan-git.github.io/pages/privacy-policy">Terms & Conditions</a> &#x2022;
+                    <a href="https://viperadnan-git.github.io/pages/privacy-policy">Cookies</a>
+                    <br />
+                    <b>Adnan Ahmad</b>
+                </p>
+            </div>
+        </footer>
+
+        <span id="scroll-up" class="icon icon is-large" onclick="scrollToTop()"><i class="fas fa-angle-up fa-2x"></i></span>
+        <script src="js/font-awesome.js"></script>
+        <script src="js/index.js"></script>
+    </body>
 </html>
