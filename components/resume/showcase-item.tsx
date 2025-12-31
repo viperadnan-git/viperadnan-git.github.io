@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ExternalLink, Globe, FileText } from "lucide-react";
+import { ChevronDown, Globe, FileText } from "lucide-react";
 import { FaGithub, FaPlayCircle } from "react-icons/fa";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +11,10 @@ interface ShowcaseItemProps {
   item: ShowcaseEntry;
 }
 
-const linkIcons: Record<ShowcaseLink["type"], React.ComponentType<{ className?: string }>> = {
+const linkIcons: Record<
+  ShowcaseLink["type"],
+  React.ComponentType<{ className?: string }>
+> = {
   github: FaGithub,
   demo: FaPlayCircle,
   website: Globe,
@@ -28,7 +31,9 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const maxVisibleTags = 3;
   const technologies = item.technologies ?? [];
-  const visibleTags = isOpen ? technologies : technologies.slice(0, maxVisibleTags);
+  const visibleTags = isOpen
+    ? technologies
+    : technologies.slice(0, maxVisibleTags);
   const hiddenTagCount = technologies.length - maxVisibleTags;
 
   return (
@@ -46,10 +51,9 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-heading font-bold hover:underline"
+              className="font-heading font-bold hover:underline"
             >
               {item.title}
-              <ExternalLink className="size-3 text-muted-foreground" />
             </a>
 
             {/* Additional links */}
@@ -64,7 +68,9 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1 text-muted-foreground hover:text-foreground"
-                      title={link.type.charAt(0).toUpperCase() + link.type.slice(1)}
+                      title={
+                        link.type.charAt(0).toUpperCase() + link.type.slice(1)
+                      }
                     >
                       <Icon className="size-4" />
                     </a>
@@ -85,8 +91,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
           {/* Tech tags */}
           {technologies.length > 0 && (
             <p className="mt-1 text-sm text-muted-foreground">
-              <span className="font-bold">Stack:</span>{" "}
-              {visibleTags.join(", ")}
+              <span className="font-bold">Stack:</span> {visibleTags.join(", ")}
               {!isOpen && hiddenTagCount > 0 && `, +${hiddenTagCount} more`}
             </p>
           )}
