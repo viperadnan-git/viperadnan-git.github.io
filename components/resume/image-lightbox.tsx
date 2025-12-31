@@ -57,7 +57,7 @@ export function ImageLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90"
       onClick={onClose}
     >
       {/* Close button */}
@@ -69,18 +69,30 @@ export function ImageLightbox({
         <X className="size-8" />
       </button>
 
-      {/* Previous arrow */}
+      {/* Desktop arrows - on sides */}
       {hasMultiple && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            goToPrev();
-          }}
-          className="absolute left-4 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="size-10" />
-        </button>
+        <>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goToPrev();
+            }}
+            className="absolute left-4 hidden md:block p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="size-10" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goToNext();
+            }}
+            className="absolute right-4 hidden md:block p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label="Next image"
+          >
+            <ChevronRight className="size-10" />
+          </button>
+        </>
       )}
 
       {/* Image */}
@@ -97,23 +109,47 @@ export function ImageLightbox({
         />
       </div>
 
-      {/* Next arrow */}
+      {/* Mobile navigation - below image */}
       {hasMultiple && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            goToNext();
-          }}
-          className="absolute right-4 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
-          aria-label="Next image"
+        <div
+          className="flex md:hidden items-center gap-6 mt-4"
+          onClick={(e) => e.stopPropagation()}
         >
-          <ChevronRight className="size-10" />
-        </button>
+          <button
+            onClick={goToPrev}
+            className="p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="size-8" />
+          </button>
+          <div className="flex gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={cn(
+                  "size-2 rounded-full transition-colors cursor-pointer",
+                  index === currentIndex
+                    ? "bg-white"
+                    : "bg-white/40 hover:bg-white/60"
+                )}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={goToNext}
+            className="p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label="Next image"
+          >
+            <ChevronRight className="size-8" />
+          </button>
+        </div>
       )}
 
-      {/* Indicator dots */}
+      {/* Desktop indicator dots */}
       {hasMultiple && (
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-4 left-1/2 hidden md:flex -translate-x-1/2 gap-2">
           {images.map((_, index) => (
             <button
               key={index}

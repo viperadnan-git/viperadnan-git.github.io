@@ -327,6 +327,21 @@ export const resumeData: Resume = {
                         },
                     ],
                 },
+                {
+                    type: "timeline",
+                    slug: "bses",
+                    title: "BSES O&M Office",
+                    subtitle: "Industrial Trainee",
+                    location: "New Delhi, India",
+                    period: "Jul 2021",
+                    details: [
+                        {
+                            title: "Maintenance Operations",
+                            description:
+                                "Directed maintenance operations for Grid, Substation, and Transformers, resulting in a 5% increase in overall system reliability within 1 month.",
+                        },
+                    ],
+                },
             ],
         },
         {

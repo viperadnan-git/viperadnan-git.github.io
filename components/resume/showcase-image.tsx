@@ -28,8 +28,8 @@ export function ShowcaseImage({
         type="button"
         onClick={() => setIsLightboxOpen(true)}
         className={cn(
-          "group relative aspect-video w-full shrink-0 overflow-hidden rounded-md border border-border order-1 md:order-2 cursor-pointer",
-          size === "sm" ? "md:w-40" : "md:w-48",
+          "group relative aspect-video shrink-0 overflow-hidden rounded-md border border-border cursor-pointer",
+          size === "sm" ? "w-1/2 md:w-40" : "w-full md:w-48",
           className
         )}
       >

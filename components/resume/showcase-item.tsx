@@ -33,7 +33,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
 
   return (
     <div className="py-3">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start">
+      <div className="flex flex-col gap-3 md:flex-row md:gap-4 md:items-start">
         {/* Content */}
         <div className="flex-1 min-w-0 order-2 md:order-1">
           <div className="flex flex-wrap items-center gap-2">
@@ -122,12 +122,13 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
           </div>
         </div>
 
-        {/* Thumbnail - on top for mobile, right for desktop */}
+        {/* Thumbnail - top on mobile (smaller), right on desktop */}
         <ShowcaseImage
           images={item.images}
           alt={item.title}
           link={item.link}
           size="sm"
+          className="order-1 md:order-2"
         />
       </div>
     </div>
