@@ -6,6 +6,7 @@ export const resumeData: Resume = {
     about: "Hey, I'm Adnan, a software engineer based in New Delhi, India. Doing reverse engineering and building software which solves real-world problems is my forte. I've created open-source solutions for automations, file sharing, data syncing, and more.",
     location: "New Delhi, India",
     url: "https://viperadnan.com",
+    image: "https://res.cloudinary.com/viperadnan/image/upload/v1767186214/portfolio-banner.png",
     meta: {
         keywords: [
             "software engineer",

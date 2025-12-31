@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: resumeData.name,
-  description: `Portfolio of ${resumeData.name} - ${resumeData.about}`,
+  description: resumeData.about,
   keywords: resumeData.meta.keywords,
   authors: [{ name: resumeData.name }],
   icons: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: resumeData.name,
-    description: `Portfolio of ${resumeData.name} - ${resumeData.about}`,
+    description: resumeData.about,
     url: resumeData.url,
     type: "website",
     ...(resumeData.image && { images: [resumeData.image] }),
