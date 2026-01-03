@@ -8,16 +8,21 @@ export default function Home() {
     <>
       <ContactHeader name={resumeData.name} contact={resumeData.contact} />
 
-      {resumeData.sections.map((section) => (
-        <div key={section.id}>
-          <SectionHeader title={section.title} />
-          <Section
-            section={section}
-            limit={section.limit}
-            viewAllHref={section.limit ? `/section/${section.id}` : undefined}
-          />
-        </div>
-      ))}
+      {resumeData.sections.map((section) => {
+        const viewAllHref = section.limit
+          ? `/section/${section.id}`
+          : undefined;
+        return (
+          <div key={section.id}>
+            <SectionHeader title={section.title} href={viewAllHref} />
+            <Section
+              section={section}
+              limit={section.limit}
+              viewAllHref={viewAllHref}
+            />
+          </div>
+        );
+      })}
     </>
   );
 }
