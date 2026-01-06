@@ -28,6 +28,10 @@
 - **Responsive** — Mobile-first design that works on all devices
 - **Project Showcases** — Image slideshows, lightbox viewer, technology tags
 
+## Demo
+
+Check out the live demo at [https://viperadnan.com](https://viperadnan.com)
+
 ## Quick Start
 
 ### Use as Template
@@ -41,6 +45,7 @@
 
 3. **Edit your data** in [`lib/data/resume.json`](lib/data/resume.json)
    - Use [`public/resume.schema.json`](public/resume.schema.json) for validation in your editor
+   - Or [generate it with AI](#generate-with-ai)
 
 4. **Build and preview**
    ```bash
@@ -103,6 +108,45 @@ Your resume data must follow the schema defined in [`public/resume.schema.json`]
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `RESUME_DATA_URL` | URL to fetch resume JSON from | [`lib/data/resume.json`](lib/data/resume.json) |
+
+## Generate with AI
+
+You can use LLM models (ChatGPT, Claude, Gemini, etc.) to generate your `resume.json` file.
+
+> [!NOTE]
+> Only share non-sensitive information with LLMs. Avoid sending private data like phone numbers, home addresses, or other personal details you don't want public.
+
+**Using context-aware tools** (Claude Code, Cursor, Windsurf, etc.):
+> Simply ask the AI to read [`public/resume.schema.json`](public/resume.schema.json) and generate a resume.json with your details.
+
+**Using web-based LLMs**:
+
+1. **Get the schema** — Copy the contents of [`public/resume.schema.json`](public/resume.schema.json)
+
+2. **Prepare your details** — Gather your non-sensitive resume information:
+   - Name, title, location, about
+   - Contact links (email, GitHub, LinkedIn, etc.)
+   - Work experience and education
+   - Projects with descriptions and images
+   - Skills and certifications
+
+3. **Use this prompt**:
+   ```
+   I want to create a portfolio website. Generate a valid JSON file based on the following schema and my details.
+
+   JSON Schema:
+   <paste the schema here>
+
+   My Details:
+   <paste your resume details here>
+
+   Requirements:
+   - Output only valid JSON, no explanations
+   - Follow the schema exactly
+   - Generate appropriate slugs for each item
+   ```
+
+4. **Validate** — Paste the generated JSON into [`lib/data/resume.json`](lib/data/resume.json) and run `bun run build` to validate
 
 ## Scripts
 
