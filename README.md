@@ -1,4 +1,4 @@
-<h1 align="center">Portfolio Template</h1>
+<h1 align="center">viperadnan-git.github.io</h1>
 
 <p align="center">
   A minimal, PDF-like resume portfolio template with JSON-based configuration
@@ -13,6 +13,8 @@
   <a href="https://viperadnan.com"><img src="https://img.shields.io/website?url=https%3A%2F%2Fviperadnan.com&label=Demo&color=brightgreen" alt="Live Demo" /></a>
 </p>
 
+---
+![banner](https://github.com/user-attachments/assets/ed820e50-baa6-4482-86c7-7fdcfd2f2d24)
 ---
 
 ## Features
