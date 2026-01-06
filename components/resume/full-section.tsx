@@ -15,7 +15,10 @@ interface FullSectionProps {
   section: SectionType;
 }
 
-const linkIcons: Record<ShowcaseLink["type"], React.ComponentType<{ className?: string }>> = {
+const linkIcons: Record<
+  ShowcaseLink["type"],
+  React.ComponentType<{ className?: string }>
+> = {
   github: FaGithub,
   demo: FaPlayCircle,
   website: Globe,
@@ -34,15 +37,17 @@ function DetailsList({ details }: { details: Detail[] }) {
       {details.map((detail) =>
         detail.style === "list" ? (
           <p key={detail.title}>
-            <span className="font-bold">{detail.title}:</span> {detail.description}
+            <span className="font-bold">{detail.title}:</span>{" "}
+            {detail.description}
           </p>
         ) : (
           <ul key={detail.title} className="list-inside list-disc">
             <li>
-              <span className="font-bold">{detail.title}:</span> {detail.description}
+              <span className="font-bold">{detail.title}:</span>{" "}
+              {detail.description}
             </li>
           </ul>
-        )
+        ),
       )}
     </div>
   );
@@ -87,32 +92,35 @@ function FullShowcaseEntry({ item }: { item: ShowcaseEntry }) {
               <>
                 <span className="text-muted-foreground">|</span>
                 <div className="flex items-center gap-1">
-                {item.links.map((link, index) => {
-                  const Icon = linkIcons[link.type];
-                  return (
-                    <a
-                      key={`${link.type}-${index}`}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1 text-muted-foreground hover:text-foreground"
-                      title={link.type.charAt(0).toUpperCase() + link.type.slice(1)}
-                    >
-                      <Icon className="size-4" />
-                    </a>
-                  );
-                })}
+                  {item.links.map((link, index) => {
+                    const Icon = linkIcons[link.type];
+                    return (
+                      <a
+                        key={`${link.type}-${index}`}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 text-muted-foreground hover:text-foreground"
+                        title={
+                          link.type.charAt(0).toUpperCase() + link.type.slice(1)
+                        }
+                      >
+                        <Icon className="size-4" />
+                      </a>
+                    );
+                  })}
                 </div>
               </>
             )}
           </div>
 
-          <p className="mt-1 text-sm italic">{item.tagline}</p>
+          <p className="mt-1 text-sm italic">{item.subtitle}</p>
 
           {/* Tech tags - show all */}
           {technologies.length > 0 && (
             <p className="mt-1 text-sm text-muted-foreground">
-              <span className="font-bold">Stack:</span> {technologies.join(", ")}
+              <span className="font-bold">Stack:</span>{" "}
+              {technologies.join(", ")}
             </p>
           )}
 

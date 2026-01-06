@@ -2,20 +2,25 @@ import { notFound } from "next/navigation";
 import { BackButton } from "@/components/layout/back-button";
 import { SectionHeader } from "@/components/layout/section-header";
 import { FullSection } from "@/components/resume/full-section";
-import { resumeData } from "@/lib/data/resume-data";
+import { getResumeData } from "@/lib/data/loader";
 
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
-  return resumeData.sections.map((section) => ({
-    id: section.id,
-  }));
+  const resumeData = await getResumeData();
+  // Only generate pages for sections with a limit (those that show "View all" on home page)
+  return resumeData.sections
+    .filter((section) => section.limit !== undefined)
+    .map((section) => ({
+      id: section.id,
+    }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { id } = await params;
+  const resumeData = await getResumeData();
   const section = resumeData.sections.find((s) => s.id === id);
 
   if (!section) {
@@ -30,6 +35,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function SectionPage({ params }: PageProps) {
   const { id } = await params;
+  const resumeData = await getResumeData();
   const section = resumeData.sections.find((s) => s.id === id);
 
   if (!section) {

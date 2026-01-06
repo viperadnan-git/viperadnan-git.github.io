@@ -1,12 +1,14 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "bun run schema:generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "schema:generate": "bun run scripts/generate-schema.ts"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
@@ -34,6 +36,7 @@
     "prettier": "^3.7.4",
     "tailwindcss": "^4.1.18",
     "tw-animate-css": "^1.3.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "zod": "^3.25.0-beta.20250519T094321"
   }
 }

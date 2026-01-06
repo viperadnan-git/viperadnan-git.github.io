@@ -86,7 +86,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
             )}
           </div>
 
-          <p className="text-sm italic">{item.tagline}</p>
+          <p className="text-sm italic">{item.subtitle}</p>
 
           {/* Tech tags */}
           {technologies.length > 0 && (

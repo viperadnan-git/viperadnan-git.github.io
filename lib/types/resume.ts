@@ -1,86 +1,117 @@
-// Contact types
-export interface ContactLink {
-  type: "email" | "github" | "linkedin";
-  url: string;
-  label: string;
-}
+import { z } from "zod/v4";
 
-export interface ContactInfo {
-  links: ContactLink[];
-}
+// Schema version for compatibility checks
+export const RESUME_SCHEMA_VERSION = "1.0.0";
+
+// Contact types
+export const ContactLinkSchema = z.object({
+  type: z.enum(["email", "github", "linkedin"]),
+  url: z.string(),
+  label: z.string(),
+});
+
+export const ContactInfoSchema = z.object({
+  links: z.array(ContactLinkSchema),
+});
 
 // Detail type (shared across entry types)
-export interface Detail {
-  title: string;
-  description: string;
-  style?: "list" | "bullet"; // defaults to "bullet"
-}
+export const DetailSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  style: z.enum(["list", "bullet"]).optional(),
+});
 
 // Showcase link type
-export interface ShowcaseLink {
-  type: "github" | "demo" | "website" | "docs";
-  url: string;
-}
+export const ShowcaseLinkSchema = z.object({
+  type: z.enum(["github", "demo", "website", "docs"]),
+  url: z.string(),
+});
 
-// Base entry type with common fields
-export interface BaseSectionEntry {
-  slug: string;
-  title: string;
-}
+// Base entry fields (common to all entry types)
+const baseEntryFields = {
+  slug: z.string(),
+  title: z.string(),
+  subtitle: z.string(),
+};
 
-// Entry types extending base
-export interface TimelineEntry extends BaseSectionEntry {
-  type: "timeline";
-  subtitle: string;
-  period: string;
-  location?: string;
-  details?: Detail[];
-  link?: string;
-}
+// Entry types (discriminated union)
+export const TimelineEntrySchema = z.object({
+  ...baseEntryFields,
+  type: z.literal("timeline"),
+  period: z.string(),
+  location: z.string().optional(),
+  details: z.array(DetailSchema).optional(),
+  link: z.string().optional(),
+});
 
-export interface ListEntry extends BaseSectionEntry {
-  type: "list";
-  subtitle: string;
-}
+export const ListEntrySchema = z.object({
+  ...baseEntryFields,
+  type: z.literal("list"),
+});
 
-export interface ShowcaseEntry extends BaseSectionEntry {
-  type: "showcase";
-  tagline: string;
-  images: string[];
-  link: string;
-  description: string;
-  technologies?: string[];
-  status?: "active" | "archived" | "development";
-  featured?: boolean;
-  links?: ShowcaseLink[];
-}
+export const ShowcaseEntrySchema = z.object({
+  ...baseEntryFields,
+  type: z.literal("showcase"),
+  images: z.array(z.string()),
+  link: z.string(),
+  description: z.string(),
+  technologies: z.array(z.string()).optional(),
+  status: z.enum(["active", "archived", "development"]).optional(),
+  featured: z.boolean().optional(),
+  links: z.array(ShowcaseLinkSchema).optional(),
+});
 
 // Union of all entry types
-export type SectionEntry = TimelineEntry | ListEntry | ShowcaseEntry;
+export const SectionEntrySchema = z.discriminatedUnion("type", [
+  TimelineEntrySchema,
+  ListEntrySchema,
+  ShowcaseEntrySchema,
+]);
 
-// Single section type
-export interface Section {
-  id: string;
-  title: string;
-  detailsLabel?: string;
-  limit?: number; // Limit items shown on home page
-  items: SectionEntry[];
-}
+// Section type
+export const SectionSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  detailsLabel: z.string().optional(),
+  limit: z.number().optional(),
+  items: z.array(SectionEntrySchema),
+});
 
 // Site metadata
-export interface SiteMeta {
-  keywords: string[];
-}
+export const SiteMetaSchema = z.object({
+  keywords: z.array(z.string()),
+});
 
 // Root resume type
-export interface Resume {
-  name: string;
-  title?: string;
-  about?: string;
-  location?: string;
-  url?: string;
-  image?: string;
-  meta: SiteMeta;
-  contact: ContactInfo;
-  sections: Section[];
-}
+export const ResumeSchema = z.object({
+  version: z.string(),
+  name: z.string(),
+  title: z.string().optional(),
+  about: z.string().optional(),
+  location: z.string().optional(),
+  url: z.string().optional(),
+  image: z.string().optional(),
+  meta: SiteMetaSchema,
+  contact: ContactInfoSchema,
+  sections: z.array(SectionSchema),
+});
+
+// Infer TypeScript types from Zod schemas
+export type ContactLink = z.infer<typeof ContactLinkSchema>;
+export type ContactInfo = z.infer<typeof ContactInfoSchema>;
+export type Detail = z.infer<typeof DetailSchema>;
+export type ShowcaseLink = z.infer<typeof ShowcaseLinkSchema>;
+export type TimelineEntry = z.infer<typeof TimelineEntrySchema>;
+export type ListEntry = z.infer<typeof ListEntrySchema>;
+export type ShowcaseEntry = z.infer<typeof ShowcaseEntrySchema>;
+export type SectionEntry = z.infer<typeof SectionEntrySchema>;
+export type Section = z.infer<typeof SectionSchema>;
+export type SiteMeta = z.infer<typeof SiteMetaSchema>;
+export type Resume = z.infer<typeof ResumeSchema>;
+
+// Type guard helpers (preserved for backwards compatibility)
+export type BaseSectionEntry = {
+  slug: string;
+  title: string;
+  subtitle: string;
+};
