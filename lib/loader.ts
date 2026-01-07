@@ -32,7 +32,7 @@ export async function getResumeData(): Promise<Resume> {
 
     data = await res.json();
   } else {
-    data = (await import("./resume.json")).default;
+    data = (await import("./data/resume.json")).default;
   }
 
   // Validate against Zod schema

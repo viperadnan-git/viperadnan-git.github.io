@@ -4,7 +4,7 @@ import { ChevronDown, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface SectionItemProps {
+interface TimelineItemProps {
   title: string;
   subtitle: string;
   link?: string;
@@ -14,7 +14,7 @@ interface SectionItemProps {
   detailsLabel?: string;
 }
 
-export function SectionItem({
+export function TimelineItem({
   title,
   subtitle,
   link,
@@ -22,7 +22,7 @@ export function SectionItem({
   period,
   details,
   detailsLabel = "details",
-}: SectionItemProps) {
+}: TimelineItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -34,10 +34,10 @@ export function SectionItem({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-heading font-bold hover:underline"
+              className="font-heading font-bold hover:underline"
             >
               {title}
-              <ExternalLink className="size-3 text-muted-foreground" />
+              <ExternalLink className="ml-1 inline size-3 align-baseline text-muted-foreground" />
             </a>
           ) : (
             <span className="font-heading font-bold">{title}</span>

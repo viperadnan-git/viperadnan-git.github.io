@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { SectionItem } from "./section-item";
+import { TimelineItem } from "./timeline-item";
 import { ShowcaseItem } from "./showcase-item";
 import type {
   Section as SectionType,
@@ -21,15 +21,17 @@ function DetailsList({ details }: { details: Detail[] | undefined }) {
       {details.map((detail) =>
         detail.style === "list" ? (
           <p key={detail.title}>
-            <span className="font-bold">{detail.title}:</span> {detail.description}
+            <span className="font-bold">{detail.title}:</span>{" "}
+            {detail.description}
           </p>
         ) : (
           <ul key={detail.title} className="list-inside list-disc">
             <li>
-              <span className="font-bold">{detail.title}:</span> {detail.description}
+              <span className="font-bold">{detail.title}:</span>{" "}
+              {detail.description}
             </li>
           </ul>
-        )
+        ),
       )}
     </div>
   );
@@ -56,13 +58,15 @@ function EntryRenderer({
 
     case "timeline":
       return (
-        <SectionItem
+        <TimelineItem
           title={entry.title}
           subtitle={entry.subtitle}
           link={entry.link}
           location={entry.location ?? ""}
           period={entry.period}
-          details={entry.details ? <DetailsList details={entry.details} /> : undefined}
+          details={
+            entry.details ? <DetailsList details={entry.details} /> : undefined
+          }
           detailsLabel={detailsLabel}
         />
       );
@@ -96,7 +100,11 @@ export function Section({ section, limit, viewAllHref }: SectionProps) {
       <div>
         <div className="space-y-2">
           {items.map((entry) => (
-            <EntryRenderer key={entry.slug} entry={entry} detailsLabel={section.detailsLabel} />
+            <EntryRenderer
+              key={entry.slug}
+              entry={entry}
+              detailsLabel={section.detailsLabel}
+            />
           ))}
         </div>
         {viewAllButton}
@@ -108,7 +116,11 @@ export function Section({ section, limit, viewAllHref }: SectionProps) {
     <div>
       <div className="divide-y divide-border">
         {items.map((entry) => (
-          <EntryRenderer key={entry.slug} entry={entry} detailsLabel={section.detailsLabel} />
+          <EntryRenderer
+            key={entry.slug}
+            entry={entry}
+            detailsLabel={section.detailsLabel}
+          />
         ))}
       </div>
       {viewAllButton}

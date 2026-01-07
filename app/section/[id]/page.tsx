@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { BackButton } from "@/components/layout/back-button";
 import { SectionHeader } from "@/components/layout/section-header";
 import { FullSection } from "@/components/resume/full-section";
-import { getResumeData } from "@/lib/data/loader";
+import { getResumeData } from "@/lib/loader";
 
 interface PageProps {
   params: Promise<{ id: string }>;

@@ -1,7 +1,7 @@
 import { SectionHeader } from "@/components/layout/section-header";
 import { ContactHeader } from "@/components/resume/contact-header";
 import { Section } from "@/components/resume/section";
-import { getResumeData } from "@/lib/data/loader";
+import { getResumeData } from "@/lib/loader";
 
 export default async function Home() {
   const resumeData = await getResumeData();

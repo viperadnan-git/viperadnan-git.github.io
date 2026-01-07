@@ -30,7 +30,7 @@ components/
 ├── resume/
 │   ├── contact-header.tsx      # Name and contact links
 │   ├── section.tsx             # Section renderer with limit support
-│   ├── section-item.tsx        # Timeline entry with collapsible details
+│   ├── timeline-item.tsx       # Timeline entry with collapsible details
 │   ├── showcase-item.tsx       # Project showcase with expandable details
 │   ├── showcase-image.tsx      # Image thumbnail with lightbox trigger
 │   ├── image-slideshow.tsx     # Auto-rotating image carousel
@@ -79,7 +79,7 @@ RESUME_DATA_URL=https://example.com/resume.json
 
 ### Data Loader Usage
 ```typescript
-import { getResumeData } from "@/lib/data/loader";
+import { getResumeData } from "@/lib/loader";
 
 // In async server components
 const resumeData = await getResumeData();

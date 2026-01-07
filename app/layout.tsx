@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { DocumentContainer } from "@/components/layout/document-container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { getResumeData } from "@/lib/data/loader";
+import { getResumeData } from "@/lib/loader";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
