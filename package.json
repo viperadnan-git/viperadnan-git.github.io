@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun run schema:generate && next build",
+    "prebuild": "bun run schema:generate",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "schema:generate": "bun run scripts/generate-schema.ts"
   },
   "dependencies": {

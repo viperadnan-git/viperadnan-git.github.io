@@ -97,7 +97,7 @@ export function ImageLightbox({
 
       {/* Image */}
       <div
-        className="relative w-[90vw] max-w-5xl aspect-video"
+        className="relative w-[90vw] md:w-[80vw] max-w-5xl aspect-video overflow-hidden rounded-lg md:rounded-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <Image
@@ -131,7 +131,7 @@ export function ImageLightbox({
                   "size-2 rounded-full transition-colors cursor-pointer",
                   index === currentIndex
                     ? "bg-white"
-                    : "bg-white/40 hover:bg-white/60"
+                    : "bg-white/40 hover:bg-white/60",
                 )}
                 aria-label={`Go to image ${index + 1}`}
               />
@@ -161,7 +161,7 @@ export function ImageLightbox({
                 "size-2 rounded-full transition-colors cursor-pointer",
                 index === currentIndex
                   ? "bg-white"
-                  : "bg-white/40 hover:bg-white/60"
+                  : "bg-white/40 hover:bg-white/60",
               )}
               aria-label={`Go to image ${index + 1}`}
             />
