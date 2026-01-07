@@ -8,7 +8,10 @@ interface ContactHeaderProps {
   contact: ContactInfo;
 }
 
-const iconMap: Record<Exclude<ContactLink["type"], "email">, React.ReactNode> = {
+const iconMap: Record<
+  Exclude<ContactLink["type"], "email">,
+  React.ReactNode
+> = {
   github: <GitHubIcon className="h-4 w-4" />,
   linkedin: <LinkedInIcon className="h-4 w-4" />,
 };
@@ -16,13 +19,15 @@ const iconMap: Record<Exclude<ContactLink["type"], "email">, React.ReactNode> = 
 export function ContactHeader({ name, contact }: ContactHeaderProps) {
   return (
     <header className="text-center">
-      <h1 className="font-heading text-4xl font-bold md:text-5xl">
-        {name}
-      </h1>
+      <h1 className="font-heading text-4xl font-bold md:text-5xl">{name}</h1>
       <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
         {contact.links.map((link) =>
           link.type === "email" ? (
-            <EmailLink key={link.type} email={link.label}>
+            <EmailLink
+              key={link.type}
+              email={link.label}
+              ariaLabel={`Email ${link.label}`}
+            >
               <Mail className="h-4 w-4" />
               <span className="hidden sm:inline">{link.label}</span>
             </EmailLink>
@@ -33,11 +38,12 @@ export function ContactHeader({ name, contact }: ContactHeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-foreground"
+              aria-label={`${link.type.charAt(0).toUpperCase() + link.type.slice(1)}: ${link.label}`}
             >
               {iconMap[link.type]}
               <span className="hidden sm:inline">{link.label}</span>
             </a>
-          )
+          ),
         )}
       </div>
     </header>

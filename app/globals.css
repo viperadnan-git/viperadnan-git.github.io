@@ -41,8 +41,8 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
-    --font-sans: "Copernicus", serif;
-    --font-heading: "Copernicus", serif;
+    --font-sans: var(--font-copernicus), serif;
+    --font-heading: var(--font-copernicus), serif;
 }
 
 :root {
@@ -120,69 +120,5 @@
     }
     body {
         @apply bg-background text-foreground;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Book.ttf") format("truetype");
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Medium.ttf") format("truetype");
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Bold.ttf") format("truetype");
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Heavy.ttf") format("truetype");
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-BookItalic.ttf") format("truetype");
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-MediumItalic.ttf") format("truetype");
-        font-style: italic;
-        font-weight: 500;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-BoldItalic.ttf") format("truetype");
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-ExtraboldItalic.ttf") format("truetype");
-        font-style: italic;
-        font-weight: 800;
-        font-display: swap;
     }
 }
