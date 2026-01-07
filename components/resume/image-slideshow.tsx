@@ -40,8 +40,8 @@ export function ImageSlideshow({
           alt={`${alt} ${index + 1}`}
           fill
           className={cn(
-            "object-cover grayscale transition-opacity duration-500",
-            index === currentIndex ? "opacity-100" : "opacity-0"
+            "object-cover grayscale transition-opacity duration-2000 ease-linear",
+            index === currentIndex ? "opacity-100" : "opacity-0",
           )}
           unoptimized
         />
@@ -71,7 +71,7 @@ export function ImageSlideshow({
                 "size-1.5 cursor-pointer rounded-full transition-colors",
                 index === currentIndex
                   ? "bg-foreground"
-                  : "bg-foreground/40 hover:bg-foreground/60"
+                  : "bg-foreground/40 hover:bg-foreground/60",
               )}
               aria-label={`Go to image ${index + 1}`}
             />
