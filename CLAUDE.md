@@ -17,6 +17,7 @@ PDF-like resume portfolio **template** with interactive project showcases. Built
 app/
 ├── layout.tsx          # Root layout with ThemeProvider, DocumentContainer, ThemeToggle
 ├── page.tsx            # Home page with all resume sections
+├── not-found.tsx       # 404 page with BackButton and centered content
 ├── globals.css         # Global styles and theme variables
 └── section/[id]/       # Dynamic section detail pages (View All)
 
@@ -162,6 +163,11 @@ Schema auto-updates on commit via `pre-commit.sh` when `lib/types/resume.ts` cha
 - Use shadcn/ui components, customize minimally
 - Icons: lucide-react for UI, react-icons/fa for brands
 - Use `cn()` utility for conditional class merging
+
+## Page Layout Conventions
+- All pages render inside `DocumentContainer` (from root layout)
+- **Home page**: No BackButton, starts with ContactHeader
+- **Sub-pages**: Always start with `<BackButton />`, use Fragment wrapper (`<>...</>`)
 
 ## Build & Deploy
 ```bash
