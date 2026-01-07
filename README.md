@@ -14,7 +14,8 @@
 </p>
 
 ---
-![banner](https://github.com/user-attachments/assets/ed820e50-baa6-4482-86c7-7fdcfd2f2d24)
+![banner](https://github.com/user-attachments/assets/2d8e7ca5-0905-46de-8c1a-8e5dbcec7e5d)
+
 ---
 
 ## Features
