@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "version": {
@@ -38,7 +38,8 @@
       },
       "required": [
         "keywords"
-      ]
+      ],
+      "additionalProperties": false
     },
     "contact": {
       "type": "object",
@@ -49,6 +50,7 @@
             "type": "object",
             "properties": {
               "type": {
+                "type": "string",
                 "enum": [
                   "email",
                   "github",
@@ -66,13 +68,15 @@
               "type",
               "url",
               "label"
-            ]
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
         "links"
-      ]
+      ],
+      "additionalProperties": false
     },
     "sections": {
       "type": "array",
@@ -108,6 +112,7 @@
                       "type": "string"
                     },
                     "type": {
+                      "type": "string",
                       "const": "timeline"
                     },
                     "period": {
@@ -128,6 +133,7 @@
                             "type": "string"
                           },
                           "style": {
+                            "type": "string",
                             "enum": [
                               "list",
                               "bullet"
@@ -137,7 +143,8 @@
                         "required": [
                           "title",
                           "description"
-                        ]
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "link": {
@@ -150,7 +157,8 @@
                     "subtitle",
                     "type",
                     "period"
-                  ]
+                  ],
+                  "additionalProperties": false
                 },
                 {
                   "type": "object",
@@ -165,6 +173,7 @@
                       "type": "string"
                     },
                     "type": {
+                      "type": "string",
                       "const": "list"
                     }
                   },
@@ -173,7 +182,8 @@
                     "title",
                     "subtitle",
                     "type"
-                  ]
+                  ],
+                  "additionalProperties": false
                 },
                 {
                   "type": "object",
@@ -188,6 +198,7 @@
                       "type": "string"
                     },
                     "type": {
+                      "type": "string",
                       "const": "showcase"
                     },
                     "images": {
@@ -209,6 +220,7 @@
                       }
                     },
                     "status": {
+                      "type": "string",
                       "enum": [
                         "active",
                         "archived",
@@ -224,6 +236,7 @@
                         "type": "object",
                         "properties": {
                           "type": {
+                            "type": "string",
                             "enum": [
                               "github",
                               "demo",
@@ -238,7 +251,8 @@
                         "required": [
                           "type",
                           "url"
-                        ]
+                        ],
+                        "additionalProperties": false
                       }
                     }
                   },
@@ -250,7 +264,8 @@
                     "images",
                     "link",
                     "description"
-                  ]
+                  ],
+                  "additionalProperties": false
                 }
               ]
             }
@@ -260,7 +275,8 @@
           "id",
           "title",
           "items"
-        ]
+        ],
+        "additionalProperties": false
       }
     }
   },
@@ -271,6 +287,7 @@
     "contact",
     "sections"
   ],
+  "additionalProperties": false,
   "title": "Resume",
   "description": "Portfolio resume data schema (version 1.0.0)"
 }
