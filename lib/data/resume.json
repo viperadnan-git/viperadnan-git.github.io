@@ -14,7 +14,8 @@
             "web developer",
             "backend developer",
             "open source"
-        ]
+        ],
+        "counter": true
     },
     "contact": {
         "links": [

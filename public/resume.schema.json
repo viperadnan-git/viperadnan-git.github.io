@@ -31,6 +31,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "counter": {
+          "type": "boolean"
         }
       },
       "required": [

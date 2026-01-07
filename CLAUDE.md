@@ -35,7 +35,8 @@ components/
 │   ├── image-slideshow.tsx     # Auto-rotating image carousel
 │   ├── image-lightbox.tsx      # Fullscreen image viewer with navigation
 │   ├── full-section.tsx        # Full section view (no limits/collapsibles)
-│   └── email-link.tsx          # Email link with copy functionality
+│   ├── email-link.tsx          # Email link with copy functionality
+│   └── visitor-counter.tsx     # Visitor counter using hitscounter.dev API
 ├── icons/
 │   └── brand-icons.tsx         # GitHub, LinkedIn icons
 ├── providers/
@@ -114,6 +115,10 @@ export type Resume = z.infer<typeof ResumeSchema>;
 - `status` - optional: "active" | "archived" | "development"
 - `featured` - optional boolean (shows label)
 - `links` - optional array of `{ type: "github"|"demo"|"website"|"docs", url }`
+
+### SiteMeta Fields
+- `keywords` - required string array (SEO keywords)
+- `counter` - optional boolean (enables visitor counter in footer)
 
 ## Schema Generation
 

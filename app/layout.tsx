@@ -25,16 +25,18 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const resumeData = await getResumeData();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          <DocumentContainer>
+          <DocumentContainer showCounter={resumeData.meta.counter}>
             <ThemeToggle />
             {children}
           </DocumentContainer>

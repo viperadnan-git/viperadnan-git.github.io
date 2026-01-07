@@ -80,6 +80,7 @@ export const SectionSchema = z.object({
 // Site metadata
 export const SiteMetaSchema = z.object({
   keywords: z.array(z.string()),
+  counter: z.boolean().optional(),
 });
 
 // Root resume type

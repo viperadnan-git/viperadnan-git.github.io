@@ -27,6 +27,7 @@
 - **PDF-Like Design** — Clean, minimal aesthetic that looks professional
 - **Responsive** — Mobile-first design that works on all devices
 - **Project Showcases** — Image slideshows, lightbox viewer, technology tags
+- **Visitor Counter** — Optional footer counter via [hitscounter.dev](https://hitscounter.dev)
 
 ## Demo
 
@@ -75,7 +76,8 @@ Your resume data must follow the schema defined in [`public/resume.schema.json`]
   "url": "https://yoursite.com",
   "image": "https://example.com/og-image.png",
   "meta": {
-    "keywords": ["keyword1", "keyword2"]
+    "keywords": ["keyword1", "keyword2"],
+    "counter": true
   },
   "contact": {
     "links": [
