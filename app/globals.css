@@ -41,8 +41,8 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
-    --font-sans: "Copernicus", serif;
-    --font-heading: "Copernicus", serif;
+    --font-sans: "Copernicus", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-heading: "Copernicus", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 :root {
