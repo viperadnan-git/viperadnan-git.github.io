@@ -1,13 +1,13 @@
 import { FaGithub, FaPlayCircle } from "react-icons/fa";
 import { Globe, FileText } from "lucide-react";
 import { ShowcaseImage } from "./showcase-image";
+import { ListItem } from "./list-item";
 import type {
   Section as SectionType,
   SectionEntry,
   Detail,
   ShowcaseEntry,
   TimelineEntry,
-  ListEntry,
   ShowcaseLink,
 } from "@/lib/types/resume";
 
@@ -63,7 +63,7 @@ function FullShowcaseEntry({ item }: { item: ShowcaseEntry }) {
         <div className="flex-1 min-w-0 order-2 md:order-1">
           <div className="flex flex-wrap items-center gap-2">
             {item.featured && (
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <span className="text-xs uppercase tracking-wide text-muted-foreground">
                 Featured
               </span>
             )}
@@ -125,7 +125,7 @@ function FullShowcaseEntry({ item }: { item: ShowcaseEntry }) {
           )}
 
           {/* Description - always visible */}
-          <p className="mt-2 text-sm">{item.description}</p>
+          <p className="mt-2 text-sm font-medium">{item.description}</p>
         </div>
 
         {/* Thumbnail */}
@@ -168,19 +168,10 @@ function FullTimelineEntry({ item }: { item: TimelineEntry }) {
 
       {/* Details - always visible */}
       {item.details && item.details.length > 0 && (
-        <div className="mt-2 text-sm">
+        <div className="mt-2 text-sm font-medium">
           <DetailsList details={item.details} />
         </div>
       )}
-    </div>
-  );
-}
-
-function FullListEntry({ item }: { item: ListEntry }) {
-  return (
-    <div className="flex flex-wrap gap-x-2 text-sm">
-      <span className="font-bold">{item.title}:</span>
-      <span>{item.subtitle}</span>
     </div>
   );
 }
@@ -192,7 +183,7 @@ function FullEntryRenderer({ entry }: { entry: SectionEntry }) {
     case "timeline":
       return <FullTimelineEntry item={entry} />;
     case "list":
-      return <FullListEntry item={entry} />;
+      return <ListItem item={entry} />;
   }
 }
 

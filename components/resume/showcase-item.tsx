@@ -43,7 +43,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
         <div className="flex-1 min-w-0 order-2 md:order-1">
           <div className="flex flex-wrap items-center gap-2">
             {item.featured && (
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <span className="text-xs uppercase tracking-wide text-muted-foreground">
                 Featured
               </span>
             )}
@@ -120,7 +120,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden"
                 >
-                  <p className="mt-2 text-sm">{item.description}</p>
+                  <p className="mt-2 text-sm font-medium">{item.description}</p>
                 </motion.div>
               )}
             </AnimatePresence>

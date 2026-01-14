@@ -74,7 +74,7 @@ export function TimelineItem({
                 transition={{ duration: 0.2 }}
                 className="overflow-hidden"
               >
-                <div className="mt-2 text-sm">{details}</div>
+                <div className="mt-2 text-sm font-medium">{details}</div>
               </motion.div>
             )}
           </AnimatePresence>

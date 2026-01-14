@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { TimelineItem } from "./timeline-item";
 import { ShowcaseItem } from "./showcase-item";
+import { ListItem } from "./list-item";
 import type {
   Section as SectionType,
   SectionEntry,
@@ -49,12 +50,7 @@ function EntryRenderer({
       return <ShowcaseItem item={entry} />;
 
     case "list":
-      return (
-        <div className="flex flex-wrap gap-x-2 text-sm">
-          <span className="font-bold">{entry.title}:</span>
-          <span>{entry.subtitle}</span>
-        </div>
-      );
+      return <ListItem item={entry} />;
 
     case "timeline":
       return (
