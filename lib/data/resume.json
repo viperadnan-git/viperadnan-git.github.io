@@ -180,6 +180,29 @@
                 },
                 {
                     "type": "showcase",
+                    "slug": "fonts",
+                    "title": "Font Library",
+                    "subtitle": "Static font listing website with interactive previews",
+                    "images": [
+                        "https://res.cloudinary.com/viperadnan/image/upload/v1768474835/fonts-mockup.jpg"
+                    ],
+                    "link": "https://viperadnan.com/fonts",
+                    "description": "Interactive font showcase with editable previews. Auto-extracts font metadata using fontkit. Browse font families with pagination and theme support.",
+                    "technologies": ["fontkit", "Next.js", "TypeScript", "Tailwind CSS"],
+                    "status": "active",
+                    "links": [
+                        {
+                            "type": "website",
+                            "url": "https://viperadnan.com/fonts"
+                        },
+                        {
+                            "type": "github",
+                            "url": "https://github.com/viperadnan-git/fonts"
+                        }
+                    ]
+                },
+                {
+                    "type": "showcase",
                     "slug": "google-drive-telegram-bot",
                     "title": "Google Drive Telegram Bot",
                     "subtitle": "Manage Google Drive through Telegram — 690+ stars 1.6k+ forks",
