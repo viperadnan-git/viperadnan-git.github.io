@@ -124,7 +124,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Book.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-Book.ttf") format("truetype");
         font-style: normal;
         font-weight: 400;
         font-display: swap;
@@ -132,7 +132,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Medium.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-Medium.ttf") format("truetype");
         font-style: normal;
         font-weight: 500;
         font-display: swap;
@@ -140,7 +140,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Bold.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-Bold.ttf") format("truetype");
         font-style: normal;
         font-weight: 700;
         font-display: swap;
@@ -148,7 +148,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-Heavy.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-Heavy.ttf") format("truetype");
         font-style: normal;
         font-weight: 900;
         font-display: swap;
@@ -156,7 +156,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-BookItalic.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-BookItalic.ttf") format("truetype");
         font-style: italic;
         font-weight: 400;
         font-display: swap;
@@ -164,7 +164,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-MediumItalic.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-MediumItalic.ttf") format("truetype");
         font-style: italic;
         font-weight: 500;
         font-display: swap;
@@ -172,7 +172,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-BoldItalic.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-BoldItalic.ttf") format("truetype");
         font-style: italic;
         font-weight: 700;
         font-display: swap;
@@ -180,7 +180,7 @@
 
     @font-face {
         font-family: "Copernicus";
-        src: url("/fonts/CopernicusTrial-ExtraboldItalic.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/viperadnan-git/fonts/public/copernicus/CopernicusTrial-ExtraboldItalic.ttf") format("truetype");
         font-style: italic;
         font-weight: 800;
         font-display: swap;
