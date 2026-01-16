@@ -43,7 +43,6 @@ export function ImageSlideshow({
             "object-cover grayscale transition-opacity duration-2000 ease-linear",
             index === currentIndex ? "opacity-100" : "opacity-0",
           )}
-          unoptimized
         />
       ))}
 

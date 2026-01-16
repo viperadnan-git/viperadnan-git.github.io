@@ -19,12 +19,22 @@ export function VisitorCounter() {
 
     const apiUrl = `https://hitscounter.dev/api/hit?output=json&url=${encodeURIComponent(currentOrigin)}&label=visitors&icon=file-person-fill&color=%23000&message=&style=flat&tz=UTC`;
 
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data: HitsResponse) => {
-        setHits(data);
-      })
-      .catch(() => {});
+    const fetchHits = () => {
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data: HitsResponse) => {
+          setHits(data);
+        })
+        .catch(() => {});
+    };
+
+    // Defer the API call to improve Time to Interactive
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      requestIdleCallback(fetchHits);
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(fetchHits, 1);
+    }
   }, []);
 
   const historyUrl = `https://hitscounter.dev/history?url=${encodeURIComponent(origin)}`;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -31,6 +31,18 @@ export function ImageLightbox({
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
+  // Store callbacks in refs to avoid recreating event listener
+  const onCloseRef = useRef(onClose);
+  const goToPrevRef = useRef(goToPrev);
+  const goToNextRef = useRef(goToNext);
+
+  // Update refs on each render
+  useEffect(() => {
+    onCloseRef.current = onClose;
+    goToPrevRef.current = goToPrev;
+    goToNextRef.current = goToNext;
+  });
+
   useEffect(() => {
     setCurrentIndex(initialIndex);
   }, [initialIndex, isOpen]);
@@ -39,9 +51,9 @@ export function ImageLightbox({
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") goToPrev();
-      if (e.key === "ArrowRight") goToNext();
+      if (e.key === "Escape") onCloseRef.current();
+      if (e.key === "ArrowLeft") goToPrevRef.current?.();
+      if (e.key === "ArrowRight") goToNextRef.current?.();
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -51,7 +63,7 @@ export function ImageLightbox({
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [isOpen, onClose, goToPrev, goToNext]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -105,7 +117,6 @@ export function ImageLightbox({
           alt={`${alt} ${currentIndex + 1}`}
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 
