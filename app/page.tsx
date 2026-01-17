@@ -8,7 +8,11 @@ export default async function Home() {
 
   return (
     <>
-      <ContactHeader name={resumeData.name} contact={resumeData.contact} />
+      <ContactHeader
+        name={resumeData.name}
+        bio={resumeData.bio}
+        contact={resumeData.contact}
+      />
 
       {resumeData.sections.map((section) => {
         const viewAllHref = section.limit

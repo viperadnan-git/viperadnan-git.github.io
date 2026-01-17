@@ -40,41 +40,43 @@ export function VisitorCounter() {
   const historyUrl = `https://hitscounter.dev/history?url=${encodeURIComponent(origin)}`;
 
   return (
-    <a
-      href={historyUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
-      aria-label={
-        hits
-          ? `${hits.today_hits.toLocaleString()} visitors today, ${hits.total_hits.toLocaleString()} total visitors. View history.`
-          : "Loading visitor count"
-      }
-    >
-      <FaUsers className="size-4" aria-hidden="true" />
-      <AnimatePresence mode="wait">
-        {hits ? (
-          <motion.span
-            key="count"
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {hits.today_hits.toLocaleString()}/
-            {hits.total_hits.toLocaleString()}
-          </motion.span>
-        ) : (
-          <motion.span
-            key="loading"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            exit={{ opacity: 0 }}
-            className="text-muted-foreground/50"
-          >
-            —/—
-          </motion.span>
-        )}
-      </AnimatePresence>
-    </a>
+    <div aria-live="polite" aria-atomic="true">
+      <a
+        href={historyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+        aria-label={
+          hits
+            ? `${hits.today_hits.toLocaleString()} visitors today, ${hits.total_hits.toLocaleString()} total visitors. View history.`
+            : "Loading visitor count"
+        }
+      >
+        <FaUsers className="size-4" aria-hidden="true" />
+        <AnimatePresence mode="wait">
+          {hits ? (
+            <motion.span
+              key="count"
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {hits.today_hits.toLocaleString()}/
+              {hits.total_hits.toLocaleString()}
+            </motion.span>
+          ) : (
+            <motion.span
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              className="text-muted-foreground/50"
+            >
+              —/—
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </a>
+    </div>
   );
 }

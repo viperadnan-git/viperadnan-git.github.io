@@ -3,10 +3,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, getImageTitle } from "@/lib/utils";
+import type { ShowcaseImage } from "@/lib/types/resume";
 
 interface ImageLightboxProps {
-  images: string[];
+  images: ShowcaseImage[];
   alt: string;
   initialIndex?: number;
   isOpen: boolean;
@@ -113,8 +114,8 @@ export function ImageLightbox({
         onClick={(e) => e.stopPropagation()}
       >
         <Image
-          src={images[currentIndex]}
-          alt={`${alt} ${currentIndex + 1}`}
+          src={images[currentIndex].url}
+          alt={getImageTitle(images[currentIndex], alt, currentIndex)}
           fill
           className="object-contain"
         />

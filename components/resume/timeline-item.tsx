@@ -61,7 +61,7 @@ export function TimelineItem({
               transition={{ duration: 0.2 }}
               className="inline-flex"
             >
-              <ChevronDown className="h-4 w-4 text-current" />
+              <ChevronDown className="size-4 text-current" />
             </motion.span>
             {isOpen ? `Hide ${detailsLabel}` : `Show ${detailsLabel}`}
           </button>

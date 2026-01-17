@@ -5,9 +5,18 @@ export const RESUME_SCHEMA_VERSION = "1.0.0";
 
 // Contact types
 export const ContactLinkSchema = z.object({
-  type: z.enum(["email", "github", "linkedin"]),
-  url: z.string(),
-  label: z.string(),
+  type: z.enum([
+    "email",
+    "github",
+    "linkedin",
+    "twitter",
+    "x",
+    "instagram",
+    "facebook",
+    "custom",
+  ]),
+  value: z.string(),
+  label: z.string().optional(),
 });
 
 export const ContactInfoSchema = z.object({
@@ -19,6 +28,12 @@ export const DetailSchema = z.object({
   title: z.string(),
   description: z.string(),
   style: z.enum(["list", "bullet"]).optional(),
+});
+
+// Showcase image type
+export const ShowcaseImageSchema = z.object({
+  url: z.string(),
+  title: z.string().optional(),
 });
 
 // Showcase link type
@@ -52,7 +67,7 @@ export const ListEntrySchema = z.object({
 export const ShowcaseEntrySchema = z.object({
   ...baseEntryFields,
   type: z.literal("showcase"),
-  images: z.array(z.string()),
+  images: z.array(ShowcaseImageSchema),
   link: z.string(),
   description: z.string(),
   technologies: z.array(z.string()).optional(),
@@ -72,6 +87,9 @@ export const SectionEntrySchema = z.discriminatedUnion("type", [
 export const SectionSchema = z.object({
   id: z.string(),
   title: z.string(),
+  type: z
+    .enum(["education", "experience", "project", "award", "custom"])
+    .optional(),
   detailsLabel: z.string().optional(),
   limit: z.number().optional(),
   items: z.array(SectionEntrySchema),
@@ -86,11 +104,17 @@ export const SiteMetaSchema = z.object({
 // Root resume type
 export const ResumeSchema = z.object({
   version: z.string(),
+  url: z.string(),
   name: z.string(),
+  username: z.string().optional(),
+  honorificSuffix: z.string().optional(),
   title: z.string().optional(),
+  bio: z.string().optional(),
   about: z.string().optional(),
   location: z.string().optional(),
-  url: z.string().optional(),
+  nationality: z.string().optional(),
+  gender: z.enum(["male", "female", "rather-not-say"]).optional(),
+  languages: z.array(z.string()).optional(),
   image: z.string().optional(),
   meta: SiteMetaSchema,
   contact: ContactInfoSchema,
@@ -101,6 +125,7 @@ export const ResumeSchema = z.object({
 export type ContactLink = z.infer<typeof ContactLinkSchema>;
 export type ContactInfo = z.infer<typeof ContactInfoSchema>;
 export type Detail = z.infer<typeof DetailSchema>;
+export type ShowcaseImage = z.infer<typeof ShowcaseImageSchema>;
 export type ShowcaseLink = z.infer<typeof ShowcaseLinkSchema>;
 export type TimelineEntry = z.infer<typeof TimelineEntrySchema>;
 export type ListEntry = z.infer<typeof ListEntrySchema>;

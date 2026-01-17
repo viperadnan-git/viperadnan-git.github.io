@@ -61,6 +61,8 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
               <div className="flex items-center gap-1">
                 {item.links.map((link, index) => {
                   const Icon = linkIcons[link.type];
+                  const linkLabel =
+                    link.type.charAt(0).toUpperCase() + link.type.slice(1);
                   return (
                     <a
                       key={`${link.type}-${index}`}
@@ -68,9 +70,8 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1 text-muted-foreground hover:text-foreground"
-                      title={
-                        link.type.charAt(0).toUpperCase() + link.type.slice(1)
-                      }
+                      aria-label={`View ${item.title} on ${linkLabel}`}
+                      title={linkLabel}
                     >
                       <Icon className="size-4" />
                     </a>
@@ -107,7 +108,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
                 transition={{ duration: 0.2 }}
                 className="inline-flex"
               >
-                <ChevronDown className="h-4 w-4 text-current" />
+                <ChevronDown className="size-4 text-current" />
               </motion.span>
               {isOpen ? "Hide details" : "Show details"}
             </button>

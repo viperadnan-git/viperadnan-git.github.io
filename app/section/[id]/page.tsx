@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${section.title} - ${resumeData.name}`,
     description: `${section.title} section of ${resumeData.name}'s portfolio`,
+    alternates: {
+      canonical: `/section/${id}`,
+    },
   };
 }
 

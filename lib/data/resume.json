@@ -1,9 +1,18 @@
 {
     "version": "1.0.0",
     "name": "Adnan Ahmad",
+    "username": "viperadnan",
     "title": "Software Engineer",
+    "bio": "CSE'25 | EE'22 | Software Engineer | Open Source Contributor",
     "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. Doing reverse engineering and building software which solves real-world problems is my forte. I've created open-source solutions for automations, file sharing, data syncing, and more.",
     "location": "New Delhi, India",
+    "gender": "male",
+    "languages": [
+        "English",
+        "Hindi",
+        "Urdu"
+    ],
+    "nationality": "India",
     "url": "https://viperadnan.com",
     "image": "https://res.cloudinary.com/viperadnan/image/upload/v1767186214/portfolio-banner.png",
     "meta": {
@@ -21,18 +30,27 @@
         "links": [
             {
                 "type": "email",
-                "url": "#",
-                "label": "viperadnan@gmail.com"
+                "value": "viperadnan@gmail.com"
             },
             {
                 "type": "github",
-                "url": "https://github.com/viperadnan-git",
-                "label": "viperadnan-git"
+                "value": "viperadnan-git"
             },
             {
                 "type": "linkedin",
-                "url": "https://www.linkedin.com/in/viperadnan",
-                "label": "viperadnan"
+                "value": "viperadnan"
+            },
+            {
+                "type": "x",
+                "value": "viperadn"
+            },
+            {
+                "type": "instagram",
+                "value": "viperadnan"
+            },
+            {
+                "type": "facebook",
+                "value": "viperadnan"
             }
         ]
     },
@@ -48,9 +66,15 @@
                     "title": "DebridUI",
                     "subtitle": "Modern debrid client with integrated media discovery",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg",
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg",
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg"
+                        },
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg"
+                        },
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
+                        }
                     ],
                     "link": "https://debridui.viperadnan.com",
                     "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
@@ -63,7 +87,12 @@
                     ],
                     "status": "active",
                     "featured": true,
-                    "links": [{ "type": "github", "url": "https://github.com/viperadnan-git/debridui" }]
+                    "links": [
+                        {
+                            "type": "github",
+                            "url": "https://github.com/viperadnan-git/debridui"
+                        }
+                    ]
                 },
                 {
                     "type": "showcase",
@@ -71,7 +100,9 @@
                     "title": "StreamDash",
                     "subtitle": "Video streaming platform-as-a-service with global CDN",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767179576/streamdash-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179576/streamdash-mockup.jpg"
+                        }
                     ],
                     "link": "https://streamdash.tech/",
                     "description": "Upload once, stream everywhere. A video hosting platform with automatic HLS conversion, global CDN delivery, multiple audio tracks, subtitles support, and embeddable player. Features unlimited bandwidth and no expiration on stored content.",
@@ -86,7 +117,10 @@
                     "status": "active",
                     "featured": true,
                     "links": [
-                        { "type": "website", "url": "https://streamdash.tech/" },
+                        {
+                            "type": "website",
+                            "url": "https://streamdash.tech/"
+                        },
                         {
                             "type": "demo",
                             "url": "https://streamdash.tech/video/6873e9829af58064e83d3cea"
@@ -100,7 +134,9 @@
                     "featured": true,
                     "subtitle": "A calm, elegant music streaming app — scalable to millions of users",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767180779/lemonic-web-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767180779/lemonic-web-mockup.jpg"
+                        }
                     ],
                     "link": "https://lemonic.pages.dev/",
                     "description": "A drop-in replacement for Spotify with a beautiful, soothing player UI. Uses Spotify's Web API for metadata and Lemonic API for streaming. Fully compatible with Spotify's path patterns for seamless transition.",
@@ -113,7 +149,12 @@
                         "Music Streaming"
                     ],
                     "status": "active",
-                    "links": [{ "type": "website", "url": "https://lemonic.pages.dev/" }]
+                    "links": [
+                        {
+                            "type": "website",
+                            "url": "https://lemonic.pages.dev/"
+                        }
+                    ]
                 },
                 {
                     "type": "showcase",
@@ -121,18 +162,34 @@
                     "title": "iHospital",
                     "subtitle": "Production-ready iOS native hospital management system",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-1.jpg",
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-2.jpg",
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-3.jpg",
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-4.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-1.jpg"
+                        },
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-2.jpg"
+                        },
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-3.jpg"
+                        },
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-4.jpg"
+                        }
                     ],
                     "link": "https://github.com/viperadnan-git/iHospital",
                     "description": "A comprehensive hospital management system with patient and admin apps. Features appointment scheduling, patient records, lab test tracking, billing, and canvas-based prescription writing with PDF export. Built with full accessibility support including VoiceOver and Dynamic Type.",
-                    "technologies": ["Swift", "SwiftUI", "Supabase", "iOS"],
+                    "technologies": [
+                        "Swift",
+                        "SwiftUI",
+                        "Supabase",
+                        "iOS"
+                    ],
                     "status": "active",
                     "featured": true,
                     "links": [
-                        { "type": "github", "url": "https://github.com/viperadnan-git/iHospital" },
+                        {
+                            "type": "github",
+                            "url": "https://github.com/viperadnan-git/iHospital"
+                        },
                         {
                             "type": "github",
                             "url": "https://github.com/viperadnan-git/iHospital-Admin"
@@ -145,11 +202,19 @@
                     "title": "SwitchBot",
                     "subtitle": "IoT relay controller with ESP32 and WebSocket",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
+                        }
                     ],
                     "link": "https://github.com/viperadnan-git/SwitchBot",
                     "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
-                    "technologies": ["ESP32", "Arduino", "Python", "aiohttp", "WebSocket"],
+                    "technologies": [
+                        "ESP32",
+                        "Arduino",
+                        "Python",
+                        "aiohttp",
+                        "WebSocket"
+                    ],
                     "status": "development",
                     "links": [
                         {
@@ -164,11 +229,19 @@
                     "title": "GateKeep",
                     "subtitle": "Open-source end-to-end encrypted 2FA authenticator app",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767174854/gatekeep-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767174854/gatekeep-mockup.jpg"
+                        }
                     ],
                     "link": "https://gatekeep.viperadnan.com",
                     "description": "Open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks.",
-                    "technologies": ["AES-256", "JavaScript", "Flask", "Python", "SQLite"],
+                    "technologies": [
+                        "AES-256",
+                        "JavaScript",
+                        "Flask",
+                        "Python",
+                        "SQLite"
+                    ],
                     "status": "active",
                     "featured": false,
                     "links": [
@@ -184,11 +257,18 @@
                     "title": "Font Library",
                     "subtitle": "Static font listing website with interactive previews",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1768474835/fonts-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1768474835/fonts-mockup.jpg"
+                        }
                     ],
                     "link": "https://viperadnan.com/fonts",
                     "description": "Interactive font showcase with editable previews. Auto-extracts font metadata using fontkit. Browse font families with pagination and theme support.",
-                    "technologies": ["fontkit", "Next.js", "TypeScript", "Tailwind CSS"],
+                    "technologies": [
+                        "fontkit",
+                        "Next.js",
+                        "TypeScript",
+                        "Tailwind CSS"
+                    ],
                     "status": "active",
                     "links": [
                         {
@@ -207,11 +287,18 @@
                     "title": "Google Drive Telegram Bot",
                     "subtitle": "Manage Google Drive through Telegram — 690+ stars 1.6k+ forks",
                     "images": [
-                        "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
+                        {
+                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
+                        }
                     ],
                     "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
                     "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
-                    "technologies": ["Python", "Pyrogram", "Google Drive API", "PostgreSQL"],
+                    "technologies": [
+                        "Python",
+                        "Pyrogram",
+                        "Google Drive API",
+                        "PostgreSQL"
+                    ],
                     "status": "archived",
                     "links": [
                         {
@@ -220,7 +307,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "type": "project"
         },
         {
             "id": "skills",
@@ -347,7 +435,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "type": "experience"
         },
         {
             "id": "education",
@@ -393,7 +482,8 @@
                     "location": "New Delhi, India",
                     "period": "Apr 2018 - Mar 2019"
                 }
-            ]
+            ],
+            "type": "education"
         },
         {
             "id": "certification",
@@ -456,7 +546,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "type": "award"
         },
         {
             "id": "hackathon",
@@ -479,7 +570,8 @@
                     "location": "Galgotias University, U.P. India",
                     "period": "Oct 2023"
                 }
-            ]
+            ],
+            "type": "award"
         }
     ]
 }

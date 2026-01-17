@@ -5,10 +5,22 @@
     "version": {
       "type": "string"
     },
+    "url": {
+      "type": "string"
+    },
     "name": {
       "type": "string"
     },
+    "username": {
+      "type": "string"
+    },
+    "honorificSuffix": {
+      "type": "string"
+    },
     "title": {
+      "type": "string"
+    },
+    "bio": {
       "type": "string"
     },
     "about": {
@@ -17,8 +29,22 @@
     "location": {
       "type": "string"
     },
-    "url": {
+    "nationality": {
       "type": "string"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "rather-not-say"
+      ]
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "image": {
       "type": "string"
@@ -54,10 +80,15 @@
                 "enum": [
                   "email",
                   "github",
-                  "linkedin"
+                  "linkedin",
+                  "twitter",
+                  "x",
+                  "instagram",
+                  "facebook",
+                  "custom"
                 ]
               },
-              "url": {
+              "value": {
                 "type": "string"
               },
               "label": {
@@ -66,8 +97,7 @@
             },
             "required": [
               "type",
-              "url",
-              "label"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -88,6 +118,16 @@
           },
           "title": {
             "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "education",
+              "experience",
+              "project",
+              "award",
+              "custom"
+            ]
           },
           "detailsLabel": {
             "type": "string"
@@ -204,7 +244,19 @@
                     "images": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "link": {
@@ -282,6 +334,7 @@
   },
   "required": [
     "version",
+    "url",
     "name",
     "meta",
     "contact",
