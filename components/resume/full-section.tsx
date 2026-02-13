@@ -113,10 +113,12 @@ function FullShowcaseEntry({ item }: { item: ShowcaseEntry }) {
             )}
           </div>
 
-          <p className="mt-1 text-sm text-muted-foreground">{item.subtitle}</p>
+          <p className="mt-1 text-sm">{item.subtitle}</p>
 
           {/* Description - always visible */}
-          <p className="mt-2 text-sm font-medium">{item.description}</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {item.description}
+          </p>
         </div>
 
         {/* Thumbnail */}

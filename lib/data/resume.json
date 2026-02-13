@@ -146,6 +146,26 @@
                 },
                 {
                     "type": "showcase",
+                    "slug": "dbstash",
+                    "title": "DBStash",
+                    "subtitle": "Dockerized database backup via rclone to any cloud storage",
+                    "images": [
+                        {
+                            "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/dbstash&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
+                        }
+                    ],
+                    "link": "https://github.com/viperadnan-git/dbstash",
+                    "description": "Stream database dumps directly to any cloud storage backend without intermediate files or local disk pressure. Supports multiple database engines with rclone-powered cloud delivery.",
+                    "status": "active",
+                    "links": [
+                        {
+                            "type": "github",
+                            "url": "https://github.com/viperadnan-git/dbstash"
+                        }
+                    ]
+                },
+                {
+                    "type": "showcase",
                     "slug": "ihospital",
                     "title": "iHospital",
                     "subtitle": "Production-ready iOS native hospital management system",
