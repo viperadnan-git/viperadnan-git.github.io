@@ -45,7 +45,7 @@ export function VisitorCounter() {
         href={historyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+        className="flex items-center gap-1.5 text-muted-foreground/60 hover:text-foreground"
         aria-label={
           hits
             ? `${hits.today_hits.toLocaleString()} visitors today, ${hits.total_hits.toLocaleString()} total visitors. View history.`

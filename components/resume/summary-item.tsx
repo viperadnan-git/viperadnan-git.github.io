@@ -7,7 +7,7 @@ interface SummaryItemProps {
 export function SummaryItem({ item }: SummaryItemProps) {
   return (
     <div
-      className="text-sm text-justify leading-relaxed"
+      className="text-xs sm:text-sm text-justify leading-relaxed"
       dangerouslySetInnerHTML={{ __html: item.content }}
     />
   );

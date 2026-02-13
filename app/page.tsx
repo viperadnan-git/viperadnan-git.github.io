@@ -20,7 +20,11 @@ export default async function Home() {
           : undefined;
         return (
           <div key={section.id}>
-            <SectionHeader title={section.title} href={viewAllHref} />
+            <SectionHeader
+              title={section.title}
+              id={section.id}
+              href={viewAllHref}
+            />
             <Section
               section={section}
               limit={section.limit}

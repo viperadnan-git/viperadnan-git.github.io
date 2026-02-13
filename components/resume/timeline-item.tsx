@@ -56,9 +56,11 @@ export function TimelineItem({
             ) : (
               <span className="font-heading font-bold">{title}</span>
             )}
-            <p className="text-sm text-muted-foreground">{subtitle}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              {subtitle}
+            </p>
           </div>
-          <div className="text-sm text-muted-foreground sm:text-right">
+          <div className="text-xs sm:text-sm text-muted-foreground sm:text-right">
             <p>{location}</p>
             <p>{period}</p>
           </div>
@@ -68,7 +70,7 @@ export function TimelineItem({
           <div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="mt-2 flex cursor-pointer items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+              className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
             >
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -88,7 +90,9 @@ export function TimelineItem({
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-2 text-sm font-medium">{details}</div>
+                  <div className="mt-2 pb-4 text-xs sm:text-sm font-medium">
+                    {details}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

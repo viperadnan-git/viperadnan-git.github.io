@@ -33,12 +33,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
   return (
     <div className="py-4">
       <div className="flex items-start justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
-          {item.featured && (
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Featured
-            </span>
-          )}
+        <div className="flex items-center gap-2">
           <a
             href={item.link}
             target="_blank"
@@ -47,6 +42,11 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
           >
             {item.title}
           </a>
+          {item.featured && (
+            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+              Featured
+            </span>
+          )}
         </div>
 
         <div className="flex shrink-0 items-center gap-1">
@@ -80,13 +80,15 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
         </div>
       </div>
 
-      <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground">
+        {item.subtitle}
+      </p>
 
       {/* Expandable details with image */}
       <div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="mt-2 flex cursor-pointer items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
         >
           <motion.span
             animate={{ rotate: isOpen ? 180 : 0 }}
@@ -106,14 +108,16 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
               transition={{ duration: 0.2 }}
               className="overflow-hidden"
             >
-              <div className="mt-3">
+              <div className="mt-3 pb-4">
                 <ShowcaseImage
                   images={item.images}
                   alt={item.title}
                   link={item.link}
                   size="md"
                 />
-                <p className="mt-3 text-sm font-medium">{item.description}</p>
+                <p className="mt-3 text-xs sm:text-sm font-medium">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           )}
