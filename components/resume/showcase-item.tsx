@@ -29,113 +29,95 @@ const statusLabels: Record<NonNullable<ShowcaseEntry["status"]>, string> = {
 
 export function ShowcaseItem({ item }: ShowcaseItemProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const maxVisibleTags = 3;
-  const technologies = item.technologies ?? [];
-  const visibleTags = isOpen
-    ? technologies
-    : technologies.slice(0, maxVisibleTags);
-  const hiddenTagCount = technologies.length - maxVisibleTags;
 
   return (
-    <div className="py-3">
-      <div className="flex flex-col gap-3 md:flex-row md:gap-4 md:items-start">
-        {/* Content */}
-        <div className="flex-1 min-w-0 order-2 md:order-1">
-          <div className="flex flex-wrap items-center gap-2">
-            {item.featured && (
-              <span className="text-xs uppercase tracking-wide text-muted-foreground">
-                Featured
-              </span>
-            )}
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-heading font-bold hover:underline"
-            >
-              {item.title}
-            </a>
-
-            {/* Additional links */}
-            {item.links && item.links.length > 0 && (
-              <div className="flex items-center gap-1">
-                {item.links.map((link, index) => {
-                  const Icon = linkIcons[link.type];
-                  const linkLabel =
-                    link.type.charAt(0).toUpperCase() + link.type.slice(1);
-                  return (
-                    <a
-                      key={`${link.type}-${index}`}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1 text-muted-foreground hover:text-foreground"
-                      aria-label={`View ${item.title} on ${linkLabel}`}
-                      title={linkLabel}
-                    >
-                      <Icon className="size-4" />
-                    </a>
-                  );
-                })}
-              </div>
-            )}
-
-            {item.status && (
-              <span className="text-xs italic text-muted-foreground">
-                ({statusLabels[item.status]})
-              </span>
-            )}
-          </div>
-
-          <p className="text-sm italic">{item.subtitle}</p>
-
-          {/* Tech tags */}
-          {technologies.length > 0 && (
-            <p className="mt-1 text-sm text-muted-foreground">
-              <span className="font-bold">Stack:</span> {visibleTags.join(", ")}
-              {!isOpen && hiddenTagCount > 0 && `, +${hiddenTagCount} more`}
-            </p>
+    <div className="py-4">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          {item.featured && (
+            <span className="text-xs uppercase tracking-wide text-muted-foreground">
+              Featured
+            </span>
           )}
-
-          {/* Expandable description */}
-          <div>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="mt-2 flex cursor-pointer items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <motion.span
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="inline-flex"
-              >
-                <ChevronDown className="size-4 text-current" />
-              </motion.span>
-              {isOpen ? "Hide details" : "Show details"}
-            </button>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden"
-                >
-                  <p className="mt-2 text-sm font-medium">{item.description}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-heading font-bold hover:underline"
+          >
+            {item.title}
+          </a>
         </div>
 
-        {/* Thumbnail - top on mobile (smaller), right on desktop */}
-        <ShowcaseImage
-          images={item.images}
-          alt={item.title}
-          link={item.link}
-          size="sm"
-          className="order-1 md:order-2"
-        />
+        <div className="flex shrink-0 items-center gap-1">
+          {/* Additional links */}
+          {item.links &&
+            item.links.length > 0 &&
+            item.links.map((link, index) => {
+              const Icon = linkIcons[link.type];
+              const linkLabel =
+                link.type.charAt(0).toUpperCase() + link.type.slice(1);
+              return (
+                <a
+                  key={`${link.type}-${index}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 p-1 text-muted-foreground hover:text-foreground"
+                  aria-label={`View ${item.title} on ${linkLabel}`}
+                  title={linkLabel}
+                >
+                  <Icon className="size-4" />
+                  <span className="hidden text-xs sm:inline">{linkLabel}</span>
+                </a>
+              );
+            })}
+          {item.status && (
+            <span className="text-xs text-muted-foreground">
+              ({statusLabels[item.status]})
+            </span>
+          )}
+        </div>
+      </div>
+
+      <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+
+      {/* Expandable details with image */}
+      <div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="mt-2 flex cursor-pointer items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <motion.span
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            className="inline-flex"
+          >
+            <ChevronDown className="size-4 text-current" />
+          </motion.span>
+          {isOpen ? "Hide details" : "Show details"}
+        </button>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              <div className="mt-3">
+                <ShowcaseImage
+                  images={item.images}
+                  alt={item.title}
+                  link={item.link}
+                  size="md"
+                />
+                <p className="mt-3 text-sm font-medium">{item.description}</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

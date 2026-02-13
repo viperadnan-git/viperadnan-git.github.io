@@ -132,6 +132,9 @@
           "detailsLabel": {
             "type": "string"
           },
+          "timeline": {
+            "type": "boolean"
+          },
           "limit": {
             "type": "number"
           },
@@ -265,12 +268,6 @@
                     "description": {
                       "type": "string"
                     },
-                    "technologies": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
                     "status": {
                       "type": "string",
                       "enum": [
@@ -316,6 +313,27 @@
                     "images",
                     "link",
                     "description"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "summary"
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "slug",
+                    "type",
+                    "content"
                   ],
                   "additionalProperties": false
                 }

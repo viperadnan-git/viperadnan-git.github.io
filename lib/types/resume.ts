@@ -64,13 +64,18 @@ export const ListEntrySchema = z.object({
   type: z.literal("list"),
 });
 
+export const SummaryEntrySchema = z.object({
+  slug: z.string(),
+  type: z.literal("summary"),
+  content: z.string(),
+});
+
 export const ShowcaseEntrySchema = z.object({
   ...baseEntryFields,
   type: z.literal("showcase"),
   images: z.array(ShowcaseImageSchema),
   link: z.string(),
   description: z.string(),
-  technologies: z.array(z.string()).optional(),
   status: z.enum(["active", "archived", "development"]).optional(),
   featured: z.boolean().optional(),
   links: z.array(ShowcaseLinkSchema).optional(),
@@ -81,6 +86,7 @@ export const SectionEntrySchema = z.discriminatedUnion("type", [
   TimelineEntrySchema,
   ListEntrySchema,
   ShowcaseEntrySchema,
+  SummaryEntrySchema,
 ]);
 
 // Section type
@@ -91,6 +97,7 @@ export const SectionSchema = z.object({
     .enum(["education", "experience", "project", "award", "custom"])
     .optional(),
   detailsLabel: z.string().optional(),
+  timeline: z.boolean().optional(),
   limit: z.number().optional(),
   items: z.array(SectionEntrySchema),
 });
@@ -130,6 +137,7 @@ export type ShowcaseLink = z.infer<typeof ShowcaseLinkSchema>;
 export type TimelineEntry = z.infer<typeof TimelineEntrySchema>;
 export type ListEntry = z.infer<typeof ListEntrySchema>;
 export type ShowcaseEntry = z.infer<typeof ShowcaseEntrySchema>;
+export type SummaryEntry = z.infer<typeof SummaryEntrySchema>;
 export type SectionEntry = z.infer<typeof SectionEntrySchema>;
 export type Section = z.infer<typeof SectionSchema>;
 export type SiteMeta = z.infer<typeof SiteMetaSchema>;

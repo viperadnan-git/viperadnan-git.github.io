@@ -136,6 +136,7 @@ export function generatePersonSchema(resumeData: Resume) {
 
   awardSections.forEach((section) => {
     section.items.forEach((item) => {
+      if (item.type === "summary") return;
       // Format: "Title - Subtitle" or just title if no subtitle
       const awardText = item.subtitle
         ? `${item.title} - ${item.subtitle}`

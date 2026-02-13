@@ -56,6 +56,17 @@
     },
     "sections": [
         {
+            "id": "about",
+            "title": "Me",
+            "items": [
+                {
+                    "type": "summary",
+                    "slug": "about",
+                    "content": "Software engineer based in <strong>New Delhi, India</strong> with a knack for <strong>reverse engineering</strong> and building software that solves real-world problems.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
+                }
+            ]
+        },
+        {
             "id": "projects",
             "title": "Projects",
             "limit": 4,
@@ -78,13 +89,6 @@
                     ],
                     "link": "https://debridui.viperadnan.com",
                     "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
-                    "technologies": [
-                        "Next.js",
-                        "Zustand",
-                        "TanStack Query",
-                        "Tailwind CSS",
-                        "TypeScript"
-                    ],
                     "status": "active",
                     "featured": true,
                     "links": [
@@ -106,14 +110,6 @@
                     ],
                     "link": "https://streamdash.tech/",
                     "description": "Upload once, stream everywhere. A video hosting platform with automatic HLS conversion, global CDN delivery, multiple audio tracks, subtitles support, and embeddable player. Features unlimited bandwidth and no expiration on stored content.",
-                    "technologies": [
-                        "FFmpeg",
-                        "Python",
-                        "HLS",
-                        "Next.js",
-                        "Video Streaming",
-                        "TypeScript"
-                    ],
                     "status": "active",
                     "featured": true,
                     "links": [
@@ -140,14 +136,6 @@
                     ],
                     "link": "https://lemonic.pages.dev/",
                     "description": "A drop-in replacement for Spotify with a beautiful, soothing player UI. Uses Spotify's Web API for metadata and Lemonic API for streaming. Fully compatible with Spotify's path patterns for seamless transition.",
-                    "technologies": [
-                        "Vue",
-                        "Pinia",
-                        "Vue Router",
-                        "Spotify API",
-                        "TypeScript",
-                        "Music Streaming"
-                    ],
                     "status": "active",
                     "links": [
                         {
@@ -177,12 +165,6 @@
                     ],
                     "link": "https://github.com/viperadnan-git/iHospital",
                     "description": "A comprehensive hospital management system with patient and admin apps. Features appointment scheduling, patient records, lab test tracking, billing, and canvas-based prescription writing with PDF export. Built with full accessibility support including VoiceOver and Dynamic Type.",
-                    "technologies": [
-                        "Swift",
-                        "SwiftUI",
-                        "Supabase",
-                        "iOS"
-                    ],
                     "status": "active",
                     "featured": true,
                     "links": [
@@ -208,13 +190,6 @@
                     ],
                     "link": "https://github.com/viperadnan-git/SwitchBot",
                     "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
-                    "technologies": [
-                        "ESP32",
-                        "Arduino",
-                        "Python",
-                        "aiohttp",
-                        "WebSocket"
-                    ],
                     "status": "development",
                     "links": [
                         {
@@ -235,13 +210,6 @@
                     ],
                     "link": "https://gatekeep.viperadnan.com",
                     "description": "Open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks.",
-                    "technologies": [
-                        "AES-256",
-                        "JavaScript",
-                        "Flask",
-                        "Python",
-                        "SQLite"
-                    ],
                     "status": "active",
                     "featured": false,
                     "links": [
@@ -263,12 +231,6 @@
                     ],
                     "link": "https://viperadnan.com/fonts",
                     "description": "Interactive font showcase with editable previews. Auto-extracts font metadata using fontkit. Browse font families with pagination and theme support.",
-                    "technologies": [
-                        "fontkit",
-                        "Next.js",
-                        "TypeScript",
-                        "Tailwind CSS"
-                    ],
                     "status": "active",
                     "links": [
                         {
@@ -293,12 +255,6 @@
                     ],
                     "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
                     "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
-                    "technologies": [
-                        "Python",
-                        "Pyrogram",
-                        "Google Drive API",
-                        "PostgreSQL"
-                    ],
                     "status": "archived",
                     "links": [
                         {
@@ -344,6 +300,7 @@
             "id": "experience",
             "title": "Experience",
             "detailsLabel": "highlights",
+            "timeline": true,
             "limit": 4,
             "items": [
                 {
@@ -441,6 +398,7 @@
         {
             "id": "education",
             "title": "Education",
+            "timeline": true,
             "items": [
                 {
                     "type": "timeline",

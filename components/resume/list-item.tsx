@@ -6,7 +6,7 @@ interface ListItemProps {
 
 export function ListItem({ item }: ListItemProps) {
   return (
-    <div className="flex flex-col gap-1 text-sm sm:flex-row sm:gap-2">
+    <div className="flex flex-col gap-1 py-1 text-sm sm:flex-row sm:gap-2">
       <span className="font-bold sm:min-w-[140px] sm:shrink-0">
         {item.title}
       </span>

@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { DocumentContainer } from "@/components/layout/document-container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { getResumeData } from "@/lib/loader";
 import { generatePersonSchema } from "@/lib/seo/structured-data";
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const resumeData = await getResumeData();
@@ -52,7 +66,9 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">
+      <body
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
+      >
         <ThemeProvider>
           <DocumentContainer showCounter={resumeData.meta.counter}>
             <ThemeToggle />
