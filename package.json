@@ -5,11 +5,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "bun run schema:generate",
+    "prebuild": "bun run generate:schema && bun run generate:llms",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "schema:generate": "bun run scripts/generate-schema.ts"
+    "generate:schema": "bun run scripts/generate-schema.ts",
+    "generate:llms": "bun run scripts/generate-llms-txt.ts"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
