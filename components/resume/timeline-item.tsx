@@ -2,7 +2,7 @@
 
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface TimelineItemProps {
   title: string;
@@ -81,21 +81,16 @@ export function TimelineItem({
               </motion.span>
               {isOpen ? `Hide ${detailsLabel}` : `Show ${detailsLabel}`}
             </button>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-2 pb-4 text-xs sm:text-sm font-medium">
-                    {details}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              initial={false}
+              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              <div className="mt-2 pb-4 text-xs sm:text-sm font-medium">
+                {details}
+              </div>
+            </motion.div>
           </div>
         )}
       </div>

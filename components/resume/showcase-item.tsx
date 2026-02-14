@@ -3,7 +3,7 @@
 import { ChevronDown, Globe, FileText } from "lucide-react";
 import { FaGithub, FaPlayCircle } from "react-icons/fa";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ShowcaseImage } from "./showcase-image";
 import type { ShowcaseEntry, ShowcaseLink } from "@/lib/types/resume";
 
@@ -99,29 +99,24 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
           </motion.span>
           {isOpen ? "Hide details" : "Show details"}
         </button>
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-3 pb-4">
-                <ShowcaseImage
-                  images={item.images}
-                  alt={item.title}
-                  link={item.link}
-                  size="md"
-                />
-                <p className="mt-3 text-xs sm:text-sm font-medium">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div
+          initial={false}
+          animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="overflow-hidden"
+        >
+          <div className="mt-3 pb-4">
+            <ShowcaseImage
+              images={item.images}
+              alt={item.title}
+              link={item.link}
+              size="md"
+            />
+            <p className="mt-3 text-xs sm:text-sm font-medium">
+              {item.description}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
