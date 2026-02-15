@@ -49,15 +49,11 @@ function formatTimelineEntry(entry: TimelineEntry): string {
   return parts.join(". ");
 }
 
-function renderSection(section: Section, baseUrl: string): string {
+function renderSection(section: Section): string {
   const lines: string[] = [];
-  const items = section.limit
-    ? section.items.slice(0, section.limit)
-    : section.items;
-
   lines.push(`## ${section.title}`);
 
-  for (const item of items) {
+  for (const item of section.items) {
     switch (item.type) {
       case "summary": {
         const s = item as SummaryEntry;
@@ -84,16 +80,18 @@ function renderSection(section: Section, baseUrl: string): string {
 
       case "showcase": {
         const s = item as ShowcaseEntry;
-        lines.push(`- [${s.title}](${s.link}): ${s.description}`);
+        const parts = [s.subtitle, trimTrailing(s.description, ".")];
+        if (s.featured) parts.push("Featured");
+        if (s.status) parts.push(`Status: ${s.status}`);
+        if (s.links) {
+          for (const link of s.links) {
+            parts.push(`${link.type}: ${link.url}`);
+          }
+        }
+        lines.push(`- [${s.title}](${s.link}): ${parts.join(". ")}`);
         break;
       }
     }
-  }
-
-  if (section.limit && section.items.length > section.limit) {
-    lines.push(
-      `- [View all ${section.title.toLowerCase()}](${baseUrl}/section/${section.id})`,
-    );
   }
 
   return lines.join("\n");
@@ -112,12 +110,17 @@ export function generateLlmsTxt(data: Resume): string {
   lines.push("", `> ${summaryParts.join(", ")}`);
 
   // Content paragraphs (no headings allowed before H2 sections per spec)
+  if (data.bio) lines.push("", data.bio);
   if (data.about) lines.push("", stripHtml(data.about));
 
   const info: string[] = [];
+  if (data.url) info.push(`Website: ${data.url}`);
+  if (data.username) info.push(`Username: ${data.username}`);
+  if (data.nationality) info.push(`Nationality: ${data.nationality}`);
+  if (data.gender) info.push(`Gender: ${data.gender}`);
   if (data.languages) info.push(`Languages: ${data.languages.join(", ")}`);
 
-  // Contact as list items with links
+  // Contact links
   for (const link of data.contact.links) {
     const label =
       link.label || link.type.charAt(0).toUpperCase() + link.type.slice(1);
@@ -137,7 +140,7 @@ export function generateLlmsTxt(data: Resume): string {
 
   // H2 sections as file lists
   for (const section of data.sections) {
-    lines.push("", renderSection(section, data.url));
+    lines.push("", renderSection(section));
   }
 
   return lines.join("\n") + "\n";
