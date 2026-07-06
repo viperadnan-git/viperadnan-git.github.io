@@ -33,6 +33,15 @@ const iconMap: Record<
 export function ContactHeader({ name, bio, contact }: ContactHeaderProps) {
   return (
     <header className="text-center">
+      <svg
+        viewBox="0 0 100 100"
+        fill="currentColor"
+        aria-hidden="true"
+        className="mx-auto mb-4 size-12"
+      >
+        <path d="M39 14 L50 40 L61 14 L85 71 L65 71 L50 47 L35 71 L15 71 Z" />
+        <rect x="28" y="79" width="44" height="8" rx="4" />
+      </svg>
       <h1 className="font-heading text-4xl font-bold md:text-5xl">{name}</h1>
       {bio && (
         <p className="mt-3 text-sm text-muted-foreground text-balance">{bio}</p>
