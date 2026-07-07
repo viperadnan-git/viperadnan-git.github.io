@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { DocumentContainer } from "@/components/layout/document-container";
@@ -20,6 +20,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F4F2EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#17160F" },
+  ],
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const resumeData = await getResumeData();
 
@@ -29,8 +36,14 @@ export async function generateMetadata(): Promise<Metadata> {
     description: resumeData.about,
     keywords: resumeData.meta.keywords,
     authors: [{ name: resumeData.name }],
+    alternates: { canonical: resumeData.url },
+    appleWebApp: { capable: true, title: resumeData.name },
     icons: {
-      icon: "/icon.svg",
+      icon: [
+        { url: "/favicon.ico", sizes: "32x32" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      apple: "/apple-icon.png",
     },
     openGraph: {
       title: resumeData.name,
