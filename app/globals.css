@@ -170,3 +170,63 @@
         scroll-behavior: auto !important;
     }
 }
+
+:root {
+    --map-opacity: 0.8;
+}
+.dark {
+    --map-opacity: 0.66;
+}
+
+.location-map {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    animation: location-map-in 1.4s ease-out 0.1s forwards;
+}
+.location-map__plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: var(--map-opacity);
+}
+.location-map__plane img {
+    position: absolute;
+    max-width: none;
+    filter: grayscale(1) invert(1) contrast(1.1); /* dark tiles inverted for light mode */
+}
+.dark .location-map__plane img {
+    filter: grayscale(1) contrast(1.1);
+}
+/* clears the center reading column, released in the top/bottom margins */
+.location-map__veil {
+    position: absolute;
+    inset: 0;
+    background: var(--background);
+    --veil-x: linear-gradient(
+        to right,
+        transparent 14%,
+        #000 32%,
+        #000 68%,
+        transparent 86%
+    );
+    --veil-y: linear-gradient(
+        to bottom,
+        transparent 10vh,
+        #000 26vh,
+        #000 calc(100% - 40vh),
+        transparent calc(100% - 22vh)
+    );
+    -webkit-mask-image: var(--veil-x), var(--veil-y);
+    mask-image: var(--veil-x), var(--veil-y);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+}
+@keyframes location-map-in {
+    to {
+        opacity: 1;
+    }
+}
