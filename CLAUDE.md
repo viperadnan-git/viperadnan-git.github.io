@@ -50,7 +50,7 @@ lib/
 │   └── loader.ts       # Async data loader with Zod validation
 ├── types/
 │   └── resume.ts       # Zod schemas + inferred TypeScript types
-└── utils.ts            # cn() utility
+└── utils.ts            # cn(), contact/image URL helpers
 
 scripts/
 └── generate-schema.ts  # Generates JSON schema from Zod types
@@ -111,7 +111,7 @@ export type Resume = z.infer<typeof ResumeSchema>;
 
 ### ShowcaseEntry Fields
 - `slug`, `title`, `subtitle`, `link`, `description` - required
-- `images` - required string array (supports multiple images with slideshow)
+- `images` - required array of `{ url, title? }` (slideshow when multiple). A YouTube URL renders its thumbnail with a play badge and embeds the player in the lightbox
 - `technologies` - optional string array (shows max 3, all when expanded)
 - `status` - optional: "active" | "archived" | "development"
 - `featured` - optional boolean (shows label)
@@ -144,6 +144,7 @@ Schema auto-updates on commit via `pre-commit.sh` when `lib/types/resume.ts` cha
 - **Slideshow**: Auto-rotates every 3 seconds when multiple images
 - **Lightbox**: Click thumbnail to open fullscreen viewer with navigation
 - **Hover**: Shows expand icon overlay to indicate clickability
+- **Video**: A YouTube URL in `images[]` shows its thumbnail with a persistent play badge (no expand icon) and embeds the player in the lightbox
 
 ## Design Rules
 - **Theme**: Black & white, minimalistic, PDF-like aesthetic

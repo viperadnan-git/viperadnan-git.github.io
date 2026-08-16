@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { cn, getImageTitle } from "@/lib/utils";
+import { cn, getImageTitle, getYouTubeId } from "@/lib/utils";
 import type { ShowcaseImage } from "@/lib/types/resume";
 
 interface ImageLightboxProps {
@@ -48,8 +48,19 @@ export function ImageLightbox({
     setCurrentIndex(initialIndex);
   }, [initialIndex, isOpen]);
 
+  // Cross-origin iframes swallow keydown; focus the dialog whenever the
+  // pointer is back on our side so Escape/arrows work again.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const reclaimFocus = () => {
+    if (document.activeElement?.tagName === "IFRAME")
+      containerRef.current?.focus();
+  };
+
   useEffect(() => {
     if (!isOpen) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    containerRef.current?.focus();
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onCloseRef.current();
@@ -63,6 +74,7 @@ export function ImageLightbox({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      previouslyFocused?.focus();
     };
   }, [isOpen]);
 
@@ -70,8 +82,14 @@ export function ImageLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90"
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${getYouTubeId(images[currentIndex].url) ? "Video" : "Image"}: ${getImageTitle(images[currentIndex], alt, currentIndex)}`}
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 outline-none"
       onClick={onClose}
+      onMouseMove={reclaimFocus}
     >
       {/* Close button */}
       <button
@@ -113,12 +131,24 @@ export function ImageLightbox({
         className="relative w-[90vw] md:w-[80vw] max-w-5xl aspect-video overflow-hidden rounded-lg md:rounded-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <Image
-          src={images[currentIndex].url}
-          alt={getImageTitle(images[currentIndex], alt, currentIndex)}
-          fill
-          className="object-contain"
-        />
+        {getYouTubeId(images[currentIndex].url) ? (
+          <iframe
+            key={images[currentIndex].url}
+            src={`https://www.youtube-nocookie.com/embed/${getYouTubeId(images[currentIndex].url)}?autoplay=1&playsinline=1`}
+            title={getImageTitle(images[currentIndex], alt, currentIndex)}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="size-full"
+          />
+        ) : (
+          <Image
+            src={images[currentIndex].url}
+            alt={getImageTitle(images[currentIndex], alt, currentIndex)}
+            fill
+            className="object-contain"
+          />
+        )}
       </div>
 
       {/* Mobile navigation - below image */}

@@ -30,6 +30,43 @@ export function getContactUrl(link: ContactLink): string {
   }
 }
 
+const YOUTUBE_HOSTS = new Set([
+  "youtube.com",
+  "www.youtube.com",
+  "m.youtube.com",
+  "music.youtube.com",
+  "youtube-nocookie.com",
+  "www.youtube-nocookie.com",
+]);
+
+const ID = /^[\w-]{11}$/;
+
+export function getYouTubeId(url: string): string | null {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return null;
+  }
+
+  const { hostname, pathname, searchParams } = parsed;
+  const id =
+    hostname === "youtu.be"
+      ? pathname.slice(1)
+      : YOUTUBE_HOSTS.has(hostname)
+        ? (pathname.match(/^\/(?:embed|shorts|live|v)\/([^/?#]+)/)?.[1] ??
+          searchParams.get("v"))
+        : null;
+
+  // "videoseries" is a playlist embed, not a video id — and it happens to be 11 chars
+  return id && id !== "videoseries" && ID.test(id) ? id : null;
+}
+
+export function getImageSrc(image: ShowcaseImage): string {
+  const id = getYouTubeId(image.url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : image.url;
+}
+
 export function getImageTitle(
   image: ShowcaseImage,
   fallback: string,

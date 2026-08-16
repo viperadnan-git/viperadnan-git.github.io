@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Expand } from "lucide-react";
 import { ImageSlideshow } from "./image-slideshow";
 import { ImageLightbox } from "./image-lightbox";
-import { cn } from "@/lib/utils";
+import { cn, getYouTubeId } from "@/lib/utils";
 import type { ShowcaseImage } from "@/lib/types/resume";
 
 interface ShowcaseImageProps {
@@ -22,6 +21,8 @@ export function ShowcaseImage({
   className,
 }: ShowcaseImageProps) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const isVideo = !!getYouTubeId(images[index].url);
 
   return (
     <>
@@ -40,17 +41,23 @@ export function ShowcaseImage({
           size === "sm" ? "w-1/2 md:w-40" : "w-full md:w-48",
           className,
         )}
-        aria-label={`View ${alt} in fullscreen`}
+        aria-label={isVideo ? `Play ${alt} video` : `View ${alt} in fullscreen`}
       >
-        <ImageSlideshow images={images} alt={alt} className="size-full" />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/40">
-          <Expand className="size-6 text-white opacity-0 transition-opacity group-hover:opacity-100" />
-        </div>
+        <ImageSlideshow
+          images={images}
+          alt={alt}
+          index={index}
+          onIndexChange={setIndex}
+          paused={isLightboxOpen}
+          className="size-full"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/40" />
       </div>
 
       <ImageLightbox
         images={images}
         alt={alt}
+        initialIndex={index}
         isOpen={isLightboxOpen}
         onClose={() => setIsLightboxOpen(false)}
       />

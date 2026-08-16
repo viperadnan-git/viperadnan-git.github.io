@@ -73,6 +73,32 @@
             "items": [
                 {
                     "type": "showcase",
+                    "slug": "rspace",
+                    "title": "rspace",
+                    "subtitle": "Native desktop app to manage and sync 70+ cloud storages",
+                    "images": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=jQisdXnXKvc",
+                            "title": "rspace in 90 seconds"
+                        }
+                    ],
+                    "link": "https://github.com/viperadnan-git/rspace",
+                    "description": "A Rust desktop app built on rclone that puts Drive, S3, Dropbox, OneDrive, B2, SFTP and 70+ other backends in one window. Background transfers with live progress and ETA, built-in file previews, recursive search, and a keyboard-driven command palette. Ships for macOS, Windows and Linux.",
+                    "status": "active",
+                    "featured": true,
+                    "links": [
+                        {
+                            "type": "github",
+                            "url": "https://github.com/viperadnan-git/rspace"
+                        },
+                        {
+                            "type": "demo",
+                            "url": "https://www.youtube.com/watch?v=jQisdXnXKvc"
+                        }
+                    ]
+                },
+                {
+                    "type": "showcase",
                     "slug": "debridui",
                     "title": "DebridUI",
                     "subtitle": "Modern debrid client with integrated media discovery",
@@ -294,7 +320,7 @@
                     "type": "list",
                     "slug": "languages",
                     "title": "Languages",
-                    "subtitle": "Python, TypeScript, Swift, Go, C++"
+                    "subtitle": "Python, TypeScript, Rust, Swift, Go, C++"
                 },
                 {
                     "type": "list",
