@@ -1,7 +1,7 @@
-import { ResumeSchema, RESUME_SCHEMA_VERSION } from "../lib/types/resume";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { generateLlmsTxt } from "../lib/llms-txt";
-import { readFileSync, writeFileSync } from "fs";
-import { join } from "path";
+import { RESUME_SCHEMA_VERSION, ResumeSchema } from "../lib/types/resume";
 
 const raw = JSON.parse(
   readFileSync(join(process.cwd(), "lib/data/resume.json"), "utf-8"),

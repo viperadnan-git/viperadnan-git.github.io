@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 interface TimelineItemProps {
   title: string;
@@ -69,6 +69,7 @@ export function TimelineItem({
         {details && (
           <div>
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
             >

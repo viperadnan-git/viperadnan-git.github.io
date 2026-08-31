@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { VisitorCounter } from "@/components/resume/visitor-counter";
-import { LocationMap } from "@/components/resume/location-map";
 import { GitHubIcon } from "@/components/icons/brand-icons";
+import { LocationMap } from "@/components/resume/location-map";
+import { VisitorCounter } from "@/components/resume/visitor-counter";
 
 interface DocumentContainerProps {
   children: React.ReactNode;

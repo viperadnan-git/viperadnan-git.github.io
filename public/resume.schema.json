@@ -34,11 +34,7 @@
     },
     "gender": {
       "type": "string",
-      "enum": [
-        "male",
-        "female",
-        "rather-not-say"
-      ]
+      "enum": ["male", "female", "rather-not-say"]
     },
     "languages": {
       "type": "array",
@@ -62,9 +58,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "keywords"
-      ],
+      "required": ["keywords"],
       "additionalProperties": false
     },
     "contact": {
@@ -95,17 +89,12 @@
                 "type": "string"
               }
             },
-            "required": [
-              "type",
-              "value"
-            ],
+            "required": ["type", "value"],
             "additionalProperties": false
           }
         }
       },
-      "required": [
-        "links"
-      ],
+      "required": ["links"],
       "additionalProperties": false
     },
     "sections": {
@@ -121,13 +110,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "education",
-              "experience",
-              "project",
-              "award",
-              "custom"
-            ]
+            "enum": ["education", "experience", "project", "award", "custom"]
           },
           "detailsLabel": {
             "type": "string"
@@ -177,16 +160,10 @@
                           },
                           "style": {
                             "type": "string",
-                            "enum": [
-                              "list",
-                              "bullet"
-                            ]
+                            "enum": ["list", "bullet"]
                           }
                         },
-                        "required": [
-                          "title",
-                          "description"
-                        ],
+                        "required": ["title", "description"],
                         "additionalProperties": false
                       }
                     },
@@ -194,13 +171,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "slug",
-                    "title",
-                    "subtitle",
-                    "type",
-                    "period"
-                  ],
+                  "required": ["slug", "title", "subtitle", "type", "period"],
                   "additionalProperties": false
                 },
                 {
@@ -220,12 +191,7 @@
                       "const": "list"
                     }
                   },
-                  "required": [
-                    "slug",
-                    "title",
-                    "subtitle",
-                    "type"
-                  ],
+                  "required": ["slug", "title", "subtitle", "type"],
                   "additionalProperties": false
                 },
                 {
@@ -256,9 +222,7 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "url"
-                        ],
+                        "required": ["url"],
                         "additionalProperties": false
                       }
                     },
@@ -270,11 +234,7 @@
                     },
                     "status": {
                       "type": "string",
-                      "enum": [
-                        "active",
-                        "archived",
-                        "development"
-                      ]
+                      "enum": ["active", "archived", "development"]
                     },
                     "featured": {
                       "type": "boolean"
@@ -286,21 +246,13 @@
                         "properties": {
                           "type": {
                             "type": "string",
-                            "enum": [
-                              "github",
-                              "demo",
-                              "website",
-                              "docs"
-                            ]
+                            "enum": ["github", "demo", "website", "docs"]
                           },
                           "url": {
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "type",
-                          "url"
-                        ],
+                        "required": ["type", "url"],
                         "additionalProperties": false
                       }
                     }
@@ -330,34 +282,19 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "slug",
-                    "type",
-                    "content"
-                  ],
+                  "required": ["slug", "type", "content"],
                   "additionalProperties": false
                 }
               ]
             }
           }
         },
-        "required": [
-          "id",
-          "title",
-          "items"
-        ],
+        "required": ["id", "title", "items"],
         "additionalProperties": false
       }
     }
   },
-  "required": [
-    "version",
-    "url",
-    "name",
-    "meta",
-    "contact",
-    "sections"
-  ],
+  "required": ["version", "url", "name", "meta", "contact", "sections"],
   "additionalProperties": false,
   "title": "Resume",
   "description": "Portfolio resume data schema (version 1.0.0)"

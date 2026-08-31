@@ -1,581 +1,577 @@
 {
-    "version": "1.0.0",
-    "name": "Adnan Ahmad",
-    "username": "viperadnan",
-    "title": "Software Engineer",
-    "bio": "CSE'25 | EE'22 | Software Engineer | Open Source Contributor",
-    "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. Doing reverse engineering and building software which solves real-world problems is my forte. I've created open-source solutions for automations, file sharing, data syncing, and more.",
-    "location": "New Delhi, India",
-    "gender": "male",
-    "languages": [
-        "English",
-        "Hindi",
-        "Urdu"
+  "version": "1.0.0",
+  "name": "Adnan Ahmad",
+  "username": "viperadnan",
+  "title": "Software Engineer",
+  "bio": "CSE'25 | EE'22 | Software Engineer | Open Source Contributor",
+  "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. Doing reverse engineering and building software which solves real-world problems is my forte. I've created open-source solutions for automations, file sharing, data syncing, and more.",
+  "location": "New Delhi, India",
+  "gender": "male",
+  "languages": ["English", "Hindi", "Urdu"],
+  "nationality": "India",
+  "url": "https://viperadnan.com",
+  "image": "https://res.cloudinary.com/viperadnan/image/upload/v1767186214/portfolio-banner.png",
+  "meta": {
+    "keywords": [
+      "software engineer",
+      "full stack developer",
+      "iOS developer",
+      "web developer",
+      "backend developer",
+      "open source"
     ],
-    "nationality": "India",
-    "url": "https://viperadnan.com",
-    "image": "https://res.cloudinary.com/viperadnan/image/upload/v1767186214/portfolio-banner.png",
-    "meta": {
-        "keywords": [
-            "software engineer",
-            "full stack developer",
-            "iOS developer",
-            "web developer",
-            "backend developer",
-            "open source"
-        ],
-        "counter": true
-    },
-    "contact": {
-        "links": [
-            {
-                "type": "email",
-                "value": "viperadnan@gmail.com"
-            },
-            {
-                "type": "github",
-                "value": "viperadnan-git"
-            },
-            {
-                "type": "linkedin",
-                "value": "viperadnan"
-            },
-            {
-                "type": "x",
-                "value": "viperadn"
-            },
-            {
-                "type": "instagram",
-                "value": "viperadnan"
-            },
-            {
-                "type": "facebook",
-                "value": "viperadnan"
-            }
-        ]
-    },
-    "sections": [
-        {
-            "id": "about",
-            "title": "Me",
-            "items": [
-                {
-                    "type": "summary",
-                    "slug": "about",
-                    "content": "Software engineer based in <strong>New Delhi, India</strong> with a knack for <strong>reverse engineering</strong> and building software that solves real-world problems.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
-                }
-            ]
-        },
-        {
-            "id": "projects",
-            "title": "Projects",
-            "limit": 4,
-            "items": [
-                {
-                    "type": "showcase",
-                    "slug": "rspace",
-                    "title": "rspace",
-                    "subtitle": "Native desktop app to manage and sync 70+ cloud storages",
-                    "images": [
-                        {
-                            "url": "https://www.youtube.com/watch?v=jQisdXnXKvc",
-                            "title": "rspace in 90 seconds"
-                        }
-                    ],
-                    "link": "https://github.com/viperadnan-git/rspace",
-                    "description": "A Rust desktop app built on rclone that puts Drive, S3, Dropbox, OneDrive, B2, SFTP and 70+ other backends in one window. Background transfers with live progress and ETA, built-in file previews, recursive search, and a keyboard-driven command palette. Ships for macOS, Windows and Linux.",
-                    "status": "active",
-                    "featured": true,
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/rspace"
-                        },
-                        {
-                            "type": "demo",
-                            "url": "https://www.youtube.com/watch?v=jQisdXnXKvc"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "debridui",
-                    "title": "DebridUI",
-                    "subtitle": "Modern debrid client with integrated media discovery",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg"
-                        },
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg"
-                        },
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
-                        }
-                    ],
-                    "link": "https://debridui.viperadnan.com",
-                    "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
-                    "status": "active",
-                    "featured": true,
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/debridui"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "streamdash",
-                    "title": "StreamDash",
-                    "subtitle": "Video streaming platform-as-a-service with global CDN",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179576/streamdash-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://streamdash.tech/",
-                    "description": "Upload once, stream everywhere. A video hosting platform with automatic HLS conversion, global CDN delivery, multiple audio tracks, subtitles support, and embeddable player. Features unlimited bandwidth and no expiration on stored content.",
-                    "status": "active",
-                    "featured": true,
-                    "links": [
-                        {
-                            "type": "website",
-                            "url": "https://streamdash.tech/"
-                        },
-                        {
-                            "type": "demo",
-                            "url": "https://streamdash.tech/video/6873e9829af58064e83d3cea"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "lemonic",
-                    "title": "Lemonic",
-                    "featured": true,
-                    "subtitle": "A calm, elegant music streaming app — scalable to millions of users",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767180779/lemonic-web-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://lemonic.pages.dev/",
-                    "description": "A drop-in replacement for Spotify with a beautiful, soothing player UI. Uses Spotify's Web API for metadata and Lemonic API for streaming. Fully compatible with Spotify's path patterns for seamless transition.",
-                    "status": "active",
-                    "links": [
-                        {
-                            "type": "website",
-                            "url": "https://lemonic.pages.dev/"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "dbstash",
-                    "title": "DBStash",
-                    "subtitle": "Dockerized database backup via rclone to any cloud storage",
-                    "images": [
-                        {
-                            "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/dbstash&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
-                        }
-                    ],
-                    "link": "https://github.com/viperadnan-git/dbstash",
-                    "description": "Stream database dumps directly to any cloud storage backend without intermediate files or local disk pressure. Supports multiple database engines with rclone-powered cloud delivery.",
-                    "status": "active",
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/dbstash"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "ihospital",
-                    "title": "iHospital",
-                    "subtitle": "Production-ready iOS native hospital management system",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-1.jpg"
-                        },
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-2.jpg"
-                        },
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-3.jpg"
-                        },
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-4.jpg"
-                        }
-                    ],
-                    "link": "https://github.com/viperadnan-git/iHospital",
-                    "description": "A comprehensive hospital management system with patient and admin apps. Features appointment scheduling, patient records, lab test tracking, billing, and canvas-based prescription writing with PDF export. Built with full accessibility support including VoiceOver and Dynamic Type.",
-                    "status": "active",
-                    "featured": true,
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/iHospital"
-                        },
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/iHospital-Admin"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "switchbot",
-                    "title": "SwitchBot",
-                    "subtitle": "IoT relay controller with ESP32 and WebSocket",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://github.com/viperadnan-git/SwitchBot",
-                    "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
-                    "status": "development",
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/SwitchBot"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "gatekeep",
-                    "title": "GateKeep",
-                    "subtitle": "Open-source end-to-end encrypted 2FA authenticator app",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767174854/gatekeep-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://gatekeep.viperadnan.com",
-                    "description": "Open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks.",
-                    "status": "active",
-                    "featured": false,
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/second-password"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "fonts",
-                    "title": "Font Library",
-                    "subtitle": "Static font listing website with interactive previews",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1768474835/fonts-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://viperadnan.com/fonts",
-                    "description": "Interactive font showcase with editable previews. Auto-extracts font metadata using fontkit. Browse font families with pagination and theme support.",
-                    "status": "active",
-                    "links": [
-                        {
-                            "type": "website",
-                            "url": "https://viperadnan.com/fonts"
-                        },
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/fonts"
-                        }
-                    ]
-                },
-                {
-                    "type": "showcase",
-                    "slug": "google-drive-telegram-bot",
-                    "title": "Google Drive Telegram Bot",
-                    "subtitle": "Manage Google Drive through Telegram — 690+ stars 1.6k+ forks",
-                    "images": [
-                        {
-                            "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
-                        }
-                    ],
-                    "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
-                    "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
-                    "status": "archived",
-                    "links": [
-                        {
-                            "type": "github",
-                            "url": "https://github.com/viperadnan-git/google-drive-telegram-bot"
-                        }
-                    ]
-                }
-            ],
-            "type": "project"
-        },
-        {
-            "id": "skills",
-            "title": "Skills Summary",
-            "items": [
-                {
-                    "type": "list",
-                    "slug": "languages",
-                    "title": "Languages",
-                    "subtitle": "Python, TypeScript, Rust, Swift, Go, C++"
-                },
-                {
-                    "type": "list",
-                    "slug": "frameworks",
-                    "title": "Frameworks",
-                    "subtitle": "Next.js, FastAPI, React, Vue, Tailwind, SwiftUI, Flask"
-                },
-                {
-                    "type": "list",
-                    "slug": "tools",
-                    "title": "Tools",
-                    "subtitle": "PostgreSQL, MongoDB, Redis, Git, CircleCI, Cloudflare, Docker, Oracle Cloud, Debian, Ubuntu"
-                },
-                {
-                    "type": "list",
-                    "slug": "soft-skills",
-                    "title": "Soft Skills",
-                    "subtitle": "Debugger, Installation & Management, Technical Support, Self-Hosting Apps"
-                }
-            ]
-        },
-        {
-            "id": "experience",
-            "title": "Experience",
-            "detailsLabel": "highlights",
-            "timeline": true,
-            "limit": 4,
-            "items": [
-                {
-                    "type": "timeline",
-                    "slug": "sludgeai",
-                    "title": "SludgeAI",
-                    "subtitle": "Founding Engineer, Full Stack Developer",
-                    "location": "New York, US",
-                    "period": "Jan 2025 - Present",
-                    "link": "https://sludge.ai/",
-                    "details": [
-                        {
-                            "title": "AI Development",
-                            "description": "Created a fully automated social media content creation platform using AI agents, enabling seamless generation of diverse media types."
-                        },
-                        {
-                            "title": "Backend Developer",
-                            "description": "Re-wrote and optimized backend infrastructure and code-base, improving system efficiency by 200% and integrating multi-platform support for enhanced scalability."
-                        },
-                        {
-                            "title": "DevOps",
-                            "description": "Managed AWS infrastructure, reducing project operational costs by 67%. Implemented dynamic scaling and leveraged SPOT instances to optimize resource usage and cost-efficiency."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "infosys",
-                    "title": "Infosys - Mysore DC",
-                    "subtitle": "iOS Application Developer Intern",
-                    "location": "Mysore, India",
-                    "period": "Jun 2024 - Jul 2024",
-                    "link": "https://www.infosys.com/",
-                    "details": [
-                        {
-                            "title": "SCRUM Master",
-                            "description": "Led daily stand-ups and sprint planning meetings, effectively communicating project goals and progress to team members and stakeholders."
-                        },
-                        {
-                            "title": "iOS App Development",
-                            "description": "Developed a hospital management app, which was completed ahead of schedule."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "cypherock",
-                    "title": "Cypherock",
-                    "subtitle": "Junior Software Developer",
-                    "location": "Gurugram, India",
-                    "period": "Nov 2023 - Jan 2024",
-                    "link": "https://www.cypherock.com/",
-                    "details": [
-                        {
-                            "title": "Automation Improvement",
-                            "description": "Redesigned data scraping tools and automated marketing process, saving over 200 hours per month and enhancing data accuracy by 40%."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "freelancer",
-                    "title": "Freelancer",
-                    "subtitle": "API & Back-end Developer",
-                    "location": "Remote",
-                    "period": "May 2019 - Present",
-                    "details": [
-                        {
-                            "title": "Open Source Contributions",
-                            "description": "Created and contributed to open-source projects with 1300+ stars and 3000+ forks in total."
-                        },
-                        {
-                            "title": "Development & Deployment",
-                            "description": "Developed and deployed scalable back-end applications and bots, achieving 99.9% uptime and reducing server response time by 25%."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "bses",
-                    "title": "BSES O&M Office",
-                    "subtitle": "Industrial Trainee",
-                    "location": "New Delhi, India",
-                    "period": "Jul 2021",
-                    "details": [
-                        {
-                            "title": "Maintenance Operations",
-                            "description": "Directed maintenance operations for Grid, Substation, and Transformers, resulting in a 5% increase in overall system reliability within 1 month."
-                        }
-                    ]
-                }
-            ],
-            "type": "experience"
-        },
-        {
-            "id": "education",
-            "title": "Education",
-            "timeline": true,
-            "items": [
-                {
-                    "type": "timeline",
-                    "slug": "galgotias-university",
-                    "title": "Galgotias University",
-                    "subtitle": "B.Tech. in Computer Science & Engineering — CGPA: 8.88",
-                    "location": "Greater Noida, U.P., India",
-                    "period": "Aug 2022 - Jun 2025",
-                    "details": [
-                        {
-                            "title": "Courses",
-                            "description": "Cloud Computing, Machine Learning, Operating Systems, Unix Tools and Scripting",
-                            "style": "list"
-                        }
-                    ],
-                    "link": "https://www.galgotiasuniversity.edu.in/"
-                },
-                {
-                    "type": "timeline",
-                    "slug": "gbpit",
-                    "title": "G. B. Pant Institute of Technology",
-                    "subtitle": "Diploma in Electrical Engineering — 76.6%",
-                    "location": "New Delhi, India",
-                    "period": "Aug 2019 - Apr 2022",
-                    "link": "https://www.dseu.ac.in/",
-                    "details": [
-                        {
-                            "title": "Project",
-                            "description": "Switch Bot - electrical relay as an API",
-                            "style": "list"
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "gbsss",
-                    "title": "G.B.S.S.S. School No. 2",
-                    "subtitle": "High School, CBSE — 87.8%",
-                    "location": "New Delhi, India",
-                    "period": "Apr 2018 - Mar 2019"
-                }
-            ],
-            "type": "education"
-        },
-        {
-            "id": "certification",
-            "title": "Certifications & Publications",
-            "detailsLabel": "highlights",
-            "items": [
-                {
-                    "type": "timeline",
-                    "slug": "icssas-2025-ieee",
-                    "title": "ICSSAS 2025 - IEEE Conference Publication",
-                    "subtitle": "Cross-Device 2FA: Leveraging End-to-End Encryption for Enhanced Security",
-                    "location": "Chennimalai, India",
-                    "period": "Jun 2025",
-                    "link": "https://ieeexplore.ieee.org/document/11080801",
-                    "details": [
-                        {
-                            "title": "Research Contribution",
-                            "description": "Proposed GateKeep, an open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks."
-                        },
-                        {
-                            "title": "Results",
-                            "description": "Achieved sub-300 ms multi-device synchronization, OTP generation under 3 ms, and scalability up to 15,000 users with under 100 MB server RAM usage."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "apple-infosys-ios",
-                    "title": "Apple x Infosys",
-                    "subtitle": "iOS Student Developer Program",
-                    "location": "Galgotias University, Greater Noida, India",
-                    "period": "Mar 2024 - Jun 2024",
-                    "link": "https://developer.apple.com/programs/ios/university/",
-                    "details": [
-                        {
-                            "title": "Leadership",
-                            "description": "Led a team in an intensive program where we identified and researched a significant problem, then pitched a viable solution."
-                        },
-                        {
-                            "title": "Development",
-                            "description": "Designed an innovative UI/UX and developed a fully functional native iOS application."
-                        }
-                    ]
-                },
-                {
-                    "type": "timeline",
-                    "slug": "mahindra-pride",
-                    "title": "Mahindra Pride Classroom",
-                    "subtitle": "Employability Skills Development Training",
-                    "location": "GBPIT, New Delhi, India",
-                    "period": "Nov 2021 - Dec 2021",
-                    "details": [
-                        {
-                            "title": "Skills Enhancement",
-                            "description": "Enhanced communication and understanding skills."
-                        },
-                        {
-                            "title": "Corporate Insights",
-                            "description": "Gained insights into corporate hiring systems and procedures."
-                        }
-                    ]
-                }
-            ],
-            "type": "award"
-        },
-        {
-            "id": "hackathon",
-            "title": "Hackathons",
-            "items": [
-                {
-                    "type": "timeline",
-                    "slug": "apogee-arduino",
-                    "title": "APOGEE Arduino Challenge",
-                    "subtitle": "Winner",
-                    "location": "BITS Pilani, Rajasthan, India",
-                    "period": "Apr 2023",
-                    "link": "https://www.linkedin.com/company/apogee-bits-pilani/"
-                },
-                {
-                    "type": "timeline",
-                    "slug": "smart-india-hackathon",
-                    "title": "Smart India Hackathon",
-                    "subtitle": "Top 10 Finalist",
-                    "location": "Galgotias University, U.P. India",
-                    "period": "Oct 2023"
-                }
-            ],
-            "type": "award"
-        }
+    "counter": true
+  },
+  "contact": {
+    "links": [
+      {
+        "type": "email",
+        "value": "viperadnan@gmail.com"
+      },
+      {
+        "type": "github",
+        "value": "viperadnan-git"
+      },
+      {
+        "type": "linkedin",
+        "value": "viperadnan"
+      },
+      {
+        "type": "x",
+        "value": "viperadn"
+      },
+      {
+        "type": "instagram",
+        "value": "viperadnan"
+      },
+      {
+        "type": "facebook",
+        "value": "viperadnan"
+      }
     ]
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "Me",
+      "items": [
+        {
+          "type": "summary",
+          "slug": "about",
+          "content": "Software engineer based in <strong>New Delhi, India</strong> with a knack for <strong>reverse engineering</strong> and building software that solves real-world problems.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "limit": 4,
+      "items": [
+        {
+          "type": "showcase",
+          "slug": "rspace",
+          "title": "rspace",
+          "subtitle": "Native desktop app to manage and sync 70+ cloud storages",
+          "images": [
+            {
+              "url": "https://www.youtube.com/watch?v=jQisdXnXKvc",
+              "title": "rspace in 90 seconds"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/rspace",
+          "description": "A Rust desktop app built on rclone that puts Drive, S3, Dropbox, OneDrive, B2, SFTP and 70+ other backends in one window. Background transfers with live progress and ETA, built-in file previews, recursive search, and a keyboard-driven command palette. Ships for macOS, Windows and Linux.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/rspace"
+            },
+            {
+              "type": "demo",
+              "url": "https://www.youtube.com/watch?v=jQisdXnXKvc"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "debridui",
+          "title": "DebridUI",
+          "subtitle": "Modern debrid client with integrated media discovery",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
+            }
+          ],
+          "link": "https://debridui.viperadnan.com",
+          "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/debridui"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "streamdash",
+          "title": "StreamDash",
+          "subtitle": "Video streaming platform-as-a-service with global CDN",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179576/streamdash-mockup.jpg"
+            }
+          ],
+          "link": "https://streamdash.tech/",
+          "description": "Upload once, stream everywhere. A video hosting platform with automatic HLS conversion, global CDN delivery, multiple audio tracks, subtitles support, and embeddable player. Features unlimited bandwidth and no expiration on stored content.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "website",
+              "url": "https://streamdash.tech/"
+            },
+            {
+              "type": "demo",
+              "url": "https://streamdash.tech/video/6873e9829af58064e83d3cea"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "lemonic",
+          "title": "Lemonic",
+          "featured": true,
+          "subtitle": "A calm, elegant music streaming app — scalable to millions of users",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767180779/lemonic-web-mockup.jpg"
+            }
+          ],
+          "link": "https://lemonic.pages.dev/",
+          "description": "A drop-in replacement for Spotify with a beautiful, soothing player UI. Uses Spotify's Web API for metadata and Lemonic API for streaming. Fully compatible with Spotify's path patterns for seamless transition.",
+          "status": "active",
+          "links": [
+            {
+              "type": "website",
+              "url": "https://lemonic.pages.dev/"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "dbstash",
+          "title": "DBStash",
+          "subtitle": "Dockerized database backup via rclone to any cloud storage",
+          "images": [
+            {
+              "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/dbstash&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/dbstash",
+          "description": "Stream database dumps directly to any cloud storage backend without intermediate files or local disk pressure. Supports multiple database engines with rclone-powered cloud delivery.",
+          "status": "active",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/dbstash"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "ihospital",
+          "title": "iHospital",
+          "subtitle": "Production-ready iOS native hospital management system",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-1.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-2.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-3.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767179287/ihospital-mockup-4.jpg"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/iHospital",
+          "description": "A comprehensive hospital management system with patient and admin apps. Features appointment scheduling, patient records, lab test tracking, billing, and canvas-based prescription writing with PDF export. Built with full accessibility support including VoiceOver and Dynamic Type.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/iHospital"
+            },
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/iHospital-Admin"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "switchbot",
+          "title": "SwitchBot",
+          "subtitle": "IoT relay controller with ESP32 and WebSocket",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/SwitchBot",
+          "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
+          "status": "development",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/SwitchBot"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "gatekeep",
+          "title": "GateKeep",
+          "subtitle": "Open-source end-to-end encrypted 2FA authenticator app",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767174854/gatekeep-mockup.jpg"
+            }
+          ],
+          "link": "https://gatekeep.viperadnan.com",
+          "description": "Open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks.",
+          "status": "active",
+          "featured": false,
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/second-password"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "fonts",
+          "title": "Font Library",
+          "subtitle": "Static font listing website with interactive previews",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1768474835/fonts-mockup.jpg"
+            }
+          ],
+          "link": "https://viperadnan.com/fonts",
+          "description": "Interactive font showcase with editable previews. Auto-extracts font metadata using fontkit. Browse font families with pagination and theme support.",
+          "status": "active",
+          "links": [
+            {
+              "type": "website",
+              "url": "https://viperadnan.com/fonts"
+            },
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/fonts"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "google-drive-telegram-bot",
+          "title": "Google Drive Telegram Bot",
+          "subtitle": "Manage Google Drive through Telegram — 690+ stars 1.6k+ forks",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
+          "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
+          "status": "archived",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/google-drive-telegram-bot"
+            }
+          ]
+        }
+      ],
+      "type": "project"
+    },
+    {
+      "id": "skills",
+      "title": "Skills Summary",
+      "items": [
+        {
+          "type": "list",
+          "slug": "languages",
+          "title": "Languages",
+          "subtitle": "Python, TypeScript, Rust, Swift, Go, C++"
+        },
+        {
+          "type": "list",
+          "slug": "frameworks",
+          "title": "Frameworks",
+          "subtitle": "Next.js, FastAPI, React, Vue, Tailwind, SwiftUI, Flask"
+        },
+        {
+          "type": "list",
+          "slug": "tools",
+          "title": "Tools",
+          "subtitle": "PostgreSQL, MongoDB, Redis, Git, CircleCI, Cloudflare, Docker, Oracle Cloud, Debian, Ubuntu"
+        },
+        {
+          "type": "list",
+          "slug": "soft-skills",
+          "title": "Soft Skills",
+          "subtitle": "Debugger, Installation & Management, Technical Support, Self-Hosting Apps"
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "Experience",
+      "detailsLabel": "highlights",
+      "timeline": true,
+      "limit": 4,
+      "items": [
+        {
+          "type": "timeline",
+          "slug": "sludgeai",
+          "title": "SludgeAI",
+          "subtitle": "Founding Engineer, Full Stack Developer",
+          "location": "New York, US",
+          "period": "Jan 2025 - Present",
+          "link": "https://sludge.ai/",
+          "details": [
+            {
+              "title": "AI Development",
+              "description": "Created a fully automated social media content creation platform using AI agents, enabling seamless generation of diverse media types."
+            },
+            {
+              "title": "Backend Developer",
+              "description": "Re-wrote and optimized backend infrastructure and code-base, improving system efficiency by 200% and integrating multi-platform support for enhanced scalability."
+            },
+            {
+              "title": "DevOps",
+              "description": "Managed AWS infrastructure, reducing project operational costs by 67%. Implemented dynamic scaling and leveraged SPOT instances to optimize resource usage and cost-efficiency."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "infosys",
+          "title": "Infosys - Mysore DC",
+          "subtitle": "iOS Application Developer Intern",
+          "location": "Mysore, India",
+          "period": "Jun 2024 - Jul 2024",
+          "link": "https://www.infosys.com/",
+          "details": [
+            {
+              "title": "SCRUM Master",
+              "description": "Led daily stand-ups and sprint planning meetings, effectively communicating project goals and progress to team members and stakeholders."
+            },
+            {
+              "title": "iOS App Development",
+              "description": "Developed a hospital management app, which was completed ahead of schedule."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "cypherock",
+          "title": "Cypherock",
+          "subtitle": "Junior Software Developer",
+          "location": "Gurugram, India",
+          "period": "Nov 2023 - Jan 2024",
+          "link": "https://www.cypherock.com/",
+          "details": [
+            {
+              "title": "Automation Improvement",
+              "description": "Redesigned data scraping tools and automated marketing process, saving over 200 hours per month and enhancing data accuracy by 40%."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "freelancer",
+          "title": "Freelancer",
+          "subtitle": "API & Back-end Developer",
+          "location": "Remote",
+          "period": "May 2019 - Present",
+          "details": [
+            {
+              "title": "Open Source Contributions",
+              "description": "Created and contributed to open-source projects with 1300+ stars and 3000+ forks in total."
+            },
+            {
+              "title": "Development & Deployment",
+              "description": "Developed and deployed scalable back-end applications and bots, achieving 99.9% uptime and reducing server response time by 25%."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "bses",
+          "title": "BSES O&M Office",
+          "subtitle": "Industrial Trainee",
+          "location": "New Delhi, India",
+          "period": "Jul 2021",
+          "details": [
+            {
+              "title": "Maintenance Operations",
+              "description": "Directed maintenance operations for Grid, Substation, and Transformers, resulting in a 5% increase in overall system reliability within 1 month."
+            }
+          ]
+        }
+      ],
+      "type": "experience"
+    },
+    {
+      "id": "education",
+      "title": "Education",
+      "timeline": true,
+      "items": [
+        {
+          "type": "timeline",
+          "slug": "galgotias-university",
+          "title": "Galgotias University",
+          "subtitle": "B.Tech. in Computer Science & Engineering — CGPA: 8.88",
+          "location": "Greater Noida, U.P., India",
+          "period": "Aug 2022 - Jun 2025",
+          "details": [
+            {
+              "title": "Courses",
+              "description": "Cloud Computing, Machine Learning, Operating Systems, Unix Tools and Scripting",
+              "style": "list"
+            }
+          ],
+          "link": "https://www.galgotiasuniversity.edu.in/"
+        },
+        {
+          "type": "timeline",
+          "slug": "gbpit",
+          "title": "G. B. Pant Institute of Technology",
+          "subtitle": "Diploma in Electrical Engineering — 76.6%",
+          "location": "New Delhi, India",
+          "period": "Aug 2019 - Apr 2022",
+          "link": "https://www.dseu.ac.in/",
+          "details": [
+            {
+              "title": "Project",
+              "description": "Switch Bot - electrical relay as an API",
+              "style": "list"
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "gbsss",
+          "title": "G.B.S.S.S. School No. 2",
+          "subtitle": "High School, CBSE — 87.8%",
+          "location": "New Delhi, India",
+          "period": "Apr 2018 - Mar 2019"
+        }
+      ],
+      "type": "education"
+    },
+    {
+      "id": "certification",
+      "title": "Certifications & Publications",
+      "detailsLabel": "highlights",
+      "items": [
+        {
+          "type": "timeline",
+          "slug": "icssas-2025-ieee",
+          "title": "ICSSAS 2025 - IEEE Conference Publication",
+          "subtitle": "Cross-Device 2FA: Leveraging End-to-End Encryption for Enhanced Security",
+          "location": "Chennimalai, India",
+          "period": "Jun 2025",
+          "link": "https://ieeexplore.ieee.org/document/11080801",
+          "details": [
+            {
+              "title": "Research Contribution",
+              "description": "Proposed GateKeep, an open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks."
+            },
+            {
+              "title": "Results",
+              "description": "Achieved sub-300 ms multi-device synchronization, OTP generation under 3 ms, and scalability up to 15,000 users with under 100 MB server RAM usage."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "apple-infosys-ios",
+          "title": "Apple x Infosys",
+          "subtitle": "iOS Student Developer Program",
+          "location": "Galgotias University, Greater Noida, India",
+          "period": "Mar 2024 - Jun 2024",
+          "link": "https://developer.apple.com/programs/ios/university/",
+          "details": [
+            {
+              "title": "Leadership",
+              "description": "Led a team in an intensive program where we identified and researched a significant problem, then pitched a viable solution."
+            },
+            {
+              "title": "Development",
+              "description": "Designed an innovative UI/UX and developed a fully functional native iOS application."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "mahindra-pride",
+          "title": "Mahindra Pride Classroom",
+          "subtitle": "Employability Skills Development Training",
+          "location": "GBPIT, New Delhi, India",
+          "period": "Nov 2021 - Dec 2021",
+          "details": [
+            {
+              "title": "Skills Enhancement",
+              "description": "Enhanced communication and understanding skills."
+            },
+            {
+              "title": "Corporate Insights",
+              "description": "Gained insights into corporate hiring systems and procedures."
+            }
+          ]
+        }
+      ],
+      "type": "award"
+    },
+    {
+      "id": "hackathon",
+      "title": "Hackathons",
+      "items": [
+        {
+          "type": "timeline",
+          "slug": "apogee-arduino",
+          "title": "APOGEE Arduino Challenge",
+          "subtitle": "Winner",
+          "location": "BITS Pilani, Rajasthan, India",
+          "period": "Apr 2023",
+          "link": "https://www.linkedin.com/company/apogee-bits-pilani/"
+        },
+        {
+          "type": "timeline",
+          "slug": "smart-india-hackathon",
+          "title": "Smart India Hackathon",
+          "subtitle": "Top 10 Finalist",
+          "location": "Galgotias University, U.P. India",
+          "period": "Oct 2023"
+        }
+      ],
+      "type": "award"
+    }
+  ]
 }

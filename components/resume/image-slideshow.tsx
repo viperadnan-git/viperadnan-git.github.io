@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-import Image from "next/image";
 import { Expand, Play } from "lucide-react";
-import { cn, getImageSrc, getImageTitle, getYouTubeId } from "@/lib/utils";
+import Image from "next/image";
+import { useEffect } from "react";
 import type { ShowcaseImage } from "@/lib/types/resume";
+import { cn, getImageSrc, getImageTitle, getYouTubeId } from "@/lib/utils";
 
 interface ImageSlideshowProps {
   images: ShowcaseImage[];
@@ -81,9 +81,9 @@ export function ImageSlideshow({
       {/* Indicator dots */}
       {hasMultiple && (
         <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
-          {images.map((_, index) => (
+          {images.map((image, index) => (
             <button
-              key={index}
+              key={image.url}
               type="button"
               onClick={(e) => {
                 e.preventDefault();

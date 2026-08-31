@@ -95,6 +95,7 @@ export function LocationMap() {
     <div className="location-map" aria-hidden="true">
       <div className="location-map__plane">
         {tiles.map((t) => (
+          // biome-ignore lint/performance/noImgElement: raw tiles, next/image would rewrite them
           <img
             key={t.key}
             src={t.src}

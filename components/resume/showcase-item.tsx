@@ -1,11 +1,11 @@
 "use client";
 
-import { ChevronDown, Globe, FileText } from "lucide-react";
-import { FaGithub, FaPlayCircle } from "react-icons/fa";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ShowcaseImage } from "./showcase-image";
+import { ChevronDown, FileText, Globe } from "lucide-react";
+import { useState } from "react";
+import { FaGithub, FaPlayCircle } from "react-icons/fa";
 import type { ShowcaseEntry, ShowcaseLink } from "@/lib/types/resume";
+import { ShowcaseImage } from "./showcase-image";
 
 interface ShowcaseItemProps {
   item: ShowcaseEntry;
@@ -53,13 +53,13 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
           {/* Additional links */}
           {item.links &&
             item.links.length > 0 &&
-            item.links.map((link, index) => {
+            item.links.map((link) => {
               const Icon = linkIcons[link.type];
               const linkLabel =
                 link.type.charAt(0).toUpperCase() + link.type.slice(1);
               return (
                 <a
-                  key={`${link.type}-${index}`}
+                  key={`${link.type}-${link.url}`}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -87,6 +87,7 @@ export function ShowcaseItem({ item }: ShowcaseItemProps) {
       {/* Expandable details with image */}
       <div>
         <button
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
           className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
         >

@@ -1,14 +1,14 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { TimelineItem } from "./timeline-item";
-import { ShowcaseItem } from "./showcase-item";
-import { ListItem } from "./list-item";
-import { SummaryItem } from "./summary-item";
+import Link from "next/link";
 import type {
-  Section as SectionType,
-  SectionEntry,
   Detail,
+  SectionEntry,
+  Section as SectionType,
 } from "@/lib/types/resume";
+import { ListItem } from "./list-item";
+import { ShowcaseItem } from "./showcase-item";
+import { SummaryItem } from "./summary-item";
+import { TimelineItem } from "./timeline-item";
 
 interface SectionProps {
   section: SectionType;

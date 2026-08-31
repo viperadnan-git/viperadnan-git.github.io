@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ImageSlideshow } from "./image-slideshow";
-import { ImageLightbox } from "./image-lightbox";
+import type { ShowcaseImage as ShowcaseImageData } from "@/lib/types/resume";
 import { cn, getYouTubeId } from "@/lib/utils";
-import type { ShowcaseImage } from "@/lib/types/resume";
+import { ImageLightbox } from "./image-lightbox";
+import { ImageSlideshow } from "./image-slideshow";
 
 interface ShowcaseImageProps {
-  images: ShowcaseImage[];
+  images: ShowcaseImageData[];
   alt: string;
   link: string;
   size?: "sm" | "md";
@@ -26,6 +26,7 @@ export function ShowcaseImage({
 
   return (
     <>
+      {/* biome-ignore lint/a11y/useSemanticElements: a button cannot nest the slideshow's dot buttons */}
       <div
         role="button"
         tabIndex={0}
@@ -54,13 +55,14 @@ export function ShowcaseImage({
         <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/40" />
       </div>
 
-      <ImageLightbox
-        images={images}
-        alt={alt}
-        initialIndex={index}
-        isOpen={isLightboxOpen}
-        onClose={() => setIsLightboxOpen(false)}
-      />
+      {isLightboxOpen && (
+        <ImageLightbox
+          images={images}
+          alt={alt}
+          initialIndex={index}
+          onClose={() => setIsLightboxOpen(false)}
+        />
+      )}
     </>
   );
 }

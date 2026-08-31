@@ -1,7 +1,8 @@
+import { spawnSync } from "node:child_process";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { z } from "zod/v4";
-import { ResumeSchema, RESUME_SCHEMA_VERSION } from "../lib/types/resume";
-import { writeFileSync } from "fs";
-import { join } from "path";
+import { RESUME_SCHEMA_VERSION, ResumeSchema } from "../lib/types/resume";
 
 // Generate JSON schema from Zod schema
 const jsonSchema = z.toJSONSchema(ResumeSchema, {
@@ -19,5 +20,10 @@ const schemaWithMeta = {
 // Write to public folder
 const outputPath = join(process.cwd(), "public", "resume.schema.json");
 writeFileSync(outputPath, JSON.stringify(schemaWithMeta, null, 2));
+
+// keep the generated file in Biome's format, or every build fights the linter
+spawnSync("bunx", ["biome", "format", "--write", outputPath], {
+  stdio: "ignore",
+});
 
 console.log(`JSON schema generated at: ${outputPath}`);

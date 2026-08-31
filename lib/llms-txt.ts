@@ -1,10 +1,10 @@
 import type {
+  ListEntry,
   Resume,
   Section,
-  TimelineEntry,
-  ListEntry,
   ShowcaseEntry,
   SummaryEntry,
+  TimelineEntry,
 } from "@/lib/types/resume";
 
 function stripHtml(html: string): string {
@@ -143,5 +143,5 @@ export function generateLlmsTxt(data: Resume): string {
     lines.push("", renderSection(section));
   }
 
-  return lines.join("\n") + "\n";
+  return `${lines.join("\n")}\n`;
 }

@@ -1,16 +1,16 @@
+import { FileText, Globe } from "lucide-react";
 import { FaGithub, FaPlayCircle } from "react-icons/fa";
-import { Globe, FileText } from "lucide-react";
-import { ShowcaseImage } from "./showcase-image";
-import { ListItem } from "./list-item";
-import { SummaryItem } from "./summary-item";
 import type {
-  Section as SectionType,
-  SectionEntry,
   Detail,
+  SectionEntry,
+  Section as SectionType,
   ShowcaseEntry,
-  TimelineEntry,
   ShowcaseLink,
+  TimelineEntry,
 } from "@/lib/types/resume";
+import { ListItem } from "./list-item";
+import { ShowcaseImage } from "./showcase-image";
+import { SummaryItem } from "./summary-item";
 
 interface FullSectionProps {
   section: SectionType;
@@ -91,11 +91,11 @@ function FullShowcaseEntry({ item }: { item: ShowcaseEntry }) {
               <>
                 <span className="text-muted-foreground">|</span>
                 <div className="flex items-center gap-1">
-                  {item.links.map((link, index) => {
+                  {item.links.map((link) => {
                     const Icon = linkIcons[link.type];
                     return (
                       <a
-                        key={`${link.type}-${index}`}
+                        key={`${link.type}-${link.url}`}
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"

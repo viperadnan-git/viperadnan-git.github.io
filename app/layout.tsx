@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import { DocumentContainer } from "@/components/layout/document-container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { getResumeData } from "@/lib/loader";
 import { generatePersonSchema } from "@/lib/seo/structured-data";
 import "./globals.css";
@@ -75,6 +75,7 @@ export default async function RootLayout({
       <head>
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD has no other injection point
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personSchema),
           }}

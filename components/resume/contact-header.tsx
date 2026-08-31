@@ -1,11 +1,11 @@
-import { Mail, Link2 } from "lucide-react";
+import { Link2, Mail } from "lucide-react";
 import {
+  FacebookIcon,
   GitHubIcon,
+  InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
   XIcon,
-  InstagramIcon,
-  FacebookIcon,
 } from "@/components/icons/brand-icons";
 import type { ContactInfo, ContactLink } from "@/lib/types/resume";
 import { getContactUrl } from "@/lib/utils";

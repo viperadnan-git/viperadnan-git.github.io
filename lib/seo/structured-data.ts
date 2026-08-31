@@ -1,6 +1,6 @@
+import { BUILD_TIME, SITE_CREATED_DATE } from "@/lib/constants";
 import type { Resume } from "@/lib/types/resume";
 import { getContactUrl } from "@/lib/utils";
-import { BUILD_TIME, SITE_CREATED_DATE } from "@/lib/constants";
 
 /**
  * Generates Person + ProfilePage structured data for the main profile

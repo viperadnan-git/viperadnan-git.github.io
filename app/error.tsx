@@ -1,16 +1,16 @@
 "use client";
 
+import { RotateCcw } from "lucide-react";
 import { useEffect } from "react";
 import { BackButton } from "@/components/layout/back-button";
 import { Button } from "@/components/ui/button";
-import { RotateCcw } from "lucide-react";
 
 interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
 }
 
-export default function Error({ error, reset }: ErrorProps) {
+export default function ErrorPage({ error, reset }: ErrorProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);

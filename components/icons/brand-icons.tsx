@@ -1,10 +1,10 @@
 import {
+  FaFacebook,
   FaGithub,
+  FaInstagram,
   FaLinkedin,
   FaTwitter,
   FaXTwitter,
-  FaInstagram,
-  FaFacebook,
 } from "react-icons/fa6";
 
 interface IconProps {

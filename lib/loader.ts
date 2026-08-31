@@ -1,5 +1,37 @@
-import { ResumeSchema, RESUME_SCHEMA_VERSION } from "@/lib/types/resume";
+import sanitizeHtml from "sanitize-html";
 import type { Resume } from "@/lib/types/resume";
+import { RESUME_SCHEMA_VERSION, ResumeSchema } from "@/lib/types/resume";
+
+// summary entries are the only field rendered as HTML, and RESUME_DATA_URL can
+// point anywhere, so they are sanitized here rather than at the render site
+function sanitizeSummaries(resume: Resume): Resume {
+  for (const section of resume.sections) {
+    for (const item of section.items) {
+      if (item.type === "summary") {
+        item.content = sanitizeHtml(item.content, {
+          allowedTags: [
+            "a",
+            "b",
+            "br",
+            "code",
+            "em",
+            "i",
+            "p",
+            "small",
+            "span",
+            "strong",
+            "sub",
+            "sup",
+            "u",
+          ],
+          allowedAttributes: { a: ["href", "title", "target", "rel"] },
+          allowedSchemes: ["http", "https", "mailto"],
+        });
+      }
+    }
+  }
+  return resume;
+}
 
 // Supported version range (semver major version must match)
 function isVersionCompatible(dataVersion: string): boolean {
@@ -56,6 +88,6 @@ export async function getResumeData(): Promise<Resume> {
     );
   }
 
-  cachedData = resumeData;
+  cachedData = sanitizeSummaries(resumeData);
   return cachedData;
 }
