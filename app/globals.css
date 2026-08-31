@@ -185,45 +185,107 @@
     overflow: hidden;
     pointer-events: none;
     opacity: 0;
+    background: var(--background); /* backdrop for the tiles' blend mode */
     animation: location-map-in 1.4s ease-out 0.1s forwards;
 }
 .location-map__plane {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: var(--map-opacity);
 }
+/* pins the tile's paper tone (#EFEFEF) onto --background and pushes the fills
+   past it; the blend mode then drops them, leaving only streets */
 .location-map__plane img {
     position: absolute;
     max-width: none;
-    filter: grayscale(1) invert(1) contrast(1.1); /* dark tiles inverted for light mode */
+    filter: grayscale(1) invert(1) contrast(0.9066) brightness(9.63)
+        opacity(var(--map-opacity));
+    mix-blend-mode: darken;
 }
 .dark .location-map__plane img {
-    filter: grayscale(1) contrast(1.1);
+    filter: grayscale(1) brightness(0.485) contrast(10.16)
+        opacity(var(--map-opacity));
+    mix-blend-mode: lighten;
 }
-/* clears the center reading column, released in the top/bottom margins */
+/* wash of --background over the reading column, eased so it spreads into the
+   margins instead of ending on a visible edge */
 .location-map__veil {
     position: absolute;
     inset: 0;
     background: var(--background);
     --veil-x: linear-gradient(
         to right,
-        transparent 14%,
-        #000 32%,
-        #000 68%,
-        transparent 86%
+        transparent 0%,
+        rgba(0, 0, 0, 0.067) 5%,
+        rgba(0, 0, 0, 0.233) 10%,
+        rgba(0, 0, 0, 0.45) 15%,
+        rgba(0, 0, 0, 0.667) 20%,
+        rgba(0, 0, 0, 0.833) 25%,
+        rgba(0, 0, 0, 0.9) 30%,
+        rgba(0, 0, 0, 0.94) 50%,
+        rgba(0, 0, 0, 0.9) 70%,
+        rgba(0, 0, 0, 0.833) 75%,
+        rgba(0, 0, 0, 0.667) 80%,
+        rgba(0, 0, 0, 0.45) 85%,
+        rgba(0, 0, 0, 0.233) 90%,
+        rgba(0, 0, 0, 0.067) 95%,
+        transparent 100%
     );
     --veil-y: linear-gradient(
         to bottom,
-        transparent 10vh,
-        #000 26vh,
-        #000 calc(100% - 40vh),
-        transparent calc(100% - 22vh)
+        transparent 4vh,
+        rgba(0, 0, 0, 0.07) 8.3vh,
+        rgba(0, 0, 0, 0.244) 12.7vh,
+        rgba(0, 0, 0, 0.47) 17.0vh,
+        rgba(0, 0, 0, 0.696) 21.3vh,
+        rgba(0, 0, 0, 0.87) 25.7vh,
+        rgba(0, 0, 0, 0.94) 30.0vh,
+        rgba(0, 0, 0, 0.94) calc(100% - 34vh),
+        rgba(0, 0, 0, 0.87) calc(100% - 29.3vh),
+        rgba(0, 0, 0, 0.696) calc(100% - 24.7vh),
+        rgba(0, 0, 0, 0.47) calc(100% - 20.0vh),
+        rgba(0, 0, 0, 0.244) calc(100% - 15.3vh),
+        rgba(0, 0, 0, 0.07) calc(100% - 10.7vh),
+        transparent calc(100% - 6vh)
     );
     -webkit-mask-image: var(--veil-x), var(--veil-y);
     mask-image: var(--veil-x), var(--veil-y);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
+}
+/* no margins to spare: near-uniform scrim, map carried by the top/bottom bands */
+@media (max-width: 767px) {
+    :root {
+        --map-opacity: 0.55; /* muted text on white has little contrast to spare */
+    }
+    .dark {
+        --map-opacity: 0.8;
+    }
+    .location-map__veil {
+        --veil-x: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.88) 50%,
+            rgba(0, 0, 0, 0.82) 100%
+        );
+        --veil-y: linear-gradient(
+            to bottom,
+            transparent 2vh,
+            rgba(0, 0, 0, 0.067) 5.0vh,
+            rgba(0, 0, 0, 0.233) 8.0vh,
+            rgba(0, 0, 0, 0.45) 11.0vh,
+            rgba(0, 0, 0, 0.667) 14.0vh,
+            rgba(0, 0, 0, 0.833) 17.0vh,
+            rgba(0, 0, 0, 0.9) 20.0vh,
+            rgba(0, 0, 0, 0.9) calc(100% - 26vh),
+            rgba(0, 0, 0, 0.833) calc(100% - 22.3vh),
+            rgba(0, 0, 0, 0.667) calc(100% - 18.7vh),
+            rgba(0, 0, 0, 0.45) calc(100% - 15.0vh),
+            rgba(0, 0, 0, 0.233) calc(100% - 11.3vh),
+            rgba(0, 0, 0, 0.067) calc(100% - 7.7vh),
+            transparent calc(100% - 4vh)
+        );
+    }
 }
 @keyframes location-map-in {
     to {

@@ -67,12 +67,12 @@ export function DocumentContainer({
                 </Link>{" "}
                 &middot;{" "}
                 <Link
-                  href="https://carto.com/attributions"
+                  href="https://www.esri.com/en-us/legal/terms/full-master-agreement"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground"
                 >
-                  CARTO
+                  Esri
                 </Link>
               </span>
             </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const FALLBACK = { lat: 28.6139, lng: 77.209 }; // New Delhi
 const ZOOM = 15;
-const DISPLAY = 256; // 256 CSS px = 512 device px on retina = 1:1 with @2x tiles
+const DISPLAY = 256; // Esri serves no @2x variant
 
 type Center = { lat: number; lng: number };
 type View = { center: Center; vw: number; vh: number; pageH: number };
@@ -64,7 +64,6 @@ export function LocationMap() {
   if (!view) return null;
 
   const { center, vw, vh, pageH } = view;
-  const style = "dark_nolabels"; // inverted in CSS for light mode
   const n = 2 ** ZOOM;
   const { x: cx, y: cy } = project(center.lat, center.lng, ZOOM);
 
@@ -85,7 +84,7 @@ export function LocationMap() {
       const wx = ((tx % n) + n) % n; // positive modulo → wrap x
       tiles.push({
         key: `${tx}-${ty}`,
-        src: `https://a.basemaps.cartocdn.com/${style}/${ZOOM}/${wx}/${ty}@2x.png`,
+        src: `https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/${ZOOM}/${ty}/${wx}`,
         left: baseLeft + i * DISPLAY,
         top: baseTop + j * DISPLAY,
       });
