@@ -85,7 +85,10 @@ export default async function RootLayout({
         className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <DocumentContainer showCounter={resumeData.meta.counter}>
+          <DocumentContainer
+            showCounter={resumeData.meta.counter}
+            legal={resumeData.meta.legal}
+          >
             <ThemeToggle />
             {children}
           </DocumentContainer>

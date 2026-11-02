@@ -2,15 +2,18 @@ import Link from "next/link";
 import { GitHubIcon } from "@/components/icons/brand-icons";
 import { LocationMap } from "@/components/resume/location-map";
 import { VisitorCounter } from "@/components/resume/visitor-counter";
+import type { SiteMeta } from "@/lib/types/resume";
 
 interface DocumentContainerProps {
   children: React.ReactNode;
   showCounter?: boolean;
+  legal?: SiteMeta["legal"];
 }
 
 export function DocumentContainer({
   children,
   showCounter,
+  legal,
 }: DocumentContainerProps) {
   return (
     <>
@@ -35,8 +38,7 @@ export function DocumentContainer({
                 aria-hidden="true"
                 className="size-5 shrink-0"
               >
-                <path d="M39 14 L50 40 L61 14 L85 71 L65 71 L50 47 L35 71 L15 71 Z" />
-                <rect x="28" y="79" width="44" height="8" rx="4" />
+                <path d="M36.9 12.5 L50 43.45 L63.1 12.5 L91.67 80.36 L67.86 80.36 L50 51.79 L32.14 80.36 L8.33 80.36 Z" />
               </svg>
               <span className="h-px flex-1 bg-current" />
             </div>
@@ -76,6 +78,19 @@ export function DocumentContainer({
                 </Link>
               </span>
             </div>
+
+            {legal && legal.length > 0 && (
+              <nav
+                aria-label="Legal"
+                className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground/60"
+              >
+                {legal.map(({ label, url }) => (
+                  <Link key={url} href={url} className="hover:text-foreground">
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            )}
           </div>
         </footer>
       </main>

@@ -20,7 +20,11 @@
       "backend developer",
       "open source"
     ],
-    "counter": true
+    "counter": true,
+    "legal": [
+      { "label": "Privacy", "url": "https://viperadnan.com/pages/privacy/" },
+      { "label": "Terms", "url": "https://viperadnan.com/pages/terms/" }
+    ]
   },
   "contact": {
     "links": [

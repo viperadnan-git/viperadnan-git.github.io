@@ -39,8 +39,7 @@ export function ContactHeader({ name, bio, contact }: ContactHeaderProps) {
         aria-hidden="true"
         className="mx-auto mb-4 size-12"
       >
-        <path d="M39 14 L50 40 L61 14 L85 71 L65 71 L50 47 L35 71 L15 71 Z" />
-        <rect x="28" y="79" width="44" height="8" rx="4" />
+        <path d="M36.9 12.5 L50 43.45 L63.1 12.5 L91.67 80.36 L67.86 80.36 L50 51.79 L32.14 80.36 L8.33 80.36 Z" />
       </svg>
       <h1 className="font-heading text-4xl font-bold md:text-5xl">{name}</h1>
       {bio && (
