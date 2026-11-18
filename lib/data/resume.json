@@ -4,7 +4,7 @@
   "username": "viperadnan",
   "title": "Software Engineer",
   "bio": "CSE'25 | EE'22 | Software Engineer | Open Source Contributor",
-  "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. Doing reverse engineering and building software which solves real-world problems is my forte. I've created open-source solutions for automations, file sharing, data syncing, and more.",
+  "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. I build and run the core of creator-economy platforms end to end: APIs and data, GPU video rendering, and the AWS infrastructure under them. I've also created open-source solutions for automations, file sharing, data syncing, and more.",
   "location": "New Delhi, India",
   "gender": "male",
   "languages": ["English", "Hindi", "Urdu"],
@@ -18,7 +18,11 @@
       "iOS developer",
       "web developer",
       "backend developer",
-      "open source"
+      "AWS",
+      "cloud infrastructure",
+      "open source",
+      "Python",
+      "FastAPI"
     ],
     "counter": true,
     "legal": [
@@ -62,7 +66,7 @@
         {
           "type": "summary",
           "slug": "about",
-          "content": "Software engineer based in <strong>New Delhi, India</strong> with a knack for <strong>reverse engineering</strong> and building software that solves real-world problems.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
+          "content": "Software engineer based in <strong>New Delhi, India</strong>, working remotely for US startups. I build and run the core of <strong>creator-economy platforms</strong> end to end: <strong>APIs and data</strong>, <strong>GPU video rendering</strong>, and the <strong>AWS infrastructure</strong> under them.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
         }
       ]
     },
@@ -71,6 +75,58 @@
       "title": "Projects",
       "limit": 4,
       "items": [
+        {
+          "type": "showcase",
+          "slug": "debridui",
+          "title": "DebridUI",
+          "subtitle": "Modern debrid client with integrated media discovery",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg"
+            },
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
+            }
+          ],
+          "link": "https://debridui.viperadnan.com",
+          "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/debridui"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "tiiny",
+          "title": "tiiny",
+          "subtitle": "Self-hosted link shortener that counts clicks, not people",
+          "images": [
+            {
+              "url": "https://api.microlink.io/?url=https://go.viperadnan.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
+            }
+          ],
+          "link": "https://go.viperadnan.com",
+          "description": "A Rust link shortener with custom slugs, privacy-friendly daily stats (no IPs or per-visit records), link previews, guest links, OAuth sign-in and an admin abuse queue. Ships as one Docker container using about 9 MB of memory at idle, backed by libSQL or Turso.",
+          "status": "active",
+          "featured": true,
+          "links": [
+            {
+              "type": "website",
+              "url": "https://go.viperadnan.com"
+            },
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/tiiny"
+            }
+          ]
+        },
         {
           "type": "showcase",
           "slug": "rspace",
@@ -99,28 +155,25 @@
         },
         {
           "type": "showcase",
-          "slug": "debridui",
-          "title": "DebridUI",
-          "subtitle": "Modern debrid client with integrated media discovery",
+          "slug": "supabase-orm",
+          "title": "supabase-orm",
+          "subtitle": "Async, Pydantic-native Python ORM for Supabase — runs in production at Vues",
           "images": [
             {
-              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-1.jpg"
-            },
-            {
-              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-2.jpg"
-            },
-            {
-              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767175088/debridui-mockup-3.jpg"
+              "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/supabase-orm&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
             }
           ],
-          "link": "https://debridui.viperadnan.com",
-          "description": "A fast debrid client that connects to debrid service APIs, enabling users to manage files across multiple accounts, track downloads in real-time, and browse media catalogs with Trakt.tv integration.",
+          "link": "https://supabase-orm.readthedocs.io",
+          "description": "Pydantic models double as tables with a typed, autocompleting query builder, declarative embeds, keyset iteration and typed RPC. Async-first for FastAPI with a generated sync mirror and per-request RLS. Powers the data layer of the Vues API and background jobs.",
           "status": "active",
-          "featured": true,
           "links": [
             {
+              "type": "docs",
+              "url": "https://supabase-orm.readthedocs.io"
+            },
+            {
               "type": "github",
-              "url": "https://github.com/viperadnan-git/debridui"
+              "url": "https://github.com/viperadnan-git/supabase-orm"
             }
           ]
         },
@@ -151,6 +204,45 @@
         },
         {
           "type": "showcase",
+          "slug": "google-drive-telegram-bot",
+          "title": "Google Drive Telegram Bot",
+          "subtitle": "Manage Google Drive through Telegram — 700+ stars 1.5k+ forks",
+          "images": [
+            {
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
+          "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
+          "status": "archived",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/google-drive-telegram-bot"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "telegram-message-forwarder-bot",
+          "title": "Telegram Message Forwarder Bot",
+          "subtitle": "Auto-forward messages between Telegram chats — 440+ stars 460+ forks",
+          "images": [
+            {
+              "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/telegram-message-forwarder-bot&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
+            }
+          ],
+          "link": "https://github.com/viperadnan-git/telegram-message-forwarder-bot",
+          "description": "A Telegram bot that forwards messages from channels, groups or chats to other chats as they arrive, with multi-source routing and text replacement rules, configured through a single TOML file.",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/telegram-message-forwarder-bot"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
           "slug": "lemonic",
           "title": "Lemonic",
           "featured": true,
@@ -167,6 +259,26 @@
             {
               "type": "website",
               "url": "https://lemonic.pages.dev/"
+            }
+          ]
+        },
+        {
+          "type": "showcase",
+          "slug": "transferit-py",
+          "title": "transferit-py",
+          "subtitle": "Python client and CLI for transfer.it file sharing",
+          "images": [
+            {
+              "url": "https://api.microlink.io/?url=https://github.com/viperadnan-git/transferit-py&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000"
+            }
+          ],
+          "link": "https://pypi.org/project/transferit-py/",
+          "description": "Upload and download files on transfer.it without a browser or MEGA account. End-to-end encrypted with the same scheme as the official client, concurrent WebSocket uploads, constant-memory streaming downloads, and folder support, as both a library and a CLI.",
+          "status": "active",
+          "links": [
+            {
+              "type": "github",
+              "url": "https://github.com/viperadnan-git/transferit-py"
             }
           ]
         },
@@ -226,26 +338,6 @@
         },
         {
           "type": "showcase",
-          "slug": "switchbot",
-          "title": "SwitchBot",
-          "subtitle": "IoT relay controller with ESP32 and WebSocket",
-          "images": [
-            {
-              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
-            }
-          ],
-          "link": "https://github.com/viperadnan-git/SwitchBot",
-          "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
-          "status": "development",
-          "links": [
-            {
-              "type": "github",
-              "url": "https://github.com/viperadnan-git/SwitchBot"
-            }
-          ]
-        },
-        {
-          "type": "showcase",
           "slug": "gatekeep",
           "title": "GateKeep",
           "subtitle": "Open-source end-to-end encrypted 2FA authenticator app",
@@ -291,21 +383,21 @@
         },
         {
           "type": "showcase",
-          "slug": "google-drive-telegram-bot",
-          "title": "Google Drive Telegram Bot",
-          "subtitle": "Manage Google Drive through Telegram — 690+ stars 1.6k+ forks",
+          "slug": "switchbot",
+          "title": "SwitchBot",
+          "subtitle": "IoT relay controller with ESP32 and WebSocket",
           "images": [
             {
-              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767177065/google-drive-telegram-bot-mockup.jpg"
+              "url": "https://res.cloudinary.com/viperadnan/image/upload/v1767178089/switch-bot-mockup.jpg"
             }
           ],
-          "link": "https://github.com/viperadnan-git/google-drive-telegram-bot",
-          "description": "A Telegram bot to upload files from Telegram or direct links to Google Drive. Supports cloning, deleting files, TeamDrive operations, and youtube-dl integration.",
-          "status": "archived",
+          "link": "https://github.com/viperadnan-git/SwitchBot",
+          "description": "A home automation system that turns electrical appliances into smart devices. Control up to 8 relays remotely via REST API or WebSocket, with manual switch override and WiFi captive portal setup.",
+          "status": "development",
           "links": [
             {
               "type": "github",
-              "url": "https://github.com/viperadnan-git/google-drive-telegram-bot"
+              "url": "https://github.com/viperadnan-git/SwitchBot"
             }
           ]
         }
@@ -320,25 +412,37 @@
           "type": "list",
           "slug": "languages",
           "title": "Languages",
-          "subtitle": "Python, TypeScript, Rust, Swift, Go, C++"
+          "subtitle": "Python, TypeScript, SQL, Go, Rust, Swift"
         },
         {
           "type": "list",
           "slug": "frameworks",
           "title": "Frameworks",
-          "subtitle": "Next.js, FastAPI, React, Vue, Tailwind, SwiftUI, Flask"
+          "subtitle": "FastAPI, Next.js, React, SvelteKit, Tailwind CSS, TanStack Query, SwiftUI, Tauri"
         },
         {
           "type": "list",
-          "slug": "tools",
-          "title": "Tools",
-          "subtitle": "PostgreSQL, MongoDB, Redis, Git, CircleCI, Cloudflare, Docker, Oracle Cloud, Debian, Ubuntu"
+          "slug": "ai-media",
+          "title": "AI & Media",
+          "subtitle": "LLM Integration, AI Agents, FFmpeg, OpenGL / GLSL"
         },
         {
           "type": "list",
-          "slug": "soft-skills",
-          "title": "Soft Skills",
-          "subtitle": "Debugger, Installation & Management, Technical Support, Self-Hosting Apps"
+          "slug": "cloud-devops",
+          "title": "Cloud & DevOps",
+          "subtitle": "AWS, CloudFormation, Docker, GitHub Actions, Cloudflare, Linux"
+        },
+        {
+          "type": "list",
+          "slug": "data",
+          "title": "Data",
+          "subtitle": "PostgreSQL, Supabase, ClickHouse, Redis, MongoDB, SQLAlchemy, Drizzle ORM"
+        },
+        {
+          "type": "list",
+          "slug": "practices",
+          "title": "Practices",
+          "subtitle": "System Design, Technical Leadership, Code Review, Observability (Sentry, PostHog, CloudWatch)"
         }
       ]
     },
@@ -351,24 +455,47 @@
       "items": [
         {
           "type": "timeline",
+          "slug": "vues",
+          "title": "Vues Technology",
+          "subtitle": "Lead Software Engineer",
+          "location": "New York, US (Remote)",
+          "period": "May 2026 - Present",
+          "details": [
+            {
+              "title": "Backend Development",
+              "description": "Architected the core of a creator marketing platform on FastAPI, PostgreSQL and ClickHouse, from brand campaigns and creator payouts to analytics, and made key API requests ~3x faster."
+            },
+            {
+              "title": "GPU Rendering",
+              "description": "Built a GPU-accelerated OpenGL video template renderer and a cloud rendering pipeline on AWS Spot GPUs that renders and auto-publishes creator videos to social platforms."
+            },
+            {
+              "title": "DevOps",
+              "description": "Owned the AWS infrastructure end to end: services on ECS, GPU rendering on AWS Batch with Spot instances, S3 and CloudFront delivery and email, all defined as code across every environment."
+            }
+          ],
+          "link": "https://vues.app"
+        },
+        {
+          "type": "timeline",
           "slug": "sludgeai",
           "title": "SludgeAI",
-          "subtitle": "Founding Engineer, Full Stack Developer",
-          "location": "New York, US",
-          "period": "Jan 2025 - Present",
+          "subtitle": "Founding Engineer",
+          "location": "New York, US (Remote)",
+          "period": "Jan 2025 - Apr 2026",
           "link": "https://sludge.ai/",
           "details": [
             {
               "title": "AI Development",
-              "description": "Created a fully automated social media content creation platform using AI agents, enabling seamless generation of diverse media types."
+              "description": "Created a fully automated social media content platform using AI agents for diverse media types."
             },
             {
-              "title": "Backend Developer",
-              "description": "Re-wrote and optimized backend infrastructure and code-base, improving system efficiency by 200% and integrating multi-platform support for enhanced scalability."
+              "title": "Backend Development",
+              "description": "Re-wrote and optimized the backend, adding support for multiple social platforms."
             },
             {
               "title": "DevOps",
-              "description": "Managed AWS infrastructure, reducing project operational costs by 67%. Implemented dynamic scaling and leveraged SPOT instances to optimize resource usage and cost-efficiency."
+              "description": "Managed AWS infrastructure, cutting operational costs by 67% with dynamic scaling and Spot instances."
             }
           ]
         },
@@ -382,12 +509,12 @@
           "link": "https://www.infosys.com/",
           "details": [
             {
-              "title": "SCRUM Master",
-              "description": "Led daily stand-ups and sprint planning meetings, effectively communicating project goals and progress to team members and stakeholders."
+              "title": "Scrum Master",
+              "description": "Led daily stand-ups and sprint planning, keeping the team and stakeholders aligned."
             },
             {
               "title": "iOS App Development",
-              "description": "Developed a hospital management app, which was completed ahead of schedule."
+              "description": "Developed a hospital management app in the Apple x Infosys program, ahead of schedule."
             }
           ]
         },
@@ -402,7 +529,7 @@
           "details": [
             {
               "title": "Automation Improvement",
-              "description": "Redesigned data scraping tools and automated marketing process, saving over 200 hours per month and enhancing data accuracy by 40%."
+              "description": "Redesigned data scraping tools and automated the marketing process, saving an estimated 200+ hours of manual work per month."
             }
           ]
         },
@@ -412,15 +539,15 @@
           "title": "Freelancer",
           "subtitle": "API & Back-end Developer",
           "location": "Remote",
-          "period": "May 2019 - Present",
+          "period": "May 2019 - May 2024",
           "details": [
             {
               "title": "Open Source Contributions",
-              "description": "Created and contributed to open-source projects with 1300+ stars and 3000+ forks in total."
+              "description": "Created and contributed to open-source projects with 2,100+ stars and 3,100+ forks."
             },
             {
-              "title": "Development & Deployment",
-              "description": "Developed and deployed scalable back-end applications and bots, achieving 99.9% uptime and reducing server response time by 25%."
+              "title": "Deployment",
+              "description": "Built and deployed back-end apps and Telegram bots for clients, self-hosted on Docker."
             }
           ]
         },
@@ -434,7 +561,7 @@
           "details": [
             {
               "title": "Maintenance Operations",
-              "description": "Directed maintenance operations for Grid, Substation, and Transformers, resulting in a 5% increase in overall system reliability within 1 month."
+              "description": "Directed maintenance operations for Grid, Substation, and Transformers."
             }
           ]
         }
@@ -450,7 +577,7 @@
           "type": "timeline",
           "slug": "galgotias-university",
           "title": "Galgotias University",
-          "subtitle": "B.Tech. in Computer Science & Engineering — CGPA: 8.88",
+          "subtitle": "B.Tech. in Computer Science & Engineering — CGPA: 8.88/10",
           "location": "Greater Noida, U.P., India",
           "period": "Aug 2022 - Jun 2025",
           "details": [
@@ -477,21 +604,13 @@
               "style": "list"
             }
           ]
-        },
-        {
-          "type": "timeline",
-          "slug": "gbsss",
-          "title": "G.B.S.S.S. School No. 2",
-          "subtitle": "High School, CBSE — 87.8%",
-          "location": "New Delhi, India",
-          "period": "Apr 2018 - Mar 2019"
         }
       ],
       "type": "education"
     },
     {
       "id": "certification",
-      "title": "Certifications & Publications",
+      "title": "Programs & Publications",
       "detailsLabel": "highlights",
       "items": [
         {
@@ -505,11 +624,7 @@
           "details": [
             {
               "title": "Research Contribution",
-              "description": "Proposed GateKeep, an open-source end-to-end encrypted 2FA framework using client-side AES-256-CBC encryption, PBKDF2 key derivation, and HMAC-SHA256 integrity checks."
-            },
-            {
-              "title": "Results",
-              "description": "Achieved sub-300 ms multi-device synchronization, OTP generation under 3 ms, and scalability up to 15,000 users with under 100 MB server RAM usage."
+              "description": "Proposed GateKeep, an open-source end-to-end encrypted 2FA framework (AES-256, PBKDF2, HMAC-SHA256) with sub-300 ms multi-device sync and 15,000 users on under 100 MB of server RAM."
             }
           ]
         },
@@ -524,29 +639,11 @@
           "details": [
             {
               "title": "Leadership",
-              "description": "Led a team in an intensive program where we identified and researched a significant problem, then pitched a viable solution."
+              "description": "Selected for the program at Apple's iOS Development Centre; led a 4-person team from research to pitch."
             },
             {
-              "title": "Development",
-              "description": "Designed an innovative UI/UX and developed a fully functional native iOS application."
-            }
-          ]
-        },
-        {
-          "type": "timeline",
-          "slug": "mahindra-pride",
-          "title": "Mahindra Pride Classroom",
-          "subtitle": "Employability Skills Development Training",
-          "location": "GBPIT, New Delhi, India",
-          "period": "Nov 2021 - Dec 2021",
-          "details": [
-            {
-              "title": "Skills Enhancement",
-              "description": "Enhanced communication and understanding skills."
-            },
-            {
-              "title": "Corporate Insights",
-              "description": "Gained insights into corporate hiring systems and procedures."
+              "title": "iOS App Development",
+              "description": "Built AcneCare, a native iOS app that detects acne from a face scan with computer vision."
             }
           ]
         }
