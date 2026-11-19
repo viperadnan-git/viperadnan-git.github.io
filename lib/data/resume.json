@@ -405,48 +405,6 @@
       "type": "project"
     },
     {
-      "id": "skills",
-      "title": "Skills Summary",
-      "items": [
-        {
-          "type": "list",
-          "slug": "languages",
-          "title": "Languages",
-          "subtitle": "Python, TypeScript, SQL, Go, Rust, Swift"
-        },
-        {
-          "type": "list",
-          "slug": "frameworks",
-          "title": "Frameworks",
-          "subtitle": "FastAPI, Next.js, React, SvelteKit, Tailwind CSS, TanStack Query, SwiftUI, Tauri"
-        },
-        {
-          "type": "list",
-          "slug": "ai-media",
-          "title": "AI & Media",
-          "subtitle": "LLM Integration, AI Agents, FFmpeg, OpenGL / GLSL"
-        },
-        {
-          "type": "list",
-          "slug": "cloud-devops",
-          "title": "Cloud & DevOps",
-          "subtitle": "AWS, CloudFormation, Docker, GitHub Actions, Cloudflare, Linux"
-        },
-        {
-          "type": "list",
-          "slug": "data",
-          "title": "Data",
-          "subtitle": "PostgreSQL, Supabase, ClickHouse, Redis, MongoDB, SQLAlchemy, Drizzle ORM"
-        },
-        {
-          "type": "list",
-          "slug": "practices",
-          "title": "Practices",
-          "subtitle": "System Design, Technical Leadership, Code Review, Observability (Sentry, PostHog, CloudWatch)"
-        }
-      ]
-    },
-    {
       "id": "experience",
       "title": "Experience",
       "detailsLabel": "highlights",
@@ -567,6 +525,48 @@
         }
       ],
       "type": "experience"
+    },
+    {
+      "id": "skills",
+      "title": "Skills Summary",
+      "items": [
+        {
+          "type": "list",
+          "slug": "languages",
+          "title": "Languages",
+          "subtitle": "Python, TypeScript, SQL, Go, Rust, Swift"
+        },
+        {
+          "type": "list",
+          "slug": "frameworks",
+          "title": "Frameworks",
+          "subtitle": "FastAPI, Next.js, React, SvelteKit, Tailwind CSS, TanStack Query, SwiftUI, Tauri"
+        },
+        {
+          "type": "list",
+          "slug": "ai-media",
+          "title": "AI & Media",
+          "subtitle": "LLM Integration, AI Agents, FFmpeg, OpenGL / GLSL"
+        },
+        {
+          "type": "list",
+          "slug": "cloud-devops",
+          "title": "Cloud & DevOps",
+          "subtitle": "AWS, CloudFormation, Docker, GitHub Actions, Cloudflare, Linux"
+        },
+        {
+          "type": "list",
+          "slug": "data",
+          "title": "Data",
+          "subtitle": "PostgreSQL, Supabase, ClickHouse, Redis, MongoDB, SQLAlchemy, Drizzle ORM"
+        },
+        {
+          "type": "list",
+          "slug": "practices",
+          "title": "Practices",
+          "subtitle": "System Design, Technical Leadership, Code Review, Observability (Sentry, PostHog, CloudWatch)"
+        }
+      ]
     },
     {
       "id": "education",
