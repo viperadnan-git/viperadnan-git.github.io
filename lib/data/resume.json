@@ -1,11 +1,10 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Adnan Ahmad",
   "username": "viperadnan",
   "title": "Software Engineer",
-  "bio": "CSE'25 | EE'22 | Software Engineer | Open Source Contributor",
-  "about": "Hey, I'm Adnan, a software engineer based in New Delhi, India. I build and run the core of creator-economy platforms end to end: APIs and data, GPU video rendering, and the AWS infrastructure under them. I've also created open-source solutions for automations, file sharing, data syncing, and more.",
-  "location": "New Delhi, India",
+  "about": "Software engineer building the core of creator-economy platforms at Vues: APIs and data, video rendering, and the cloud under them. Delhi, India.",
+  "location": "Delhi, India",
   "gender": "male",
   "languages": ["English", "Hindi", "Urdu"],
   "nationality": "India",
@@ -26,8 +25,14 @@
     ],
     "counter": true,
     "legal": [
-      { "label": "Privacy", "url": "https://viperadnan.com/pages/privacy/" },
-      { "label": "Terms", "url": "https://viperadnan.com/pages/terms/" }
+      {
+        "label": "Privacy",
+        "url": "https://viperadnan.com/pages/privacy/"
+      },
+      {
+        "label": "Terms",
+        "url": "https://viperadnan.com/pages/terms/"
+      }
     ]
   },
   "contact": {
@@ -41,20 +46,12 @@
         "value": "viperadnan-git"
       },
       {
-        "type": "linkedin",
+        "type": "telegram",
         "value": "viperadnan"
       },
       {
         "type": "x",
         "value": "viperadn"
-      },
-      {
-        "type": "instagram",
-        "value": "viperadnan"
-      },
-      {
-        "type": "facebook",
-        "value": "viperadnan"
       }
     ]
   },
@@ -66,7 +63,7 @@
         {
           "type": "summary",
           "slug": "about",
-          "content": "Software engineer based in <strong>New Delhi, India</strong>, working remotely for US startups. I build and run the core of <strong>creator-economy platforms</strong> end to end: <strong>APIs and data</strong>, <strong>GPU video rendering</strong>, and the <strong>AWS infrastructure</strong> under them.<br/><br/>I hold a <strong>B.Tech in Computer Science</strong> and a <strong>Diploma in Electrical Engineering</strong>, giving me a unique edge across hardware and software. I've built open-source tools for <strong>automations</strong>, <strong>file sharing</strong>, <strong>video streaming</strong>, and <strong>IoT control</strong>.<br/><br/>When I'm not shipping code, I'm probably tinkering with embedded systems or exploring new ways to make technology more accessible."
+          "content": "<p>Building the core of creator-economy platforms at <a href=\"https://vues.app\">Vues</a>: APIs and data, video rendering, and the cloud infrastructure under them. I've been writing open-source tools since 2019, usually to solve problems I kept running into.</p><p>I like reverse engineering apps and APIs to see how they work, and how they break.</p>"
         }
       ]
     },
@@ -407,8 +404,6 @@
     {
       "id": "experience",
       "title": "Experience",
-      "detailsLabel": "highlights",
-      "timeline": true,
       "limit": 4,
       "items": [
         {
@@ -478,21 +473,6 @@
         },
         {
           "type": "timeline",
-          "slug": "cypherock",
-          "title": "Cypherock",
-          "subtitle": "Junior Software Developer",
-          "location": "Gurugram, India",
-          "period": "Nov 2023 - Jan 2024",
-          "link": "https://www.cypherock.com/",
-          "details": [
-            {
-              "title": "Automation Improvement",
-              "description": "Redesigned data scraping tools and automated the marketing process, saving an estimated 200+ hours of manual work per month."
-            }
-          ]
-        },
-        {
-          "type": "timeline",
           "slug": "freelancer",
           "title": "Freelancer",
           "subtitle": "API & Back-end Developer",
@@ -506,6 +486,21 @@
             {
               "title": "Deployment",
               "description": "Built and deployed back-end apps and Telegram bots for clients, self-hosted on Docker."
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "slug": "cypherock",
+          "title": "Cypherock",
+          "subtitle": "Junior Software Developer",
+          "location": "Gurugram, India",
+          "period": "Nov 2023 - Jan 2024",
+          "link": "https://www.cypherock.com/",
+          "details": [
+            {
+              "title": "Automation Improvement",
+              "description": "Redesigned data scraping tools and automated the marketing process, saving an estimated 200+ hours of manual work per month."
             }
           ]
         },
@@ -528,50 +523,55 @@
     },
     {
       "id": "skills",
-      "title": "Skills Summary",
+      "title": "Stack",
       "items": [
         {
           "type": "list",
-          "slug": "languages",
-          "title": "Languages",
-          "subtitle": "Python, TypeScript, SQL, Go, Rust, Swift"
-        },
-        {
-          "type": "list",
-          "slug": "frameworks",
-          "title": "Frameworks",
-          "subtitle": "FastAPI, Next.js, React, SvelteKit, Tailwind CSS, TanStack Query, SwiftUI, Tauri"
-        },
-        {
-          "type": "list",
-          "slug": "ai-media",
-          "title": "AI & Media",
-          "subtitle": "LLM Integration, AI Agents, FFmpeg, OpenGL / GLSL"
-        },
-        {
-          "type": "list",
-          "slug": "cloud-devops",
-          "title": "Cloud & DevOps",
-          "subtitle": "AWS, CloudFormation, Docker, GitHub Actions, Cloudflare, Linux"
+          "slug": "backend",
+          "title": "Backend",
+          "subtitle": "Python, TypeScript, Go, Rust, C++, FastAPI"
         },
         {
           "type": "list",
           "slug": "data",
           "title": "Data",
-          "subtitle": "PostgreSQL, Supabase, ClickHouse, Redis, MongoDB, SQLAlchemy, Drizzle ORM"
+          "subtitle": "PostgreSQL, ClickHouse, Redis, Supabase, MongoDB"
         },
         {
           "type": "list",
-          "slug": "practices",
-          "title": "Practices",
-          "subtitle": "System Design, Technical Leadership, Code Review, Observability (Sentry, PostHog, CloudWatch)"
+          "slug": "ai-video",
+          "title": "AI and video",
+          "subtitle": "LLM integrations and agents, OpenGL / GLSL, FFmpeg"
+        },
+        {
+          "type": "list",
+          "slug": "infrastructure",
+          "title": "Infrastructure",
+          "subtitle": "AWS, Docker, GitHub Actions, CloudFormation"
+        },
+        {
+          "type": "list",
+          "slug": "frontend",
+          "title": "Frontend",
+          "subtitle": "React, Next.js, SvelteKit"
+        },
+        {
+          "type": "list",
+          "slug": "native-apps",
+          "title": "Native apps",
+          "subtitle": "Tauri, GPUI, Swift, SwiftUI, UIKit"
+        },
+        {
+          "type": "list",
+          "slug": "hardware",
+          "title": "Hardware",
+          "subtitle": "ESP32, Arduino"
         }
       ]
     },
     {
       "id": "education",
       "title": "Education",
-      "timeline": true,
       "items": [
         {
           "type": "timeline",
@@ -611,7 +611,6 @@
     {
       "id": "certification",
       "title": "Programs & Publications",
-      "detailsLabel": "highlights",
       "items": [
         {
           "type": "timeline",
@@ -668,7 +667,7 @@
           "slug": "smart-india-hackathon",
           "title": "Smart India Hackathon",
           "subtitle": "Top 10 Finalist",
-          "location": "Galgotias University, U.P. India",
+          "location": "Galgotias University, Greater Noida, India",
           "period": "Oct 2023"
         }
       ],

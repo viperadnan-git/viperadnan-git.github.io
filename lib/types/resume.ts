@@ -1,7 +1,10 @@
 import { z } from "zod/v4";
 
+// the site origin: metadata, canonical URLs and the sitemap are built on it
+const webUrl = z.url({ protocol: /^https?$/ });
+
 // Schema version for compatibility checks
-export const RESUME_SCHEMA_VERSION = "1.0.0";
+export const RESUME_SCHEMA_VERSION = "1.1.0";
 
 // Contact types
 export const ContactLinkSchema = z.object({
@@ -13,6 +16,7 @@ export const ContactLinkSchema = z.object({
     "x",
     "instagram",
     "facebook",
+    "telegram",
     "custom",
   ]),
   value: z.string(),
@@ -56,6 +60,7 @@ export const TimelineEntrySchema = z.object({
   period: z.string(),
   location: z.string().optional(),
   details: z.array(DetailSchema).optional(),
+  /** a full http(s) URL shows as host/path; anything else as written */
   link: z.string().optional(),
 });
 
@@ -73,7 +78,9 @@ export const SummaryEntrySchema = z.object({
 export const ShowcaseEntrySchema = z.object({
   ...baseEntryFields,
   type: z.literal("showcase"),
-  images: z.array(ShowcaseImageSchema),
+  /** none: the row opens straight to its description */
+  images: z.array(ShowcaseImageSchema).optional(),
+  /** a full http(s) URL shows as host/path; anything else as written */
   link: z.string(),
   description: z.string(),
   status: z.enum(["active", "archived", "development"]).optional(),
@@ -96,8 +103,6 @@ export const SectionSchema = z.object({
   type: z
     .enum(["education", "experience", "project", "award", "custom"])
     .optional(),
-  detailsLabel: z.string().optional(),
-  timeline: z.boolean().optional(),
   limit: z.number().optional(),
   items: z.array(SectionEntrySchema),
 });
@@ -112,13 +117,18 @@ export const SiteMetaSchema = z.object({
 // Root resume type
 export const ResumeSchema = z.object({
   version: z.string(),
-  url: z.string(),
+  /** site origin; trailing slashes are dropped so paths can be appended */
+  url: webUrl.transform((u) => u.replace(/\/+$/, "")),
   name: z.string(),
   username: z.string().optional(),
   honorificSuffix: z.string().optional(),
   title: z.string().optional(),
-  bio: z.string().optional(),
-  about: z.string().optional(),
+  about: z
+    .string()
+    .describe(
+      "One or two sentences, ≤160 characters; used for search and social previews",
+    )
+    .optional(),
   location: z.string().optional(),
   nationality: z.string().optional(),
   gender: z.enum(["male", "female", "rather-not-say"]).optional(),

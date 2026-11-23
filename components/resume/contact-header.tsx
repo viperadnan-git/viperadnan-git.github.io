@@ -1,77 +1,73 @@
-import { Link2, Mail } from "lucide-react";
-import {
-  FacebookIcon,
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-  XIcon,
-} from "@/components/icons/brand-icons";
+import { Fragment } from "react";
+import { ExternalLink } from "@/components/shared/external-link";
+import { Button } from "@/components/ui/button";
 import type { ContactInfo, ContactLink } from "@/lib/types/resume";
-import { getContactUrl } from "@/lib/utils";
-import { EmailLink } from "./email-link";
+import { getContactUrl, listSeparator } from "@/lib/utils";
 
-interface ContactHeaderProps {
-  name: string;
-  bio?: string;
-  contact: ContactInfo;
-}
-
-const iconMap: Record<
-  Exclude<ContactLink["type"], "email">,
-  React.ReactNode
-> = {
-  github: <GitHubIcon className="size-4" />,
-  linkedin: <LinkedInIcon className="size-4" />,
-  twitter: <TwitterIcon className="size-4" />,
-  x: <XIcon className="size-4" />,
-  instagram: <InstagramIcon className="size-4" />,
-  facebook: <FacebookIcon className="size-4" />,
-  custom: <Link2 className="size-4" />,
+const labels: Record<ContactLink["type"], string> = {
+  email: "email",
+  github: "GitHub",
+  linkedin: "LinkedIn",
+  twitter: "Twitter",
+  x: "X",
+  instagram: "Instagram",
+  facebook: "Facebook",
+  telegram: "Telegram",
+  custom: "Link",
 };
 
-export function ContactHeader({ name, bio, contact }: ContactHeaderProps) {
+export function ContactHeader({
+  name,
+  title,
+}: {
+  name: string;
+  title?: string;
+}) {
   return (
-    <header className="text-center">
-      <svg
-        viewBox="0 0 100 100"
-        fill="currentColor"
-        aria-hidden="true"
-        className="mx-auto mb-4 size-12"
-      >
-        <path d="M36.9 12.5 L50 43.45 L63.1 12.5 L91.67 80.36 L67.86 80.36 L50 51.79 L32.14 80.36 L8.33 80.36 Z" />
-      </svg>
-      <h1 className="font-heading text-4xl font-bold md:text-5xl">{name}</h1>
-      {bio && (
-        <p className="mt-3 text-sm text-muted-foreground text-balance">{bio}</p>
-      )}
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-        {contact.links.map((link) => {
-          const displayLabel = link.label || link.value;
-          return link.type === "email" ? (
-            <EmailLink
-              key={link.type}
-              email={link.value}
-              ariaLabel={`Email ${link.value}`}
-            >
-              <Mail className="size-4" />
-              <span className="hidden sm:inline">{displayLabel}</span>
-            </EmailLink>
-          ) : (
-            <a
-              key={link.type}
-              href={getContactUrl(link)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-foreground"
-              aria-label={`${link.type.charAt(0).toUpperCase() + link.type.slice(1)}: ${displayLabel}`}
-            >
-              {iconMap[link.type]}
-              <span className="hidden sm:inline">{displayLabel}</span>
-            </a>
-          );
-        })}
-      </div>
+    <header className="enter">
+      <h1 className="font-medium">{name}</h1>
+      {title && <p className="text-muted-foreground">{title}</p>}
     </header>
+  );
+}
+
+/** "Based in X. Find me on A, B, C, or email." Email goes last; each part appears only when its data exists. */
+export function ContactLine({
+  contact,
+  location,
+  className,
+}: {
+  contact: ContactInfo;
+  location?: string;
+  className?: string;
+}) {
+  const profiles = contact.links.filter((l) => l.type !== "email");
+  const email = contact.links.filter((l) => l.type === "email");
+  const links = [...profiles, ...email];
+  if (!location && !links.length) return null;
+
+  return (
+    <p className={className}>
+      {location && `Based in ${location}.`}
+      {location && links.length > 0 && " "}
+      {links.length > 0 && (profiles.length ? "Find me on " : "Reach me by ")}
+      {links.map((l, i) => {
+        const label = l.label || labels[l.type];
+        const href = getContactUrl(l);
+        return (
+          <Fragment key={`${l.type}-${l.value}`}>
+            {listSeparator(i, links.length, "or")}
+            <Button asChild variant="underline" size="text">
+              {l.type === "email" ? (
+                <a href={href}>{label}</a>
+              ) : (
+                <ExternalLink href={href}>{label}</ExternalLink>
+              )}
+            </Button>
+          </Fragment>
+        );
+      })}
+      {links.length > 0 && "."}
+    </p>
   );
 }

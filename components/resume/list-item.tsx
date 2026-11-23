@@ -6,9 +6,9 @@ interface ListItemProps {
 
 export function ListItem({ item }: ListItemProps) {
   return (
-    <div className="flex flex-col gap-1 py-1 text-sm sm:flex-row sm:gap-2">
-      <span className="font-bold sm:min-w-35 sm:shrink-0">{item.title}</span>
-      <span className="sm:flex-1">{item.subtitle}</span>
+    <div className="grid gap-x-4 py-1.5 sm:grid-cols-[120px_1fr] sm:py-[5px]">
+      <span className="text-muted-foreground">{item.title}</span>
+      <span>{item.subtitle}</span>
     </div>
   );
 }

@@ -149,5 +149,22 @@ export function generatePersonSchema(resumeData: Resume) {
     person.award = awards;
   }
 
+  // projects as the profile's works
+  const works = resumeData.sections
+    .flatMap((section) => section.items)
+    .flatMap((item) => (item.type === "showcase" ? [item] : []))
+    .map((item) => ({
+      "@type": "CreativeWork",
+      name: item.title,
+      headline: item.subtitle,
+      description: item.description,
+      url: item.link,
+      creator: { "@id": `${resumeData.url}#person` },
+    }));
+
+  if (works.length > 0) {
+    schema.hasPart = works;
+  }
+
   return schema;
 }

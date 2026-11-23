@@ -1,14 +1,14 @@
-import { ArrowLeft } from "lucide-react";
+"use client";
+
 import Link from "next/link";
+import { useOwner } from "@/components/providers/owner-provider";
 import { Button } from "@/components/ui/button";
 
+/** Sub-pages start with the owner's name, linking home. */
 export function BackButton() {
   return (
-    <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
-      <Link href="/">
-        <ArrowLeft className="mr-2 size-4" />
-        Back
-      </Link>
+    <Button asChild variant="quiet" size="text" className="enter mb-12">
+      <Link href="/">{useOwner()}</Link>
     </Button>
   );
 }

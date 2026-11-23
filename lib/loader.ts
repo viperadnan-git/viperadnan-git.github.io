@@ -1,6 +1,7 @@
 import sanitizeHtml from "sanitize-html";
 import type { Resume } from "@/lib/types/resume";
 import { RESUME_SCHEMA_VERSION, ResumeSchema } from "@/lib/types/resume";
+import { NEW_TAB_NOTE_ID } from "@/lib/utils";
 
 // summary entries are the only field rendered as HTML, and RESUME_DATA_URL can
 // point anywhere, so they are sanitized here rather than at the render site
@@ -24,8 +25,24 @@ function sanitizeSummaries(resume: Resume): Resume {
             "sup",
             "u",
           ],
-          allowedAttributes: { a: ["href", "title", "target", "rel"] },
+          allowedAttributes: {
+            a: ["href", "title", "target", "rel", "aria-describedby"],
+          },
           allowedSchemes: ["http", "https", "mailto"],
+          // same as ExternalLink: new tab, no opener, announced
+          transformTags: {
+            a: (tagName, attribs) => ({
+              tagName,
+              attribs: /^https?:/.test(attribs.href ?? "")
+                ? {
+                    ...attribs,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    "aria-describedby": NEW_TAB_NOTE_ID,
+                  }
+                : attribs,
+            }),
+          },
         });
       }
     }
@@ -40,12 +57,18 @@ function isVersionCompatible(dataVersion: string): boolean {
   return dataMajor === schemaMajor;
 }
 
-// Cache the result to avoid multiple fetches during build
-let cachedData: Resume | null = null;
+// promise cache: layout, page and metadata ask concurrently, so they share one load
+let pending: Promise<Resume> | undefined;
 
-export async function getResumeData(): Promise<Resume> {
-  if (cachedData) return cachedData;
+export function getResumeData(): Promise<Resume> {
+  pending ??= loadResumeData().catch((error) => {
+    pending = undefined; // retry next time instead of rethrowing forever
+    throw error;
+  });
+  return pending;
+}
 
+async function loadResumeData(): Promise<Resume> {
   const url = process.env.RESUME_DATA_URL;
 
   let data: unknown;
@@ -88,6 +111,5 @@ export async function getResumeData(): Promise<Resume> {
     );
   }
 
-  cachedData = sanitizeSummaries(resumeData);
-  return cachedData;
+  return sanitizeSummaries(resumeData);
 }

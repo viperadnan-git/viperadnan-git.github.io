@@ -6,30 +6,14 @@ import type {
   SummaryEntry,
   TimelineEntry,
 } from "@/lib/types/resume";
+import { getContactUrl } from "@/lib/utils";
 
 function stripHtml(html: string): string {
   return html
+    .replace(/<\/p>\s*<p>/gi, "\n\n")
     .replace(/<br\s*\/?>/gi, " ")
     .replace(/<\/?strong>/gi, "")
     .replace(/<[^>]+>/g, "");
-}
-
-function contactUrl(type: string, value: string): string | null {
-  switch (type) {
-    case "github":
-      return `https://github.com/${value}`;
-    case "linkedin":
-      return `https://linkedin.com/in/${value}`;
-    case "x":
-    case "twitter":
-      return `https://x.com/${value}`;
-    case "instagram":
-      return `https://instagram.com/${value}`;
-    case "facebook":
-      return `https://facebook.com/${value}`;
-    default:
-      return null;
-  }
 }
 
 function trimTrailing(s: string, char: string): string {
@@ -110,7 +94,6 @@ export function generateLlmsTxt(data: Resume): string {
   lines.push("", `> ${summaryParts.join(", ")}`);
 
   // Content paragraphs (no headings allowed before H2 sections per spec)
-  if (data.bio) lines.push("", data.bio);
   if (data.about) lines.push("", stripHtml(data.about));
 
   const info: string[] = [];
@@ -124,14 +107,11 @@ export function generateLlmsTxt(data: Resume): string {
   for (const link of data.contact.links) {
     const label =
       link.label || link.type.charAt(0).toUpperCase() + link.type.slice(1);
-    const url = contactUrl(link.type, link.value);
-    if (link.type === "email") {
-      info.push(`Email: ${link.value}`);
-    } else if (url) {
-      info.push(`${label}: ${url}`);
-    } else {
-      info.push(`${label}: ${link.value}`);
-    }
+    info.push(
+      link.type === "email"
+        ? `Email: ${link.value}`
+        : `${label}: ${getContactUrl(link)}`,
+    );
   }
 
   if (info.length > 0) {

@@ -1,7 +1,8 @@
-import Link from "next/link";
-import { GitHubIcon } from "@/components/icons/brand-icons";
-import { LocationMap } from "@/components/resume/location-map";
-import { VisitorCounter } from "@/components/resume/visitor-counter";
+import { CurrentYear } from "@/components/layout/current-year";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { VisitorCounter } from "@/components/layout/visitor-counter";
+import { ExternalLink, NewTabNote } from "@/components/shared/external-link";
+import { Button } from "@/components/ui/button";
 import type { SiteMeta } from "@/lib/types/resume";
 
 interface DocumentContainerProps {
@@ -19,81 +20,48 @@ export function DocumentContainer({
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-foreground focus:text-background focus:rounded-md"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-foreground focus:px-3 focus:py-1 focus:text-background"
       >
         Skip to main content
       </a>
-      <main id="main-content" className="relative min-h-screen bg-background">
-        <LocationMap />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 pt-[15vh] pb-[30vh] md:pt-[20vh] md:pb-[40vh] md:px-8">
+      <NewTabNote />
+      {/* min-h-dvh + grow keeps the footer at the bottom when the page is short */}
+      <div className="mx-auto flex min-h-dvh max-w-[600px] flex-col px-6 pt-16 pb-12 md:pt-[120px] md:pb-16">
+        <main id="main-content" className="grow">
           {children}
-        </div>
-        <footer className="relative z-10 px-4 pb-16">
-          <div className="mx-auto flex max-w-4xl flex-col items-center gap-5">
-            <div className="flex w-full max-w-[13rem] items-center gap-4 text-foreground/25">
-              <span className="h-px flex-1 bg-current" />
+        </main>
+        <footer className="mt-20 text-[13px] text-muted-foreground md:mt-[120px]">
+          <div className="flex flex-wrap items-center gap-x-[18px] gap-y-3">
+            <Button asChild variant="quiet" size="text">
+              <ExternalLink href="https://github.com/viperadnan-git/viperadnan-git.github.io">
+                Source
+              </ExternalLink>
+            </Button>
+            {legal?.map(({ label, url }) => (
+              <Button key={url} asChild variant="quiet" size="text">
+                <a href={url}>{label}</a>
+              </Button>
+            ))}
+            <ThemeToggle />
+          </div>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+            <p>
+              {/* viewBox cropped to the glyph, height = Onest cap height, so it sits on the baseline like a capital */}
               <svg
-                viewBox="0 0 100 100"
-                fill="currentColor"
+                viewBox="8.33 12.5 83.34 67.86"
                 aria-hidden="true"
-                className="size-5 shrink-0"
+                className="mr-2 inline-block h-[0.707em] w-auto fill-current align-baseline"
               >
-                <path d="M36.9 12.5 L50 43.45 L63.1 12.5 L91.67 80.36 L67.86 80.36 L50 51.79 L32.14 80.36 L8.33 80.36 Z" />
+                <path d="M36.9 12.5 50 43.45 63.1 12.5l28.57 67.86H67.86L50 51.79 32.14 80.36H8.33Z" />
               </svg>
-              <span className="h-px flex-1 bg-current" />
-            </div>
-
-            <Link
-              href="https://github.com/viperadnan-git/viperadnan-git.github.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View source on GitHub"
-              className="inline-flex items-center gap-2 font-heading text-base font-medium leading-none tracking-tight text-foreground/80 transition-colors hover:text-foreground"
-            >
-              <GitHubIcon className="size-4 translate-y-px" />
-              viperadnan
-            </Link>
-
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground/60">
-              {showCounter && <VisitorCounter />}
-              {showCounter && <span aria-hidden="true">&middot;</span>}
-              <span>
-                map{" "}
-                <Link
-                  href="https://www.openstreetmap.org/copyright"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground"
-                >
-                  OpenStreetMap
-                </Link>{" "}
-                &middot;{" "}
-                <Link
-                  href="https://www.esri.com/en-us/legal/terms/full-master-agreement"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground"
-                >
-                  Esri
-                </Link>
-              </span>
-            </div>
-
-            {legal && legal.length > 0 && (
-              <nav
-                aria-label="Legal"
-                className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground/60"
-              >
-                {legal.map(({ label, url }) => (
-                  <Link key={url} href={url} className="hover:text-foreground">
-                    {label}
-                  </Link>
-                ))}
-              </nav>
-            )}
+              ©&nbsp;
+              <CurrentYear buildYear={new Date().getFullYear()} />
+            </p>
+            {/* right edge: the count grows leftward as it loads, shifting nothing */}
+            {showCounter && <VisitorCounter />}
           </div>
         </footer>
-      </main>
+      </div>
     </>
   );
 }

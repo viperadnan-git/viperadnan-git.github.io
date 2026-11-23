@@ -1,124 +1,63 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ChevronDown, FileText, Globe } from "lucide-react";
-import { useState } from "react";
-import { FaGithub, FaPlayCircle } from "react-icons/fa";
+import { ExternalLink } from "@/components/shared/external-link";
+import { Button } from "@/components/ui/button";
 import type { ShowcaseEntry, ShowcaseLink } from "@/lib/types/resume";
+import { cn, displayHost } from "@/lib/utils";
+import { Disclosure } from "./disclosure";
 import { ShowcaseImage } from "./showcase-image";
 
 interface ShowcaseItemProps {
   item: ShowcaseEntry;
 }
 
-const linkIcons: Record<
-  ShowcaseLink["type"],
-  React.ComponentType<{ className?: string }>
+const linkLabels: Record<ShowcaseLink["type"], string> = {
+  github: "GitHub",
+  demo: "Demo",
+  website: "Website",
+  docs: "Docs",
+};
+
+// active is the default state, so only the exceptions are shown
+const statusLabels: Partial<
+  Record<NonNullable<ShowcaseEntry["status"]>, string>
 > = {
-  github: FaGithub,
-  demo: FaPlayCircle,
-  website: Globe,
-  docs: FileText,
-};
-
-const statusLabels: Record<NonNullable<ShowcaseEntry["status"]>, string> = {
-  active: "Active",
   archived: "Archived",
-  development: "In Development",
+  development: "In development",
 };
 
-export function ShowcaseItem({ item }: ShowcaseItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function ShowcaseItem({
+  item,
+  level,
+}: ShowcaseItemProps & { level?: 2 | 3 }) {
+  const extra = (item.links ?? []).filter((l) => l.url !== item.link);
+  const images = item.images ?? [];
+  const hasImages = images.length > 0;
 
   return (
-    <div className="py-4">
-      <div className="flex items-start justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-heading font-bold hover:underline"
-          >
-            {item.title}
-          </a>
-          {item.featured && (
-            <span className="text-xs uppercase tracking-wide text-muted-foreground">
-              Featured
-            </span>
-          )}
-        </div>
-
-        <div className="flex shrink-0 items-center gap-1">
-          {/* Additional links */}
-          {item.links &&
-            item.links.length > 0 &&
-            item.links.map((link) => {
-              const Icon = linkIcons[link.type];
-              const linkLabel =
-                link.type.charAt(0).toUpperCase() + link.type.slice(1);
-              return (
-                <a
-                  key={`${link.type}-${link.url}`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 p-1 text-muted-foreground hover:text-foreground"
-                  aria-label={`View ${item.title} on ${linkLabel}`}
-                  title={linkLabel}
-                >
-                  <Icon className="size-4" />
-                  <span className="hidden text-xs sm:inline">{linkLabel}</span>
-                </a>
-              );
-            })}
-          {item.status && (
-            <span className="text-xs text-muted-foreground">
-              ({statusLabels[item.status]})
-            </span>
-          )}
-        </div>
-      </div>
-
-      <p className="text-xs sm:text-sm text-muted-foreground">
-        {item.subtitle}
+    <Disclosure
+      level={level}
+      title={item.title}
+      meta={item.status && statusLabels[item.status]}
+      subtitle={item.subtitle}
+    >
+      {hasImages && <ShowcaseImage images={images} alt={item.title} />}
+      <p className={cn("text-muted-foreground", hasImages && "mt-4")}>
+        {item.description}
       </p>
-
-      {/* Expandable details with image */}
-      <div>
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
-        >
-          <motion.span
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-            className="inline-flex"
+      <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+        <Button asChild variant="underline" size="text">
+          <ExternalLink href={item.link}>{displayHost(item.link)}</ExternalLink>
+        </Button>
+        {extra.map((link) => (
+          <Button
+            key={`${link.type}-${link.url}`}
+            asChild
+            variant="underline"
+            size="text"
           >
-            <ChevronDown className="size-4 text-current" />
-          </motion.span>
-          {isOpen ? "Hide details" : "Show details"}
-        </button>
-        <motion.div
-          initial={false}
-          animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="overflow-hidden"
-        >
-          <div className="mt-3 pb-4">
-            <ShowcaseImage
-              images={item.images}
-              alt={item.title}
-              link={item.link}
-              size="md"
-            />
-            <p className="mt-3 text-xs sm:text-sm font-medium">
-              {item.description}
-            </p>
-          </div>
-        </motion.div>
-      </div>
-    </div>
+            <ExternalLink href={link.url}>{linkLabels[link.type]}</ExternalLink>
+          </Button>
+        ))}
+      </p>
+    </Disclosure>
   );
 }

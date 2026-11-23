@@ -1,19 +1,25 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ChevronDown, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { ExternalLink } from "@/components/shared/external-link";
+import { Button } from "@/components/ui/button";
+import { displayHost } from "@/lib/utils";
+import { Disclosure } from "./disclosure";
 
 interface TimelineItemProps {
   title: string;
   subtitle: string;
   link?: string;
-  location: string;
+  location?: string;
   period: string;
   details?: React.ReactNode;
-  detailsLabel?: string;
-  isLast?: boolean;
-  showTimeline?: boolean;
+  level?: 2 | 3;
+}
+
+/** "May 2026 - Present" → "2026 – now", "Jun 2024 – Jul 2024" → "2024", "2019-2022" → "2019 – 2022" */
+function shortPeriod(period: string) {
+  const years = period.match(/\d{4}/g);
+  if (!years) return period;
+  const start = years[0];
+  const end = /present|now|current/i.test(period) ? "now" : years.at(-1);
+  return start === end ? start : `${start} – ${end}`;
 }
 
 export function TimelineItem({
@@ -23,78 +29,34 @@ export function TimelineItem({
   location,
   period,
   details,
-  detailsLabel = "details",
-  isLast = false,
-  showTimeline = false,
+  level,
 }: TimelineItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const hasPanel = Boolean(details || link || location);
 
   return (
-    <div className={showTimeline ? "relative flex gap-4" : "py-4"}>
-      {/* Timeline line and dot */}
-      {showTimeline && (
-        <div className="flex flex-col items-center">
-          <div className="mt-2 size-2 shrink-0 rounded-full bg-foreground/30" />
-          {!isLast && <div className="w-px grow bg-foreground/10" />}
-        </div>
-      )}
-
-      {/* Content */}
-      <div className={showTimeline ? "flex-1 pb-6" : ""}>
-        <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-start">
-          <div>
-            {link ? (
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-heading font-bold hover:underline"
-              >
-                {title}
-                <ExternalLink className="ml-1 inline size-3 align-baseline text-muted-foreground" />
-              </a>
-            ) : (
-              <span className="font-heading font-bold">{title}</span>
-            )}
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              {subtitle}
+    <Disclosure
+      level={level}
+      title={title}
+      meta={shortPeriod(period)}
+      subtitle={subtitle}
+    >
+      {hasPanel && (
+        <>
+          <p className="text-muted-foreground">
+            {[location, period].filter(Boolean).join(", ")}
+          </p>
+          {details && (
+            <div className="mt-3 text-muted-foreground">{details}</div>
+          )}
+          {link && (
+            <p className="mt-3">
+              <Button asChild variant="underline" size="text">
+                <ExternalLink href={link}>{displayHost(link)}</ExternalLink>
+              </Button>
             </p>
-          </div>
-          <div className="text-xs sm:text-sm text-muted-foreground sm:text-right">
-            <p>{location}</p>
-            <p>{period}</p>
-          </div>
-        </div>
-
-        {details && (
-          <div>
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="mt-2 flex cursor-pointer items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-foreground"
-            >
-              <motion.span
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="inline-flex"
-              >
-                <ChevronDown className="size-4 text-current" />
-              </motion.span>
-              {isOpen ? `Hide ${detailsLabel}` : `Show ${detailsLabel}`}
-            </button>
-            <motion.div
-              initial={false}
-              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-2 pb-4 text-xs sm:text-sm font-medium">
-                {details}
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </div>
-    </div>
+          )}
+        </>
+      )}
+    </Disclosure>
   );
 }

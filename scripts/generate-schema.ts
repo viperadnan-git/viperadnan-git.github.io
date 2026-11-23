@@ -7,6 +7,7 @@ import { RESUME_SCHEMA_VERSION, ResumeSchema } from "../lib/types/resume";
 // Generate JSON schema from Zod schema
 const jsonSchema = z.toJSONSchema(ResumeSchema, {
   target: "draft-7",
+  io: "input",
 });
 
 // Add schema metadata

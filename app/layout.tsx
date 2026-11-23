@@ -1,29 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Onest } from "next/font/google";
 import { DocumentContainer } from "@/components/layout/document-container";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { OwnerProvider } from "@/components/providers/owner-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { getResumeData } from "@/lib/loader";
 import { generatePersonSchema } from "@/lib/seo/structured-data";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const onest = Onest({
   subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F4F2EC" },
-    { media: "(prefers-color-scheme: dark)", color: "#17160F" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#111111" },
   ],
 };
 
@@ -77,21 +71,21 @@ export default async function RootLayout({
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD has no other injection point
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
+            // "<" escaped so text from resume data cannot end the script element
+            __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
           }}
         />
       </head>
-      <body
-        className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} antialiased`}
-      >
+      <body className={onest.variable}>
         <ThemeProvider>
-          <DocumentContainer
-            showCounter={resumeData.meta.counter}
-            legal={resumeData.meta.legal}
-          >
-            <ThemeToggle />
-            {children}
-          </DocumentContainer>
+          <OwnerProvider name={resumeData.name}>
+            <DocumentContainer
+              showCounter={resumeData.meta.counter}
+              legal={resumeData.meta.legal}
+            >
+              {children}
+            </DocumentContainer>
+          </OwnerProvider>
         </ThemeProvider>
       </body>
     </html>
